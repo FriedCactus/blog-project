@@ -6,6 +6,6 @@ export const buildResolvers = ({paths}: BuildOptions): ResolveOptions => ({
     extensions: ['.tsx', '.ts', '.js'],
     // В каких папках искать модули при импорте
     modules: [paths.src, 'node_modules'],
-    // Определяет главный файл в директории, убирает надобность экспорта index.ts
+    // Определяет главный файл в директории, убирает надобность экспорта routes.tsx
     mainFiles: ['index'],
 });
