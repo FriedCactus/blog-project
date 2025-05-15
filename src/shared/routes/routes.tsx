@@ -7,9 +7,19 @@ enum AppRoutes {
     ABOUT = 'about',
 }
 
+enum AppPaths {
+    MAIN = '/',
+    ABOUT = '/about',
+}
+
+interface NavLink {
+    title: string,
+    path: AppPaths
+}
+
 const RoutePaths: Record<AppRoutes, string> = {
-    [AppRoutes.MAIN]: '/',
-    [AppRoutes.ABOUT]: '/about',
+    [AppRoutes.MAIN]: AppPaths.MAIN,
+    [AppRoutes.ABOUT]: AppPaths.ABOUT,
 };
 
 export const routes: RouteProps[] = [
@@ -21,3 +31,14 @@ export const routes: RouteProps[] = [
         path: RoutePaths.about,
         element: <AboutPage/>
     }];
+
+export const navLinks: NavLink[] = [
+    {
+        title: "Main",
+        path: AppPaths.MAIN
+    },
+    {
+        title: "About",
+        path: AppPaths.ABOUT
+    },
+];

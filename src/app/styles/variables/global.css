@@ -8,4 +8,7 @@
     --font-size-l: 24px;
     --line-size-l: 32px;
     --font-l: var(--font-size-l) / var(--line-size-m) var(--font-family-main);
+
+    /* Размеры элементов */
+    --navbar-height: 50px;
 }

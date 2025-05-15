@@ -1,5 +1,6 @@
 .app.light {
     --bg-color: rgba(195, 201, 204, 0.39);
+    --bg-color-inverted: rgb(49, 49, 61);
 
     --primary-color: #105f8c;
     --secondary-color: #47a8f1;
