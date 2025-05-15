@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    // Не позволяет использовать any без его явного указания
+    "noImplicitAny": true,
+    "module": "ESNext",
+    // В какую версию js компилируем
+    "target": "es5",
+    "jsx": "react-jsx",
+    // Компилятор будет обрабатывать не только ts, но и js
+    "allowJs": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
