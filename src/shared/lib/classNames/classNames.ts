@@ -5,7 +5,7 @@ export const classNames = (cls: string, conditionalCls: ConditionalCls = {}, add
         cls,
         ...additional,
         ...Object.entries(conditionalCls)
-            .filter(([_, value]) => Boolean(value))
+            .filter(([, value]) => Boolean(value))
             .map(([className]) => className),
     ].join(' ');
 };

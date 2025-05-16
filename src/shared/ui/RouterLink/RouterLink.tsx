@@ -1,7 +1,7 @@
 import styles from "./RouterLink.module.css";
 import {classNames} from "shared/lib/classNames";
 import {Link, type LinkProps} from "react-router";
-import {FC} from "react";
+import {FC} from 'react';
 
 export enum RouterLinkVariant {
     PRIMARY = "primary",
@@ -20,7 +20,6 @@ export const RouterLink: FC<RouterLinkProps> =
          variant = RouterLinkVariant.PRIMARY,
          ...props
      }) => {
-        const {} = props;
 
         return (
             <Link

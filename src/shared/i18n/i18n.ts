@@ -12,7 +12,7 @@ i18n
         load: 'languageOnly',
         fallbackLng: 'en',
         partialBundledLanguages: true,
-        debug: __IS_DEV__,
+        debug: __IS_DEV__
     });
 
 export default i18n;
