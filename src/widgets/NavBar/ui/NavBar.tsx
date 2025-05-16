@@ -3,8 +3,11 @@ import {classNames} from "shared/lib/classNames";
 import {RouterLink} from "shared/ui/RouterLink";
 import {RouterLinkVariant} from "shared/ui/RouterLink/RouterLink";
 import {navLinks} from "shared/routes";
+import {useTranslation} from "react-i18next";
 
 export const NavBar = () => {
+    const {t} = useTranslation();
+
     return (
         <div className={classNames(styles.Navbar)}>
             {
@@ -14,7 +17,7 @@ export const NavBar = () => {
                             key={path}
                             to={path}
                             variant={RouterLinkVariant.SECONDARY}>
-                            {title}
+                            {t(title)}
                         </RouterLink>
                 )
             }

@@ -34,11 +34,11 @@ export const routes: RouteProps[] = [
 
 export const navLinks: NavLink[] = [
     {
-        title: "Main",
+        title: "Главная",
         path: AppPaths.MAIN
     },
     {
-        title: "About",
+        title: "О сайте",
         path: AppPaths.ABOUT
     },
 ];
