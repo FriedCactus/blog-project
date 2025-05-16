@@ -4,10 +4,21 @@
 @import "variables/global.css";
 
 .app {
+    display: flex;
+    flex-direction: column;
     font: var(--font-m);
 
     background: var(--bg-color);
     color: var(--primary-color);
 
     min-height: 100vh;
+}
+
+.content-layout {
+    display: flex;
+    flex: 1;
+}
+
+.page-wrapper {
+    padding: var(--content-padding);
 }

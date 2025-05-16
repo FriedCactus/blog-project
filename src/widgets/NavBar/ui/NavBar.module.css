@@ -4,7 +4,7 @@
 
     height: var(--navbar-height);
     gap: 8px;
-    padding-left: 16px;
-    
+    padding: var(--content-padding);
+
     background-color: var(--bg-color-inverted);
 }

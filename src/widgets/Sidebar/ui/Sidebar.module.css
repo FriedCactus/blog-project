@@ -1,0 +1,29 @@
+.Sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    padding: var(--content-padding);
+
+    background-color: var(--bg-color-inverted);
+    transition: width 0.3s;
+}
+
+.toggle-button {
+    width: fit-content;
+}
+
+.collapsed {
+    width: 80px;
+}
+
+.switchers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.theme-switcher {
+    height: 60px;
+    width: 60px;
+}

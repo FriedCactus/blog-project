@@ -11,4 +11,7 @@
 
     /* Размеры элементов */
     --navbar-height: 50px;
+
+    /* Отступы */
+    --content-padding: 20px;
 }
