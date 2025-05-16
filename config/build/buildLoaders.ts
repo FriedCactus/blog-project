@@ -30,8 +30,29 @@ export const buildLoaders = ({isDev}: BuildOptions): RuleSetRule[] => {
         ],
     });
 
+    const svgLoader = ({
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: ['@svgr/webpack'],
+    });
+
+    const resourceLoader = {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+            {
+                loader: 'url-loader',
+                options: {
+                    limit: 8192,
+                }
+            },
+        ],
+        type: 'javascript/auto'
+    };
+
     return [
         typescriptLoader,
-        cssLoader
+        cssLoader,
+        svgLoader,
+        resourceLoader
     ];
 };
