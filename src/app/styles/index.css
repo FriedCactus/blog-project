@@ -1,7 +1,7 @@
-@import "reset.css";
-@import "themes/light.css";
-@import "themes/dark.css";
-@import "variables/global.css";
+@import url("reset.css");
+@import url("themes/light.css");
+@import url("themes/dark.css");
+@import url("variables/global.css");
 
 .app {
     display: flex;

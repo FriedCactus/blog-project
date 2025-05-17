@@ -34,8 +34,8 @@ export default defineConfig([
                 "destructuring": "all",
                 "ignoreReadBeforeAssign": false
             }],
-            "max-lines": ["error", 300],
             "react/jsx-props-no-spreading": ['warn'],
+            "max-lines": ["error", 300],
         }
     },
 ]);
