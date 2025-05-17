@@ -3,6 +3,7 @@ import globals from "globals";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 import eslint from "@eslint/js";
+import i18next from 'eslint-plugin-i18next';
 import {defineConfig, globalIgnores} from "eslint/config";
 
 export default defineConfig([
@@ -12,6 +13,7 @@ export default defineConfig([
     pluginReact.configs.flat.recommended,
     pluginReact.configs.flat["jsx-runtime"],
     tseslint.configs.recommended,
+    i18next.configs['flat/recommended'],
     {
 
         files: ["**/*.{js,jsx,mjs,cjs,ts,tsx}"],
@@ -28,6 +30,8 @@ export default defineConfig([
                 ...globals.browser,
             },
         },
+    },
+    {
         rules: {
             "no-var": "off",
             "prefer-const": ["warn", {
@@ -36,6 +40,7 @@ export default defineConfig([
             }],
             "react/jsx-props-no-spreading": ['warn'],
             "max-lines": ["error", 300],
+            "i18next/no-literal-string": 'warn'
         }
-    },
+    }
 ]);

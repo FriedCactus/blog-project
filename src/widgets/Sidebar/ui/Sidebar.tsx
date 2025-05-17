@@ -5,7 +5,7 @@ import {useState} from "react";
 import {useTranslation} from "react-i18next";
 
 export const Sidebar = () => {
-    const {i18n} = useTranslation();
+    const {i18n, t} = useTranslation();
     const [collapsed, setCollapsed] = useState(false);
 
     const onToggleCollapse = () => {
@@ -23,11 +23,11 @@ export const Sidebar = () => {
                 [styles.collapsed]: collapsed
             })
         }>
-            <button className={styles.toggleButton} onClick={onToggleCollapse}>Toggle</button>
+            <button className={styles.toggleButton} onClick={onToggleCollapse}>{t('Переключить')}</button>
 
             <div className={styles.switchers}>
                 <ThemeSwitcher className={styles.themeSwitcher}/>
-                <button onClick={onToggleLanguage}>Язык</button>
+                <button onClick={onToggleLanguage}>{t('Язык')}</button>
             </div>
         </div>
     );
