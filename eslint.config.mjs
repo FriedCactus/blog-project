@@ -28,5 +28,14 @@ export default defineConfig([
                 ...globals.browser,
             },
         },
+        rules: {
+            "no-var": "off",
+            "prefer-const": ["warn", {
+                "destructuring": "all",
+                "ignoreReadBeforeAssign": false
+            }],
+            "react/jsx-props-no-spreading": ['warn'],
+            "max-lines": ["error", 300]
+        }
     },
 ]);
