@@ -7,8 +7,7 @@
     display: flex;
     flex-direction: column;
     font: var(--font-m);
-
-    background: var(--bg-color);
+    
     color: var(--primary-color);
 
     min-height: 100vh;
@@ -20,5 +19,10 @@
 }
 
 .page-wrapper {
+    display: flex;
+    flex-direction: column;
     padding: var(--content-padding);
+    width: 100%;
+
+    background: var(--bg-color);
 }

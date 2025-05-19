@@ -14,7 +14,6 @@ export const App = () => {
 
         <div className="content-layout">
             <Sidebar/>
-            
             <div className="page-wrapper">
                 <AppRouter/>
             </div>
