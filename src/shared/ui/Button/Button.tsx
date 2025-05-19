@@ -2,8 +2,9 @@ import styles from "./Button.module.css";
 import {classNames} from "shared/lib/classNames";
 import {ButtonHTMLAttributes, FC, PropsWithChildren} from "react";
 
-enum ButtonVariant {
-    CLEAR = 'clear'
+export enum ButtonVariant {
+    MAIN = 'main',
+    SECONDARY = 'secondary'
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -14,7 +15,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button: FC<PropsWithChildren<ButtonProps>> =
     ({
          children,
-         variant = ButtonVariant.CLEAR,
+         variant = ButtonVariant.MAIN,
          className,
          ...props
      }) => {

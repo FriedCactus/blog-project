@@ -3,6 +3,8 @@ import {classNames} from "shared/lib/classNames";
 import {ThemeSwitcher} from "widgets/ThemeSwitcher";
 import {useState} from "react";
 import {useTranslation} from "react-i18next";
+import {Button} from "shared/ui/Button";
+import {ButtonVariant} from "shared/ui/Button/Button";
 
 export const Sidebar = () => {
     const {i18n, t} = useTranslation();
@@ -23,11 +25,15 @@ export const Sidebar = () => {
                 [styles.collapsed]: collapsed
             })
         }>
-            <button className={styles.toggleButton} onClick={onToggleCollapse}>{t('Переключить')}</button>
+            <Button className={styles.toggleButton} variant={ButtonVariant.SECONDARY}
+                    onClick={onToggleCollapse}>{t('Переключить')}
+            </Button>
 
             <div className={styles.switchers}>
                 <ThemeSwitcher className={styles.themeSwitcher}/>
-                <button onClick={onToggleLanguage}>{t('Язык')}</button>
+                <Button onClick={onToggleLanguage} variant={ButtonVariant.SECONDARY}>
+                    {t('Язык')}
+                </Button>
             </div>
         </div>
     );
