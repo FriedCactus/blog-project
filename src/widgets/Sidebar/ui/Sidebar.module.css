@@ -9,7 +9,7 @@
     transition: width 0.3s;
 }
 
-.toggle-button {
+.toggleButton {
     width: fit-content;
 }
 
@@ -24,7 +24,7 @@
     gap: 12px;
 }
 
-.theme-switcher {
+.themeSwitcher {
     height: 60px;
     width: 60px;
 }

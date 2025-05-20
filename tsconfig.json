@@ -1,4 +1,8 @@
 {
+  "exclude": [
+    "node_modules",
+    "storybook-static"
+  ],
   "compilerOptions": {
     "outDir": "./dist/",
     // Не позволяет использовать any без его явного указания

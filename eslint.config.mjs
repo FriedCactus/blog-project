@@ -4,18 +4,23 @@ import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 import eslint from "@eslint/js";
 import i18next from 'eslint-plugin-i18next';
+import storybook from 'eslint-plugin-storybook';
 import {defineConfig, globalIgnores} from "eslint/config";
 
 export default defineConfig([
-    globalIgnores(["build"]),
-    {files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"], plugins: {js}, extends: ["js/recommended"]},
+    globalIgnores(["build", "!.storybook"]),
+    {
+        files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
+        plugins: {js},
+        extends: ["js/recommended"]
+    },
     eslint.configs.recommended,
     pluginReact.configs.flat.recommended,
     pluginReact.configs.flat["jsx-runtime"],
     tseslint.configs.recommended,
     i18next.configs['flat/recommended'],
+    storybook.configs['flat/recommended'],
     {
-
         files: ["**/*.{js,jsx,mjs,cjs,ts,tsx}"],
         plugins: {
             pluginReact,
@@ -46,7 +51,10 @@ export default defineConfig([
     },
     // Правила для тестов
     {
-        files: ["**/src/**/*.test.{ts,tsx}"],
+        files: [
+            "**/src/**/*.test.{ts,tsx}",
+            "**/src/**/*.stories.{ts,tsx}"
+        ],
         rules: {
             "i18next/no-literal-string": 'off'
         }

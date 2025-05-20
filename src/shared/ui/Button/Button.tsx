@@ -25,7 +25,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> =
                     styles.Button,
                     {},
                     [styles[variant], className])}
-                {...props} >
+                {...props}>
                 {children}
             </button>
         );
