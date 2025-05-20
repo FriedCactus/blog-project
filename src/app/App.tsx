@@ -5,7 +5,6 @@ import {AppRouter} from "app/providers/router";
 import {NavBar} from "widgets/NavBar";
 import {Sidebar} from "widgets/Sidebar";
 
-
 export const App = () => {
     const {theme} = useTheme();
 
