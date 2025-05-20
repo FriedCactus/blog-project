@@ -19,14 +19,20 @@ export const Sidebar = () => {
     };
 
     return (
-        <div className={classNames(
-            styles.Sidebar,
-            {
-                [styles.collapsed]: collapsed
-            })
-        }>
-            <Button className={styles.toggleButton} variant={ButtonVariant.SECONDARY}
-                    onClick={onToggleCollapse}>{t('Переключить')}
+        <div
+            data-testid="sidebar"
+            className={classNames(
+                styles.Sidebar,
+                {
+                    [styles.collapsed]: collapsed
+                })
+            }>
+            <Button
+                data-testid="sidebar-collapse"
+                className={styles.toggleButton}
+                variant={ButtonVariant.SECONDARY}
+                onClick={onToggleCollapse}>
+                {t('Переключить')}
             </Button>
 
             <div className={styles.switchers}>

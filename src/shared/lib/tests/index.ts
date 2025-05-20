@@ -1,0 +1,1 @@
+export {renderWithTranslation} from "shared/lib/tests/renderWithTranslation";

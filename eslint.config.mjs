@@ -31,6 +31,7 @@ export default defineConfig([
             },
         },
     },
+    // Общие правила
     {
         rules: {
             "no-var": "off",
@@ -41,6 +42,13 @@ export default defineConfig([
             "react/jsx-props-no-spreading": ['warn'],
             "max-lines": ["error", 300],
             "i18next/no-literal-string": 'warn'
+        },
+    },
+    // Правила для тестов
+    {
+        files: ["**/src/**/*.test.{ts,tsx}"],
+        rules: {
+            "i18next/no-literal-string": 'off'
         }
-    }
+    },
 ]);
