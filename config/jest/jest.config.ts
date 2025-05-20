@@ -13,7 +13,7 @@ const config: Config = {
     moduleDirectories: [
         "node_modules"
     ],
-    setupFilesAfterEnv: ['<rootDir>/config/jest/jest.setup.ts'],
+    setupFilesAfterEnv: [path.resolve(__dirname, 'jest.setup.ts')],
     rootDir: '../../',
     modulePaths: ['<rootDir>src/'],
     moduleFileExtensions: [
