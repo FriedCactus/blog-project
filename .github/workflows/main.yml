@@ -33,5 +33,3 @@ jobs:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
       - name: production build
         run: npm run build:prod
-      - name: storybook build
-        run: npm run build-storybook
