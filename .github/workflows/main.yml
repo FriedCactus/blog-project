@@ -27,6 +27,8 @@ jobs:
         run: npm run test
       - name: chromatic screenshot testing
         run: npm run chromatic
+        env:
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
       - name: production build
         run: npm run build:prod
       - name: storybook build
