@@ -12,7 +12,8 @@
     "stylelint:fix": "npx stylelint \"**/*.css\" --fix",
     "test": "jest --config ./config/jest/jest.config.ts",
     "storybook": "storybook dev -p 6006 -c ./config/.storybook",
-    "build-storybook": "storybook build -c ./config/.storybook"
+    "build-storybook": "storybook build -c ./config/.storybook",
+    "chromatic": "chromatic --exit-zero-on-changes"
   },
   "keywords": [],
   "author": "",
