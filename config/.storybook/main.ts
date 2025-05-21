@@ -4,6 +4,10 @@ import path from "path";
 
 
 const config: StorybookConfig = {
+    "framework": {
+        "name": "@storybook/react-webpack5",
+        "options": {}
+    },
     "stories": [
         "../../src/**/*.mdx",
         "../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
@@ -16,9 +20,8 @@ const config: StorybookConfig = {
         '@storybook/addon-themes',
         '@chromatic-com/storybook'
     ],
-    "framework": {
-        "name": "@storybook/react-webpack5",
-        "options": {}
+    features: {
+        viewportStoryGlobals: true,
     },
     webpackFinal: async (config) => {
         config.resolve.modules = [
