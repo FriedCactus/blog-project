@@ -25,6 +25,8 @@ jobs:
         run: npm run stylelint
       - name: unit testing
         run: npm run test
+      - name: chromatic screenshot testing
+        run: npm run chromatic
       - name: production build
         run: npm run build:prod
       - name: storybook build
