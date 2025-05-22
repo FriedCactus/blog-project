@@ -1,17 +1,32 @@
 :root {
     --font-family-main: Consolas, "Times New Roman", serif;
 
+    --font-size-s: 12px;
+    --line-size-s: 20px;
+    --font-s: var(--font-size-s) / var(--line-size-s) var(--font-family-main);
+
     --font-size-m: 16px;
     --line-size-m: 24px;
     --font-m: var(--font-size-m) / var(--line-size-m) var(--font-family-main);
 
     --font-size-l: 24px;
     --line-size-l: 32px;
-    --font-l: var(--font-size-l) / var(--line-size-m) var(--font-family-main);
+    --font-l: var(--font-size-l) / var(--line-size-l) var(--font-family-main);
+
+    --font-size-xl: 32px;
+    --line-size-xl: 40px;
+    --font-xl: var(--font-size-xl) / var(--line-size-xl) var(--font-family-main);
 
     /* Размеры элементов */
     --navbar-height: 50px;
 
     /* Отступы */
     --content-padding: 20px;
+
+    /* Цвета кнопок */
+    --button-color-primary: #105f8c;
+    --button-color-secondary: #ef89c6;
+
+    --button-bg-color-primary: rgb(188 198 204);
+    --button-bg-color-secondary: rgb(49 49 61);
 }

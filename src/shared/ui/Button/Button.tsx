@@ -3,28 +3,41 @@ import {classNames} from "shared/lib/classNames";
 import {ButtonHTMLAttributes, FC, PropsWithChildren} from "react";
 
 export enum ButtonVariant {
-    MAIN = 'main',
+    CLEAR = 'clear',
+    PRIMARY = 'primary',
     SECONDARY = 'secondary'
+}
+
+export enum ButtonSize {
+    M = "size_m",
+    L = "size_l",
+    XL = "size_xl",
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     variant?: ButtonVariant;
+    square?: boolean;
+    size?: ButtonSize;
 }
 
 export const Button: FC<PropsWithChildren<ButtonProps>> =
     ({
          children,
-         variant = ButtonVariant.MAIN,
+         variant = ButtonVariant.PRIMARY,
          className,
+         square = false,
+         size = ButtonSize.M,
          ...props
      }) => {
         return (
             <button
                 className={classNames(
                     styles.Button,
-                    {},
-                    [styles[variant], className])}
+                    {
+                        [styles.square]: square
+                    },
+                    [styles[variant], styles[size], className])}
                 {...props}>
                 {children}
             </button>

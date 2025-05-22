@@ -1,8 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {Button, ButtonVariant} from "./Button";
-import {ThemeDecorator} from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import {Theme} from "app/providers/ThemeProvider";
-import {storyGlobalsMobile, storyGlobalsDesktop} from 'shared/config/storybook/globals';
+import {Button, ButtonSize, ButtonVariant} from "./Button";
+import {storyGlobalsDesktop} from 'shared/config/storybook/globals';
 
 const meta: Meta<typeof Button> = {
     title: 'shared/Button',
@@ -18,46 +16,34 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 
 // Desktop
-export const MainDesktop: Story = {};
+export const Main: Story = {};
 
-export const SecondaryDesktop: Story = {
+export const MainSizeL: Story = {
+    args: {
+        size: ButtonSize.L
+    }
+};
+
+export const MainSizeXL: Story = {
+    args: {
+        size: ButtonSize.XL
+    }
+};
+
+export const Secondary: Story = {
     args: {
         variant: ButtonVariant.SECONDARY,
     },
 };
 
-export const MainDarkDesktop: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)]
-};
-
-export const SecondaryDarkDesktop: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)],
+export const Clear: Story = {
     args: {
-        variant: ButtonVariant.SECONDARY,
+        variant: ButtonVariant.CLEAR,
     },
 };
 
-// Mobile
-export const MainMobile: Story = {
-    ...storyGlobalsMobile
-};
-
-export const SecondaryMobile: Story = {
+export const Square: Story = {
     args: {
-        variant: ButtonVariant.SECONDARY,
-    },
-    ...storyGlobalsMobile
-};
-
-export const MainDarkMobile: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)],
-    ...storyGlobalsMobile
-};
-
-export const SecondaryDarkMobile: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)],
-    args: {
-        variant: ButtonVariant.SECONDARY,
-    },
-    ...storyGlobalsMobile
+        square: true,
+    }
 };

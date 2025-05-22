@@ -1,9 +1,9 @@
 import {Button, ButtonVariant} from "./Button";
-import {renderWithTranslation} from "shared/lib/tests";
+import {componentRender} from "shared/lib/tests";
 
 describe('Button', () => {
     test('Renders with default variant', () => {
-        const {getByText} = renderWithTranslation(
+        const {getByText} = componentRender(
             <Button>
                 Тест кнопки
             </Button>
@@ -13,7 +13,7 @@ describe('Button', () => {
     });
 
     test('Renders with secondary variant', () => {
-        const {getByText} = renderWithTranslation(
+        const {getByText} = componentRender(
             <Button variant={ButtonVariant.SECONDARY}>
                 Тест кнопки
             </Button>

@@ -1,4 +1,5 @@
 .Sidebar {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -9,12 +10,15 @@
     transition: width 0.3s;
 }
 
-.toggleButton {
-    width: fit-content;
-}
-
 .collapsed {
     width: 120px;
+}
+
+.mainBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
 }
 
 .switchers {
@@ -22,9 +26,13 @@
     justify-content: center;
     align-items: center;
     gap: 12px;
+
+    &.flipped {
+        flex-direction: column;
+    }
 }
 
 .themeSwitcher {
-    height: 60px;
-    width: 60px;
+    min-height: 60px;
+    min-width: 60px;
 }

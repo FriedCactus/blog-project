@@ -1,6 +1,8 @@
 .Button {
-    display: flex;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font: var(--font-m);
 
     padding: 0;
@@ -10,10 +12,43 @@
     background: none;
 }
 
-.main {
-    color: var(--primary-color);
+.size_m {
+    font: var(--font-m);
+
+    &.square {
+        width: var(--line-size-m);
+        height: var(--line-size-m);
+    }
+}
+
+.size_l {
+    font: var(--font-l);
+
+    &.square {
+        width: var(--line-size-l);
+        height: var(--line-size-l);
+    }
+}
+
+.size_xl {
+    font: var(--font-xl);
+
+    &.square {
+        width: var(--line-size-xl);
+        height: var(--line-size-xl);
+    }
+}
+
+.clear {
+    color: var(--button-color-primary);
+}
+
+.primary {
+    color: var(--button-color-primary);
+    background-color: var(--button-bg-color-primary);
 }
 
 .secondary {
-    color: var(--secondary-color);
+    color: var(--button-color-secondary);
+    background-color: var(--button-bg-color-secondary);
 }

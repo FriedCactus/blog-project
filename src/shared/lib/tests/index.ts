@@ -1,1 +1,1 @@
-export {renderWithTranslation} from "shared/lib/tests/renderWithTranslation";
+export {componentRender} from './componentRender/componentRender';

@@ -1,16 +1,16 @@
 import {Sidebar} from "./Sidebar";
-import {renderWithTranslation} from "shared/lib/tests";
+import {componentRender} from "shared/lib/tests";
 import {fireEvent} from "@testing-library/dom";
 
 describe("Sidebar", () => {
     test("Renders", () => {
-        const {getByTestId} = renderWithTranslation(<Sidebar/>);
+        const {getByTestId} = componentRender(<Sidebar/>);
 
         expect(getByTestId('sidebar')).toBeInTheDocument();
     });
 
     test("Sidebar collapsing", () => {
-        const {getByTestId} = renderWithTranslation(<Sidebar/>);
+        const {getByTestId} = componentRender(<Sidebar/>);
         const collapseButton = getByTestId('sidebar-collapse');
         const sidebar = getByTestId('sidebar');
 

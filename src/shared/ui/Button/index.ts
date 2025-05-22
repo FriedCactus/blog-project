@@ -1,1 +1,1 @@
-export {Button} from "shared/ui/Button/Button";
+export {Button, ButtonVariant, ButtonSize} from "shared/ui/Button/Button";

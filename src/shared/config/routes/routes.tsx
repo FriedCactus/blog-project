@@ -2,6 +2,9 @@ import {MainPage} from "pages/MainPage";
 import {AboutPage} from "pages/AboutPage";
 import {NotFoundPage} from "pages/NotFoundPage";
 import {RouteProps} from "react-router";
+import AboutIcon from "shared/assets/icons/about-icon.svg";
+import MainIcon from "shared/assets/icons/main-iconsvg.svg";
+import {ReactNode} from "react";
 
 enum AppRoutes {
     MAIN = 'main',
@@ -17,7 +20,8 @@ enum AppPaths {
 
 interface NavLink {
     title: string,
-    path: AppPaths
+    path: AppPaths,
+    icon: ReactNode
 }
 
 const RoutePaths: Record<AppRoutes, string> = {
@@ -44,10 +48,12 @@ export const routes: RouteProps[] = [
 export const navLinks: NavLink[] = [
     {
         title: "Главная",
-        path: AppPaths.MAIN
+        path: AppPaths.MAIN,
+        icon: <MainIcon/>
     },
     {
         title: "О сайте",
-        path: AppPaths.ABOUT
+        path: AppPaths.ABOUT,
+        icon: <AboutIcon/>
     },
 ];

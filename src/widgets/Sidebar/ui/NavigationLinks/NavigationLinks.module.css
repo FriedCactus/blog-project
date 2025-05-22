@@ -1,0 +1,17 @@
+.NavigationLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.link {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    &.minified {
+        flex-direction: column;
+        gap: 4px;
+        font: var(--font-s);
+    }
+}
