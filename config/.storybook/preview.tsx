@@ -5,6 +5,7 @@ import {RouterDecorator} from "../../src/shared/config/storybook/RouterDecorator
 import {Theme} from "../../src/app/providers/ThemeProvider";
 import {INITIAL_VIEWPORTS} from "@storybook/addon-viewport";
 
+// Стоит переделать на mode для синхронизации с chromatic
 const CUSTOM_VIEWPORTS = {
     desktop: {
         name: 'desktop',

@@ -15,7 +15,6 @@ export default meta;
 
 type Story = StoryObj<typeof Button>;
 
-// Desktop
 export const Main: Story = {};
 
 export const MainSizeL: Story = {
@@ -45,5 +44,6 @@ export const Clear: Story = {
 export const Square: Story = {
     args: {
         square: true,
+        children: '+'
     }
 };

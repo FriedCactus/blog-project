@@ -2,7 +2,6 @@ import type {StorybookConfig} from '@storybook/react-webpack5';
 import {RuleSetRule} from 'webpack';
 import path from "path";
 
-
 const config: StorybookConfig = {
     "framework": {
         "name": "@storybook/react-webpack5",
