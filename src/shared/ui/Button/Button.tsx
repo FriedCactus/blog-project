@@ -26,7 +26,7 @@ export const Button =
     ({
          children,
          variant = ButtonVariant.PRIMARY,
-         className,
+         className = '',
          square = false,
          size = ButtonSize.M,
          withPaddings = true,

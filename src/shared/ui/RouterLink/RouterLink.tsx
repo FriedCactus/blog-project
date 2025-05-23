@@ -15,7 +15,7 @@ interface Props extends LinkProps {
 export const RouterLink =
     ({
          children,
-         className,
+         className = '',
          variant = RouterLinkVariant.PRIMARY,
          ...props
      }: Props) => {

@@ -8,5 +8,7 @@
   "Модалка авторизации": "Login modal",
   "Увеличить": "Increment",
   "Уменьшить": "Decrement",
-  "Значение": "Value"
+  "Значение": "Value",
+  "Введите логин": "Enter username",
+  "Введите пароль": "Enter password"
 }

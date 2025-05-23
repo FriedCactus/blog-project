@@ -1,19 +1,29 @@
 import styles from "./Modal.module.css";
-import {MouseEvent, PropsWithChildren, useCallback, useEffect} from "react";
+import {MouseEvent, PropsWithChildren, useCallback, useEffect, useState} from "react";
 import {classNames} from "shared/lib/classNames";
 import {Portal} from "shared/ui/Portal";
 
 interface Props {
     isOpen?: boolean;
     onClose?: () => void;
+    lazy?: boolean;
 }
 
 export const Modal = (props: PropsWithChildren<Props>) => {
     const {
         children,
-        isOpen,
+        isOpen = false,
         onClose,
+        lazy
     } = props;
+
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+        }
+    }, [isOpen]);
 
     const modalClassMods = {
         [styles.opened]: isOpen
@@ -43,6 +53,7 @@ export const Modal = (props: PropsWithChildren<Props>) => {
         };
     }, [isOpen, onKeyDown]);
 
+    if (lazy && !isMounted) return null;
     return (
         <Portal>
             <div className={classNames(

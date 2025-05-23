@@ -8,7 +8,7 @@ import {StoreProvider} from "app/providers/StoreProvider";
 import "shared/config/i18n/i18n";
 
 const domRootNode = document.getElementById('root');
-const root = createRoot(domRootNode);
+const root = createRoot(domRootNode!);
 root.render(
     <StoreProvider>
         <BrowserRouter>

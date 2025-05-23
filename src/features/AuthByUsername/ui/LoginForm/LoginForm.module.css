@@ -1,0 +1,11 @@
+.LoginForm {
+    display: flex;
+    flex-direction: column;
+    gap: var(--extra-gap);
+
+    width: 400px;
+
+    @media (width <= 768px) {
+        width: auto;
+    }
+}

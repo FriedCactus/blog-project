@@ -21,7 +21,7 @@ describe("classNames", () => {
 
     it('Work with conditional param undefined', () => {
         expect(classNames('testClass', {
-            undefinedClass: undefined,
+            'undefinedClass': undefined,
         })).toBe('testClass');
     });
 
