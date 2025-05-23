@@ -7,6 +7,9 @@ const config: Config = {
     testMatch: [
         "<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)",
     ],
+    globals: {
+        "__IS_DEV__": true
+    },
     coveragePathIgnorePatterns: [
         "\\\\node_modules\\\\"
     ],

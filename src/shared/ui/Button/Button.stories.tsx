@@ -17,13 +17,19 @@ type Story = StoryObj<typeof Button>;
 
 export const Main: Story = {};
 
-export const MainSizeL: Story = {
+export const WithoutPaddings: Story = {
+    args: {
+        withPaddings: false
+    }
+};
+
+export const SizeL: Story = {
     args: {
         size: ButtonSize.L
     }
 };
 
-export const MainSizeXL: Story = {
+export const SizeXL: Story = {
     args: {
         size: ButtonSize.XL
     }

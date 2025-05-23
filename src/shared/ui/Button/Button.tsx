@@ -19,6 +19,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: ButtonVariant;
     square?: boolean;
     size?: ButtonSize;
+    withPaddings?: boolean;
 }
 
 export const Button: FC<PropsWithChildren<ButtonProps>> =
@@ -28,6 +29,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> =
          className,
          square = false,
          size = ButtonSize.M,
+         withPaddings = true,
          ...props
      }) => {
         return (
@@ -35,7 +37,8 @@ export const Button: FC<PropsWithChildren<ButtonProps>> =
                 className={classNames(
                     styles.Button,
                     {
-                        [styles.square]: square
+                        [styles.square]: square,
+                        [styles.paddings]: withPaddings
                     },
                     [styles[variant], styles[size], className])}
                 {...props}>

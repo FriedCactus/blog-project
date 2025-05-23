@@ -5,17 +5,19 @@ import {classNames} from "shared/lib/classNames";
 
 export const ThemeDecorator = (theme: Theme): Decorator => {
     return function StoryComponent(Story) {
-        return <div
-            id="app"
-            className={
-                classNames(
-                    'app page-wrapper',
-                    {},
-                    [theme, styles.ThemeDecorator]
-                )}
-        >
-            <Story/>
-        </div>;
+        return (
+            <div
+                id="app"
+                className={
+                    classNames(
+                        'app page-wrapper',
+                        {},
+                        [theme, styles.ThemeDecorator]
+                    )}
+            >
+                <Story/>
+            </div>
+        );
     };
 };
 

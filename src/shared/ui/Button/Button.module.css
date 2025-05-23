@@ -5,12 +5,14 @@
     align-items: center;
     font: var(--font-m);
 
-    padding-left: 4px;
-    padding-right: 4px;
     margin: 0;
     border: none;
     outline: none;
     background: none;
+}
+
+.paddings {
+    padding: 4px 12px;
 }
 
 .size_m {

@@ -8,7 +8,9 @@ const meta: Meta<typeof Modal> = {
     title: 'shared/Modal',
     component: Modal,
     args: {
-        children: 'Модальное окно',
+        children: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+        Architecto cupiditate fuga mollitia perspiciatis quibusdam. 
+        Ad asperiores beatae consequatur ipsa rerum?`,
         isOpen: true,
         isPortal: false
     },

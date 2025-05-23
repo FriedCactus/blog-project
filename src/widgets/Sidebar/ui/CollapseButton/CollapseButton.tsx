@@ -14,6 +14,7 @@ export const CollapseButton: FC<Props> = ({onCollapse}) => (
         onClick={onCollapse}
         square
         size={ButtonSize.L}
+        withPaddings={false}
     >
         <span className={styles.line}/>
         <span className={styles.line}/>

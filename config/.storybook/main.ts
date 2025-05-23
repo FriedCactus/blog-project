@@ -1,6 +1,7 @@
 import type {StorybookConfig} from '@storybook/react-webpack5';
 import {RuleSetRule} from 'webpack';
 import path from "path";
+import {definePlugin} from "../build/buildPlugins";
 
 const config: StorybookConfig = {
     "framework": {
@@ -27,6 +28,8 @@ const config: StorybookConfig = {
             ...(config.resolve.modules || []),
             path.resolve(__dirname, '../../src'),
         ];
+
+        // Обработка svg
         config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
             if (/svg/.test(rule.test as string)) {
                 return {...rule, exclude: /\.svg$/i};
@@ -39,6 +42,11 @@ const config: StorybookConfig = {
             issuer: /\.[jt]sx?$/,
             use: ['@svgr/webpack'],
         });
+
+        // Определение глобальных переменных
+        config.plugins.push(
+            definePlugin(true)
+        );
 
         return config;
     },
