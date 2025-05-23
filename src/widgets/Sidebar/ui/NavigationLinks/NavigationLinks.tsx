@@ -3,14 +3,13 @@ import {navLinks} from "shared/config/routes";
 import {RouterLink} from "shared/ui/RouterLink";
 import {RouterLinkVariant} from "shared/ui/RouterLink/RouterLink";
 import {useTranslation} from "react-i18next";
-import {FC} from "react";
 import {classNames} from "shared/lib/classNames";
 
 interface Props {
     isCollapsed: boolean;
 }
 
-export const NavigationLinks: FC<Props> = ({isCollapsed}) => {
+export const NavigationLinks = ({isCollapsed}: Props) => {
     const {t} = useTranslation();
 
     return <div className={styles.NavigationLinks}>

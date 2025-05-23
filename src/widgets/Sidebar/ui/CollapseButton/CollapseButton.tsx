@@ -1,12 +1,11 @@
 import {Button, ButtonSize, ButtonVariant} from "shared/ui/Button";
 import styles from "./CollapseButton.module.css";
-import {FC} from "react";
 
 interface Props {
     onCollapse: () => void;
 }
 
-export const CollapseButton: FC<Props> = ({onCollapse}) => (
+export const CollapseButton = ({onCollapse}: Props) => (
     <Button
         data-testid="sidebar-collapse"
         className={styles.toggleButton}

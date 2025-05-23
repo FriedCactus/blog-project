@@ -1,6 +1,6 @@
 import styles from "./Button.module.css";
 import {classNames} from "shared/lib/classNames";
-import {ButtonHTMLAttributes, FC, PropsWithChildren} from "react";
+import {ButtonHTMLAttributes, PropsWithChildren} from "react";
 
 export enum ButtonVariant {
     CLEAR = 'clear',
@@ -22,7 +22,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     withPaddings?: boolean;
 }
 
-export const Button: FC<PropsWithChildren<ButtonProps>> =
+export const Button =
     ({
          children,
          variant = ButtonVariant.PRIMARY,
@@ -31,7 +31,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> =
          size = ButtonSize.M,
          withPaddings = true,
          ...props
-     }) => {
+     }: PropsWithChildren<ButtonProps>) => {
         return (
             <button
                 className={classNames(

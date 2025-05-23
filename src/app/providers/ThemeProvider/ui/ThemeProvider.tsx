@@ -7,7 +7,12 @@ interface Props {
     initialTheme?: Theme;
 }
 
-export const ThemeProvider = ({children, initialTheme}: PropsWithChildren<Props>) => {
+export const ThemeProvider = (props: PropsWithChildren<Props>) => {
+    const {
+        children,
+        initialTheme
+    } = props;
+
     const [theme, setTheme] = useState<Theme>(initialTheme ?? defaultTheme);
 
     useEffect(() => {

@@ -1,11 +1,11 @@
-import {FC, PropsWithChildren, useEffect, useRef} from "react";
+import {PropsWithChildren, useEffect, useRef} from "react";
 import {createPortal} from "react-dom";
 
 interface Props {
     element?: HTMLElement;
 }
 
-export const Portal: FC<PropsWithChildren<Props>> = (props) => {
+export const Portal = (props: PropsWithChildren<Props>) => {
     const portalRoot = useRef<HTMLElement>(document.body);
 
     useEffect(() => {

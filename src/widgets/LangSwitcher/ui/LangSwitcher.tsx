@@ -1,12 +1,11 @@
 import {Button, ButtonVariant} from "shared/ui/Button";
 import {useTranslation} from "react-i18next";
-import {FC} from "react";
 
 interface Props {
     short?: boolean;
 }
 
-export const LangSwitcher: FC<Props> = ({short = false}) => {
+export const LangSwitcher = ({short = false}: Props) => {
     const {i18n, t} = useTranslation();
 
     const onToggle = () => {

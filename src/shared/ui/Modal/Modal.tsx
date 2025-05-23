@@ -1,5 +1,5 @@
 import styles from "./Modal.module.css";
-import {FC, MouseEvent, PropsWithChildren, useCallback, useEffect} from "react";
+import {MouseEvent, PropsWithChildren, useCallback, useEffect} from "react";
 import {classNames} from "shared/lib/classNames";
 import {Portal} from "shared/ui/Portal";
 
@@ -8,7 +8,7 @@ interface Props {
     onClose?: () => void;
 }
 
-export const Modal: FC<PropsWithChildren<Props>> = (props) => {
+export const Modal = (props: PropsWithChildren<Props>) => {
     const {
         children,
         isOpen,
