@@ -1,1 +1,0 @@
-export {storyGlobalsMobile, storyGlobalsDesktop} from "shared/config/storybook/globals/globals";

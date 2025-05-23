@@ -1,8 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {LoadingSpinner} from "./LoadingSpinner";
-import {ThemeDecorator} from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import {Theme} from "app/providers/ThemeProvider";
-import {storyGlobalsDesktop, storyGlobalsMobile} from "shared/config/storybook/globals";
+import {storyGlobalsDesktop, storyGlobalsMobile, ThemeDecorator} from "shared/config/storybook";
 
 const meta: Meta<typeof LoadingSpinner> = {
     title: 'shared/LoadingSpinner',

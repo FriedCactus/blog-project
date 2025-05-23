@@ -1,10 +1,8 @@
 import {type Preview} from '@storybook/react';
 import "app/styles/index.css";
-import {ThemeDecorator} from "../../src/shared/config/storybook/ThemeDecorator";
-import {RouterDecorator} from "../../src/shared/config/storybook/RouterDecorator";
-import {StoreDecorator} from "../../src/shared/config/storybook/StoreDecorator";
 import {Theme} from "../../src/app/providers/ThemeProvider";
 import {INITIAL_VIEWPORTS} from "@storybook/addon-viewport";
+import {ThemeDecorator, RouterDecorator, StoreDecorator, PageDecorator} from "../../src/shared/config/storybook";
 
 // Стоит переделать на mode для синхронизации с chromatic
 const CUSTOM_VIEWPORTS = {
@@ -39,9 +37,11 @@ const preview: Preview = {
         },
     },
     decorators: [
-        StoreDecorator(),
         ThemeDecorator(Theme.LIGHT),
+        PageDecorator,
+        StoreDecorator(),
         RouterDecorator,
+
     ]
 };
 

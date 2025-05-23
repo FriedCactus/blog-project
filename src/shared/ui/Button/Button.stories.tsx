@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {Button, ButtonSize, ButtonVariant} from "./Button";
-import {storyGlobalsDesktop} from 'shared/config/storybook/globals';
+import {storyGlobalsDesktop} from 'shared/config/storybook';
 
 const meta: Meta<typeof Button> = {
     title: 'shared/Button',
