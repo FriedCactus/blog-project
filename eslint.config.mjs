@@ -13,7 +13,13 @@ export default defineConfig([
     {
         files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
         plugins: {js},
-        extends: ["js/recommended"]
+        extends: ["js/recommended"],
+        languageOptions: {
+            globals: {
+                ...globals.browser,
+                ...globals.node
+            }
+        }
     },
     eslint.configs.recommended,
     pluginReact.configs.flat.recommended,
@@ -48,7 +54,8 @@ export default defineConfig([
             }],
             "react/jsx-props-no-spreading": ['warn'],
             "max-lines": ["error", 300],
-            "i18next/no-literal-string": 'warn'
+            "i18next/no-literal-string": 'warn',
+            "@typescript-eslint/no-require-imports": "off"
         },
     },
     // Правила для тестов
