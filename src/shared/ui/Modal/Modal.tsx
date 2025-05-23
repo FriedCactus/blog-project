@@ -1,11 +1,10 @@
 import styles from "./Modal.module.css";
-import {FC, Fragment, MouseEvent, PropsWithChildren, useCallback, useEffect} from "react";
+import {FC, MouseEvent, PropsWithChildren, useCallback, useEffect} from "react";
 import {classNames} from "shared/lib/classNames";
 import {Portal} from "shared/ui/Portal";
 
 interface Props {
     isOpen?: boolean;
-    isPortal?: boolean;
     onClose?: () => void;
 }
 
@@ -14,10 +13,7 @@ export const Modal: FC<PropsWithChildren<Props>> = (props) => {
         children,
         isOpen,
         onClose,
-        isPortal = true
     } = props;
-
-    const Wrapper = isPortal ? Portal : Fragment;
 
     const modalClassMods = {
         [styles.opened]: isOpen
@@ -48,7 +44,7 @@ export const Modal: FC<PropsWithChildren<Props>> = (props) => {
     }, [isOpen, onKeyDown]);
 
     return (
-        <Wrapper>
+        <Portal>
             <div className={classNames(
                 styles.Modal,
                 modalClassMods,
@@ -60,6 +56,6 @@ export const Modal: FC<PropsWithChildren<Props>> = (props) => {
                     </div>
                 </div>
             </div>
-        </Wrapper>
+        </Portal>
     );
 };

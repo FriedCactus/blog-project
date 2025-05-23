@@ -1,22 +1,15 @@
 import {Decorator} from "@storybook/react";
-import {Theme} from "app/providers/ThemeProvider";
-import styles from './ThemeDecorator.module.css';
-import {classNames} from "shared/lib/classNames";
+import {Theme, ThemeProvider} from "app/providers/ThemeProvider";
 
 export const ThemeDecorator = (theme: Theme): Decorator => {
+
     return function StoryComponent(Story) {
         return (
-            <div
-                id="app"
-                className={
-                    classNames(
-                        'app page-wrapper',
-                        {},
-                        [theme, styles.ThemeDecorator]
-                    )}
-            >
-                <Story/>
-            </div>
+            <ThemeProvider initialTheme={theme}>
+                <div id="app" className="app page-wrapper">
+                    <Story/>
+                </div>
+            </ThemeProvider>
         );
     };
 };

@@ -1,16 +1,12 @@
-import {useTheme} from "./providers/ThemeProvider";
 import {AppRouter} from "./providers/router";
-import {classNames} from "shared/lib/classNames";
 import {NavBar} from "widgets/NavBar";
 import {Sidebar} from "widgets/Sidebar";
 import {Suspense} from "react";
 
 
 export const App = () => {
-    const {theme} = useTheme();
-
     return (
-        <div id="app" className={classNames('app', {}, [theme])}>
+        <div id="app" className="app">
             <Suspense fallback="">
                 <NavBar/>
 
@@ -21,7 +17,6 @@ export const App = () => {
                     </div>
                 </div>
             </Suspense>
-            <div id="portal"/>
         </div>
     );
 };

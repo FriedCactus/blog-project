@@ -12,7 +12,6 @@ const meta: Meta<typeof Modal> = {
         Architecto cupiditate fuga mollitia perspiciatis quibusdam. 
         Ad asperiores beatae consequatur ipsa rerum?`,
         isOpen: true,
-        isPortal: false
     },
     ...storyGlobalsDesktop
 };
