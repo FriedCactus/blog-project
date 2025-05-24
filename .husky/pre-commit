@@ -1,0 +1,5 @@
+npm run lint
+npm run stylelint
+npm run test
+npm run build:prod
+npm run build-storybook
