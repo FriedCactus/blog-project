@@ -17,6 +17,18 @@ type Story = StoryObj<typeof Button>;
 
 export const Main: Story = {};
 
+export const Secondary: Story = {
+    args: {
+        variant: ButtonVariant.SECONDARY,
+    },
+};
+
+export const Clear: Story = {
+    args: {
+        variant: ButtonVariant.CLEAR,
+    },
+};
+
 export const WithoutPaddings: Story = {
     args: {
         withPaddings: false
@@ -35,21 +47,15 @@ export const SizeXL: Story = {
     }
 };
 
-export const Secondary: Story = {
-    args: {
-        variant: ButtonVariant.SECONDARY,
-    },
-};
-
-export const Clear: Story = {
-    args: {
-        variant: ButtonVariant.CLEAR,
-    },
-};
-
 export const Square: Story = {
     args: {
         square: true,
         children: '+'
+    }
+};
+
+export const Disabled: Story = {
+    args: {
+        disabled: true
     }
 };

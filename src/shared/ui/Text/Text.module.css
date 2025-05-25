@@ -1,0 +1,37 @@
+.Text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--small-gap);
+}
+
+.title {
+    font: var(--font-l);
+
+    &.primary {
+        color: var(--primary-color);
+    }
+
+    &.secondary {
+        color: var(--secondary-color);
+    }
+
+    &.error {
+        color: var(--red-light);
+    }
+}
+
+.text {
+    font: var(--font-m);
+
+    &.primary {
+        color: var(--secondary-color);
+    }
+
+    &.secondary {
+        color: var(--primary-color);
+    }
+
+    &.error {
+        color: var(--red-dark);
+    }
+}

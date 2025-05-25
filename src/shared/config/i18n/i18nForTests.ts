@@ -7,7 +7,7 @@ i18n
         lng: 'ru',
         fallbackLng: 'ru',
         debug: false,
-        resources: {ru: {translations: {}}},
+        resources: {ru: {translation: {}}},
     });
 
 export default i18n;

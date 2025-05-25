@@ -4,7 +4,9 @@ import {fireEvent} from "@testing-library/dom";
 
 describe("Sidebar", () => {
     test("Renders", () => {
-        const {getByTestId} = componentRender(<Sidebar/>);
+        const {getByTestId} = componentRender(
+            <Sidebar/>
+        );
 
         expect(getByTestId('sidebar')).toBeInTheDocument();
     });

@@ -24,27 +24,32 @@ const config: StorybookConfig = {
         viewportStoryGlobals: true,
     },
     webpackFinal: async (config) => {
-        config.resolve.modules = [
-            ...(config.resolve.modules || []),
-            path.resolve(__dirname, '../../src'),
-        ];
+        if (config.resolve) {
+            config.resolve.modules = [
+                ...(config.resolve.modules || []),
+                path.resolve(__dirname, '../../src'),
+            ];
+        }
 
-        // Обработка svg
-        config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
-            if (/svg/.test(rule.test as string)) {
-                return {...rule, exclude: /\.svg$/i};
-            }
+        if (config.module) {
+            // Обработка svg
+            config.module.rules = config.module.rules?.map((rule: RuleSetRule) => {
+                if (/svg/.test(rule.test as string)) {
+                    return {...rule, exclude: /\.svg$/i};
+                }
 
-            return rule;
-        });
-        config.module.rules.push({
-            test: /\.svg$/i,
-            issuer: /\.[jt]sx?$/,
-            use: ['@svgr/webpack'],
-        });
+                return rule;
+            });
+
+            config.module.rules?.push({
+                test: /\.svg$/i,
+                issuer: /\.[jt]sx?$/,
+                use: ['@svgr/webpack'],
+            });
+        }
 
         // Определение глобальных переменных
-        config.plugins.push(
+        config.plugins?.push(
             definePlugin(true)
         );
 

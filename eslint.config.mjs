@@ -9,7 +9,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import {defineConfig, globalIgnores} from "eslint/config";
 
 export default defineConfig([
-    globalIgnores(["build", "!.storybook"]),
+    globalIgnores(["build", "storybook-static"]),
     {
         files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
         plugins: {js},

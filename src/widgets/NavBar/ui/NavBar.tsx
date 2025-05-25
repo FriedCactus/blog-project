@@ -4,9 +4,14 @@ import {Button} from "shared/ui/Button";
 import {useTranslation} from "react-i18next";
 import {LoginModal} from "features/AuthByUsername";
 import {useState} from "react";
+import {getUserAuthData, userActions} from "entities/User";
+import {useSelector} from "react-redux";
+import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 export const NavBar = () => {
     const {t} = useTranslation();
+    const authData = useSelector(getUserAuthData);
+    const dispatch = useAppDispatch();
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -17,6 +22,18 @@ export const NavBar = () => {
     const onCloseModal = () => {
         setIsModalOpen(false);
     };
+
+    const onLogout = () => {
+        dispatch(userActions.clearAuthData());
+    };
+
+    if (authData) {
+        return (
+            <div className={classNames(styles.Navbar)}>
+                <Button onClick={onLogout}>{t('Выйти')}</Button>
+            </div>
+        );
+    }
 
     return (
         <div className={classNames(styles.Navbar)}>

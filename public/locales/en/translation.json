@@ -5,10 +5,13 @@
   "Переключение языка": "English",
   "Короткое переключение языка": "EN",
   "Войти": "Login",
+  "Выйти": "Logout",
   "Модалка авторизации": "Login modal",
   "Увеличить": "Increment",
   "Уменьшить": "Decrement",
   "Значение": "Value",
   "Введите логин": "Enter username",
-  "Введите пароль": "Enter password"
+  "Введите пароль": "Enter password",
+  "Форма авторизации": "Authorization form",
+  "Неверный логин или пароль": "Incorrect login or password"
 }

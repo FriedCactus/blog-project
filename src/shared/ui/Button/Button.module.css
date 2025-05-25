@@ -9,6 +9,10 @@
     border: none;
     outline: none;
     background: none;
+
+    &:disabled {
+        opacity: 0.5;
+    }
 }
 
 .paddings {

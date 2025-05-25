@@ -23,7 +23,7 @@
 
     /* Отступы */
     --content-padding: 20px;
-    
+
     --small-gap: 4px;
     --main-gap: 8px;
     --extra-gap: 12px;
@@ -31,6 +31,8 @@
     /* Z индексы */;
     --modal-z-index: 10;
 
-    /* Цвета модальных окон */
+    /* Цвета */
     --modal-overlay-color: rgb(0 0 0 / 60%);
+    --red-light: rgb(222 11 11);
+    --red-dark: rgb(159 2 2);
 }
