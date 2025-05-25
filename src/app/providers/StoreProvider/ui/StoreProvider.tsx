@@ -2,7 +2,7 @@ import {PropsWithChildren} from "react";
 import {Provider} from "react-redux";
 import {createReduxStore} from "../config/store";
 import type {StateSchema} from "../config/StateSchema";
-import {DeepPartial} from "../../../../shared/types";
+import {DeepPartial} from "shared/types";
 
 interface Props {
     initialState?: DeepPartial<StateSchema>;
