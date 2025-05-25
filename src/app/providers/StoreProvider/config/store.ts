@@ -1,21 +1,18 @@
-import {configureStore, type ReducersMapObject} from "@reduxjs/toolkit";
-import {type StateSchema} from "../config/StateSchema";
+import {combineSlices, configureStore} from "@reduxjs/toolkit";
+import type {LazyStateSchema, StateSchema} from "../config/StateSchema";
 import {counterReducer} from "entities/Counter";
 import {userReducer} from "entities/User";
-import {loginReducer} from "features/AuthByUsername";
 
-export const createReduxStore = (initialState?: StateSchema) => {
-    const rootReducer: ReducersMapObject<StateSchema> = {
-        counter: counterReducer,
-        user: userReducer,
-        loginForm: loginReducer
-    };
+export const rootReducer = combineSlices({
+    counter: counterReducer,
+    user: userReducer,
+}).withLazyLoadedSlices<LazyStateSchema>();
 
-    return configureStore<StateSchema>({
+export const createReduxStore = (initialState?: StateSchema) => (
+    configureStore<StateSchema>({
         reducer: rootReducer,
         devTools: __IS_DEV__,
         preloadedState: initialState
-    });
-};
+    }));
 
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

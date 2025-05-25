@@ -1,5 +1,7 @@
 import {Modal} from "shared/ui/Modal";
-import {LoginForm} from "../LoginForm/LoginForm";
+import {LoginFormAsync} from "features/AuthByUsername/ui/LoginForm/LoginForm.async";
+import {Suspense} from "react";
+import {LoadingSpinner} from "shared/ui/LoadingSpinner";
 
 interface Props {
     isOpen?: boolean;
@@ -22,7 +24,9 @@ export const LoginModal = (props: Props) => {
             onClose={closeHandler}
             lazy
         >
-            <LoginForm/>
+            <Suspense fallback={<LoadingSpinner/>}>
+                <LoginFormAsync/>
+            </Suspense>
         </Modal>
     );
 };

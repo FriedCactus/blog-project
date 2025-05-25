@@ -4,7 +4,7 @@ import {counterActions} from "../model/slice/counterSlice";
 import {getCounterValue} from "../model/selectors/getCounterValue/getCounterValue";
 import styles from "./Counter.module.css";
 import {useTranslation} from "react-i18next";
-import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import {useAppDispatch} from "shared/lib/hooks";
 
 export const Counter = () => {
     const {t} = useTranslation();

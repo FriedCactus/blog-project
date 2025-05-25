@@ -2,7 +2,7 @@ import {AppRouter} from "./providers/router";
 import {NavBar} from "widgets/NavBar";
 import {Sidebar} from "widgets/Sidebar";
 import {Suspense, useEffect} from "react";
-import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import {useAppDispatch} from "shared/lib/hooks";
 import {userActions} from "entities/User";
 
 export const App = () => {

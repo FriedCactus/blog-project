@@ -6,7 +6,7 @@ import {LoginModal} from "features/AuthByUsername";
 import {useState} from "react";
 import {getUserAuthData, userActions} from "entities/User";
 import {useSelector} from "react-redux";
-import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import {useAppDispatch} from "shared/lib/hooks";
 
 export const NavBar = () => {
     const {t} = useTranslation();
@@ -38,7 +38,9 @@ export const NavBar = () => {
     return (
         <div className={classNames(styles.Navbar)}>
             <Button onClick={onShowModal}>{t('Войти')}</Button>
-            <LoginModal isOpen={isModalOpen} onClose={onCloseModal}/>
+            {
+                isModalOpen && <LoginModal isOpen={isModalOpen} onClose={onCloseModal}/>
+            }
         </div>
     );
 };

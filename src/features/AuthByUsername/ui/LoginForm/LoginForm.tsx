@@ -5,19 +5,28 @@ import {useTranslation} from "react-i18next";
 import {Input} from "shared/ui/Input";
 import {FormEvent, memo, useCallback} from "react";
 import {useSelector} from "react-redux";
-import {loginActions} from "../../model/slice/loginSlice";
-import {getLoginState} from "../../model/selectors/getLoginState/getLoginState";
+import {loginActions, loginReducer} from "../../model/slice/loginSlice";
 import {loginByUsername} from "../../model/services/loginByUsername/loginByUsername";
-import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import {useAppDispatch} from "shared/lib/hooks";
 import {Text, TextVariant} from 'shared/ui/Text';
+import {getLoginUsername} from "../../model/selectors/getLoginUsername/getLoginUsername";
+import {getLoginPassword} from "../../model/selectors/getLoginPassword/getLoginPassword";
+import {getLoginError} from "../../model/selectors/getLoginError/getLoginError";
+import {getLoginIsLoading} from "../../model/selectors/getLoginIsLoading/getLoginIsLoading";
+import {DynamicModuleLoader, type ReducersList} from "shared/lib/components";
 
-export const LoginForm = memo(function LoginForm() {
+const initialReducers: ReducersList = {
+    loginForm: loginReducer,
+};
+
+const LoginForm = memo(function LoginForm() {
     const {t} = useTranslation();
 
     const dispatch = useAppDispatch();
-    const loginState = useSelector(getLoginState);
-    const username = loginState?.username;
-    const password = loginState?.password;
+    const username = useSelector(getLoginUsername);
+    const password = useSelector(getLoginPassword);
+    const error = useSelector(getLoginError);
+    const isLoading = useSelector(getLoginIsLoading);
 
     const onUsernameChange = useCallback((value: string) => {
         dispatch(loginActions.setUsername(value));
@@ -39,30 +48,35 @@ export const LoginForm = memo(function LoginForm() {
     }, [dispatch, password, username]);
 
     return (
-        <form onSubmit={onSubmit} className={classNames(styles.LoginForm)}>
-            <Text title={t("Форма авторизации")}/>
+        <DynamicModuleLoader reducers={initialReducers}>
+            <form onSubmit={onSubmit} className={classNames(styles.LoginForm)}>
+                <Text title={t("Форма авторизации")}/>
 
-            <Input
-                name="username"
-                placeholder={t("Введите логин")}
-                value={username}
-                onChange={onUsernameChange}
-                autoFocus
-            />
-            <Input
-                name="password"
-                type="password"
-                placeholder={t("Введите пароль")}
-                value={password}
-                onChange={onPasswordChange}
-            />
-            {
-                loginState?.error && <Text variant={TextVariant.ERROR}>{t('Неверный логин или пароль')}</Text>
-            }
+                <Input
+                    name="username"
+                    placeholder={t("Введите логин")}
+                    value={username}
+                    onChange={onUsernameChange}
+                    autoFocus
+                />
+                <Input
+                    name="password"
+                    type="password"
+                    placeholder={t("Введите пароль")}
+                    value={password}
+                    onChange={onPasswordChange}
+                />
+                {
+                    error && <Text variant={TextVariant.ERROR}>{t('Неверный логин или пароль')}</Text>
+                }
 
-            <Button type="submit" disabled={loginState?.isLoading}>
-                {t("Войти")}
-            </Button>
-        </form>
+                <Button type="submit" disabled={isLoading}>
+                    {t("Войти")}
+                </Button>
+            </form>
+        </DynamicModuleLoader>
+
     );
 });
+
+export default LoginForm;

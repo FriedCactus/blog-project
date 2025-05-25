@@ -20,7 +20,10 @@ export const buildPlugins = ({paths, isDev}: BuildOptions): webpack.WebpackPlugi
             filename: "css/[name].[contenthash:8].css",
             chunkFilename: "css/[name].[contenthash:8].css",
         }),
-        definePlugin(isDev)
+        definePlugin(isDev),
+        // new BundleAnalyzerPlugin({
+        //     openAnalyzer: false
+        // })
     ];
 
     if (isDev) plugins.push(
