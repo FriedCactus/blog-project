@@ -1,5 +1,5 @@
 import {getCounter} from "./getCounter";
-import type {DeepPartial} from '../../../../../shared/types';
+import type {DeepPartial} from 'shared/types';
 import type {StateSchema} from "app/providers/StoreProvider";
 
 describe("getCounter", () => {
