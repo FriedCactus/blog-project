@@ -1,6 +1,6 @@
 import styles from "./Button.module.css";
 import {classNames} from "shared/lib/classNames";
-import {ButtonHTMLAttributes, PropsWithChildren} from "react";
+import {ButtonHTMLAttributes, memo, PropsWithChildren} from "react";
 
 export enum ButtonVariant {
     CLEAR = 'clear',
@@ -22,27 +22,27 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     withPaddings?: boolean;
 }
 
-export const Button =
-    ({
-         children,
-         variant = ButtonVariant.PRIMARY,
-         className = '',
-         square = false,
-         size = ButtonSize.M,
-         withPaddings = true,
-         ...props
-     }: PropsWithChildren<ButtonProps>) => {
-        return (
-            <button
-                className={classNames(
-                    styles.Button,
-                    {
-                        [styles.square]: square,
-                        [styles.paddings]: withPaddings
-                    },
-                    [styles[variant], styles[size], className])}
-                {...props}>
-                {children}
-            </button>
-        );
-    };
+export const Button = memo(function Button(
+    {
+        children,
+        variant = ButtonVariant.PRIMARY,
+        className = '',
+        square = false,
+        size = ButtonSize.M,
+        withPaddings = true,
+        ...props
+    }: PropsWithChildren<ButtonProps>) {
+    return (
+        <button
+            className={classNames(
+                styles.Button,
+                {
+                    [styles.square]: square,
+                    [styles.paddings]: withPaddings
+                },
+                [styles[variant], styles[size], className])}
+            {...props}>
+            {children}
+        </button>
+    );
+});

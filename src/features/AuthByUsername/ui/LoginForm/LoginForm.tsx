@@ -19,7 +19,11 @@ const initialReducers: ReducersList = {
     loginForm: loginReducer,
 };
 
-const LoginForm = memo(function LoginForm() {
+interface Props {
+    onSuccess: () => void;
+}
+
+const LoginForm = memo(function LoginForm({onSuccess}: Props) {
     const {t} = useTranslation();
 
     const dispatch = useAppDispatch();
@@ -36,7 +40,7 @@ const LoginForm = memo(function LoginForm() {
         dispatch(loginActions.setPassword(value));
     }, [dispatch]);
 
-    const onSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
+    const onSubmit = useCallback(async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!username || !password) return;
 
@@ -44,8 +48,12 @@ const LoginForm = memo(function LoginForm() {
             username,
             password
         };
-        dispatch(loginByUsername(userData));
-    }, [dispatch, password, username]);
+        const result = await dispatch(loginByUsername(userData));
+
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess();
+        }
+    }, [dispatch, onSuccess, password, username]);
 
     return (
         <DynamicModuleLoader reducers={initialReducers}>

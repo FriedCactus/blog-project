@@ -1,6 +1,7 @@
 import styles from "./RouterLink.module.css";
 import {classNames} from "shared/lib/classNames";
 import {Link, type LinkProps} from "react-router";
+import {memo} from "react";
 
 export enum RouterLinkVariant {
     PRIMARY = "primary",
@@ -12,20 +13,20 @@ interface Props extends LinkProps {
     variant?: RouterLinkVariant;
 }
 
-export const RouterLink =
-    ({
-         children,
-         className = '',
-         variant = RouterLinkVariant.PRIMARY,
-         ...props
-     }: Props) => {
+export const RouterLink = memo(function RouterLink(
+    {
+        children,
+        className = '',
+        variant = RouterLinkVariant.PRIMARY,
+        ...props
+    }: Props) {
 
-        return (
-            <Link
-                className={classNames(styles.RouterLink, {}, [className, styles[variant]])}
-                {...props}
-            >
-                {children}
-            </Link>
-        );
-    };
+    return (
+        <Link
+            className={classNames(styles.RouterLink, {}, [className, styles[variant]])}
+            {...props}
+        >
+            {children}
+        </Link>
+    );
+});

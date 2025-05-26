@@ -5,8 +5,9 @@ import {getCounterValue} from "../model/selectors/getCounterValue/getCounterValu
 import styles from "./Counter.module.css";
 import {useTranslation} from "react-i18next";
 import {useAppDispatch} from "shared/lib/hooks";
+import {memo} from "react";
 
-export const Counter = () => {
+export const Counter = memo(function Counter() {
     const {t} = useTranslation();
 
     const dispatch = useAppDispatch();
@@ -40,4 +41,4 @@ export const Counter = () => {
             </div>
         </div>
     );
-};
+});

@@ -1,6 +1,7 @@
 import type {CounterSchema} from "entities/Counter";
 import type {UserSchema} from 'entities/User';
 import type {LoginSchema} from "features/AuthByUsername";
+import {ProfileSchema} from "entities/Profile";
 
 interface StaticStateSchema {
     counter: CounterSchema;
@@ -9,6 +10,7 @@ interface StaticStateSchema {
 
 export interface LazyStateSchema {
     loginForm?: LoginSchema;
+    profile?: ProfileSchema;
 }
 
 export type StateSchema = StaticStateSchema & LazyStateSchema;

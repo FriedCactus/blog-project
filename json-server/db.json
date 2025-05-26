@@ -31,6 +31,13 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "firstName": "Иван",
+    "lastName": "Иванов",
+    "age": 29,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Ulyanovsk",
+    "username": "admin",
+    "avatar": ""
   }
 }

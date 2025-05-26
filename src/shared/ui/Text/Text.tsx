@@ -1,6 +1,6 @@
 import styles from "./Text.module.css";
 import {classNames} from "shared/lib/classNames";
-import {PropsWithChildren} from "react";
+import {memo, PropsWithChildren} from "react";
 
 export enum TextVariant {
     PRIMARY = 'primary',
@@ -13,7 +13,7 @@ interface Props {
     variant?: TextVariant;
 }
 
-export const Text = (props: PropsWithChildren<Props>) => {
+export const Text = memo(function Text(props: PropsWithChildren<Props>) {
     const {
         children,
         title,
@@ -26,4 +26,4 @@ export const Text = (props: PropsWithChildren<Props>) => {
             {children && <p className={classNames(styles.text, {}, [styles[variant]])}>{children}</p>}
         </div>
     );
-};
+});

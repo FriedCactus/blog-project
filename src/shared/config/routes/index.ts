@@ -1,1 +1,1 @@
-export {routes, navLinks} from './routes';
+export {routes} from './routes';

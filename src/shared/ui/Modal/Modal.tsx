@@ -14,7 +14,7 @@ export const Modal = (props: PropsWithChildren<Props>) => {
         children,
         isOpen = false,
         onClose,
-        lazy
+        lazy = true
     } = props;
 
     const [isMounted, setIsMounted] = useState(false);

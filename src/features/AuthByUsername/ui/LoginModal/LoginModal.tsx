@@ -6,26 +6,31 @@ import {LoadingSpinner} from "shared/ui/LoadingSpinner";
 interface Props {
     isOpen?: boolean;
     onClose?: () => void;
+    onSuccess?: () => void;
 }
 
 export const LoginModal = (props: Props) => {
     const {
         isOpen,
-        onClose
+        onClose,
+        onSuccess
     } = props;
 
     const closeHandler = () => {
         onClose?.();
     };
 
+    const successHandler = () => {
+        onSuccess?.();
+    };
+
     return (
         <Modal
             isOpen={isOpen}
             onClose={closeHandler}
-            lazy
         >
             <Suspense fallback={<LoadingSpinner/>}>
-                <LoginFormAsync/>
+                <LoginFormAsync onSuccess={successHandler}/>
             </Suspense>
         </Modal>
     );

@@ -1,17 +1,17 @@
 import styles from "./Sidebar.module.css";
 import {classNames} from "shared/lib/classNames";
 import {ThemeSwitcher} from "widgets/ThemeSwitcher";
-import {useState} from "react";
+import {memo, useCallback, useState} from "react";
 import {LangSwitcher} from "widgets/LangSwitcher";
 import {CollapseButton} from "widgets/Sidebar/ui/CollapseButton/CollapseButton";
 import {NavigationLinks} from "widgets/Sidebar/ui/NavigationLinks/NavigationLinks";
 
-export const Sidebar = () => {
+export const Sidebar = memo(function Sidebar() {
     const [isCollapsed, setIsCollapsed] = useState(false);
 
-    const onCollapse = () => {
+    const onCollapse = useCallback(() => {
         setIsCollapsed(prev => !prev);
-    };
+    }, []);
 
     return (
         <div
@@ -23,9 +23,11 @@ export const Sidebar = () => {
                 })
             }>
 
-
             <div className={styles.mainBlock}>
                 <CollapseButton onCollapse={onCollapse}/>
+                <div>
+
+                </div>
                 <NavigationLinks isCollapsed={isCollapsed}/>
             </div>
 
@@ -42,4 +44,4 @@ export const Sidebar = () => {
             </div>
         </div>
     );
-};
+});

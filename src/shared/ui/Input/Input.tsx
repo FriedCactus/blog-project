@@ -12,7 +12,7 @@ interface Props extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'o
 export const Input = memo(function Input(props: Props) {
     const {
         className = '',
-        value,
+        value = '',
         onChange,
         type = 'text',
         placeholder,

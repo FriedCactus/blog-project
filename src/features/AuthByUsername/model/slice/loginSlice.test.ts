@@ -23,6 +23,16 @@ describe('loginSlice', () => {
         });
     });
 
+    test('Should clear username and password', () => {
+        const filledState = {
+            ...state,
+            username: 'username',
+            password: 'username',
+        };
+
+        expect(loginReducer(filledState, loginActions.clearState())).toEqual(state);
+    });
+
     test('Should work with empty state', () => {
 
         expect(loginReducer(undefined, loginActions.setUsername('Username'))).toEqual({
