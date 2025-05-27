@@ -4,7 +4,6 @@ import {i18nForTest} from "shared/config/i18n";
 import {ReactNode} from "react";
 import {MemoryRouter} from "react-router";
 import {type StateSchema, StoreProvider} from "app/providers/StoreProvider";
-import type {DeepPartial} from "../../../types";
 
 interface Options {
     route?: string;

@@ -1,5 +1,4 @@
 import {getLoginUsername} from "./getLoginUsername";
-import {DeepPartial} from "shared/types";
 import {StateSchema} from "app/providers/StoreProvider";
 
 describe("getLoginUsername", () => {

@@ -1,5 +1,4 @@
 import type {StorybookConfig} from '@storybook/react-webpack5';
-import {RuleSetRule} from 'webpack';
 import path from "path";
 import {definePlugin} from "../build/buildPlugins";
 
@@ -33,8 +32,10 @@ const config: StorybookConfig = {
 
         if (config.module) {
             // Обработка svg
-            config.module.rules = config.module.rules?.map((rule: RuleSetRule) => {
-                if (/svg/.test(rule.test as string)) {
+            config.module.rules = config.module.rules?.map((rule) => {
+                if (!rule || typeof rule !== 'object') return;
+
+                if (/svg/.test((rule).test as string)) {
                     return {...rule, exclude: /\.svg$/i};
                 }
 

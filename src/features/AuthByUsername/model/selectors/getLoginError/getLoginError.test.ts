@@ -1,5 +1,4 @@
 import {getLoginError} from "./getLoginError";
-import {DeepPartial} from "shared/types";
 import {StateSchema} from "app/providers/StoreProvider";
 
 describe("getLoginError", () => {

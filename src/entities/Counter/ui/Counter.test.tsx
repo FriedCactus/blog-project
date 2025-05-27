@@ -1,6 +1,5 @@
 import {Counter} from "./Counter";
 import {componentRender} from "shared/lib/tests";
-import type {DeepPartial} from "../../../shared/types";
 import type {StateSchema} from "app/providers/StoreProvider";
 import {fireEvent} from "@testing-library/dom";
 

@@ -24,7 +24,7 @@
         "./src/*"
       ]
     },
-    "strictNullChecks": true
+    "strict": true
   },
   "ts-node": {
     "compilerOptions": {

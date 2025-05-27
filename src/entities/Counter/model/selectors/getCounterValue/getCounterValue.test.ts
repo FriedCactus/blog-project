@@ -1,5 +1,4 @@
 import {getCounterValue} from "./getCounterValue";
-import {DeepPartial} from '../../../../../shared/types';
 import {StateSchema} from "app/providers/StoreProvider";
 
 describe("getCounterValue", () => {
