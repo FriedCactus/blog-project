@@ -17,7 +17,7 @@ type Story = StoryObj<typeof Sidebar>;
 export const LightDesktop: Story = {};
 
 export const DarkDesktop: Story = {
-    decorators: []
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 // Mobile
