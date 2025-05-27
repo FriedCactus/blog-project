@@ -50,7 +50,7 @@ const config: StorybookConfig = {
 
         // Определение глобальных переменных
         config.plugins?.push(
-            definePlugin(true)
+            definePlugin(true, 'http://localhost:8000')
         );
 
         return config;

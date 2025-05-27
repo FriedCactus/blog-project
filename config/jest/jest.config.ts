@@ -8,7 +8,8 @@ const config: Config = {
         "<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)",
     ],
     globals: {
-        "__IS_DEV__": true
+        "__IS_DEV__": true,
+        "__API__": "http://localhost:8000"
     },
     coveragePathIgnorePatterns: [
         "\\\\node_modules\\\\"
