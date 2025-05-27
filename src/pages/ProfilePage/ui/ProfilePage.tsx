@@ -1,5 +1,5 @@
 import {DynamicModuleLoader, ReducersList} from "shared/lib/components";
-import {profileReducer} from "entities/Profile";
+import {ProfileCard, profileReducer} from "entities/Profile";
 
 const reducers: ReducersList = {
     profile: profileReducer
@@ -8,9 +8,7 @@ const reducers: ReducersList = {
 const ProfilePage = () => {
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div>
-                Страница профиля
-            </div>
+            <ProfileCard/>
         </DynamicModuleLoader>
     );
 };
