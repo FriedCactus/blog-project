@@ -27,7 +27,9 @@ export const EditableProfileCard = () => {
     const validateErrors = useSelector(getProfileValidateErrors);
 
     useEffect(() => {
-        dispatch(fetchProfileData());
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData());
+        }
     }, [dispatch]);
 
     const onFirstnameChange = useCallback((value: string) => {

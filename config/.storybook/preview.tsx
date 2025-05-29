@@ -7,6 +7,7 @@ import {
     RouterDecorator,
     StoreDecorator,
     PageDecorator,
+    TranslationDecorator
 } from "../../src/shared/config/storybook";
 
 // Стоит переделать на mode для синхронизации с chromatic
@@ -44,6 +45,7 @@ const preview: Preview = {
     decorators: [
         ThemeDecorator(Theme.LIGHT),
         PageDecorator,
+        TranslationDecorator,
         StoreDecorator(),
         RouterDecorator,
     ]

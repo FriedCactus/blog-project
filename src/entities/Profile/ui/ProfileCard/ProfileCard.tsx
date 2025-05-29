@@ -31,7 +31,7 @@ export const ProfileCard = memo(function ProfileCard(props: Props) {
     const {
         validateErrors,
         profile,
-        isReadonly,
+        isReadonly = true,
         isLoading,
         error,
         onFirstnameChange,
@@ -53,6 +53,7 @@ export const ProfileCard = memo(function ProfileCard(props: Props) {
         [ValidateProfileError.INCORRECT_AGE]: t("validateError.INCORRECT_AGE"),
         [ValidateProfileError.INCORRECT_CITY]: t("validateError.INCORRECT_CITY"),
         [ValidateProfileError.INCORRECT_COUNTRY]: t("validateError.INCORRECT_COUNTRY"),
+        [ValidateProfileError.INCORRECT_CURRENCY]: t("validateError.INCORRECT_CURRENCY"),
         [ValidateProfileError.INCORRECT_USERNAME]: t("validateError.INCORRECT_USERNAME"),
         [ValidateProfileError.SERVER_ERROR]: t("validateError.SERVER_ERROR"),
     }), [t]);

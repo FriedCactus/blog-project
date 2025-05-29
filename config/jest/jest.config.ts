@@ -9,7 +9,8 @@ const config: Config = {
     ],
     globals: {
         "__IS_DEV__": true,
-        "__API__": "http://localhost:8000"
+        "__API__": "http://localhost:8000",
+        "__PROJECT__": 'jest'
     },
     coveragePathIgnorePatterns: [
         "\\\\node_modules\\\\"

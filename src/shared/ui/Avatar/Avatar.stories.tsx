@@ -1,13 +1,13 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {Avatar} from "./Avatar";
 import {storyGlobalsDesktop} from 'shared/config/storybook';
-import image from 'shared/assets/images/avatar.jpg';
+import avatar from 'shared/assets/test/avatar.jpg';
 
 const meta: Meta<typeof Avatar> = {
     title: 'shared/Avatar',
     component: Avatar,
     args: {
-        src: image,
+        src: avatar,
         alt: 'Картинка',
         size: 150
     },

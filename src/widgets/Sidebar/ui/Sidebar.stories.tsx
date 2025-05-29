@@ -1,7 +1,16 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {Sidebar} from "./Sidebar";
 import {Theme} from "app/providers/ThemeProvider";
-import {storyGlobalsMobile, storyGlobalsDesktop, ThemeDecorator} from 'shared/config/storybook';
+import {storyGlobalsDesktop, ThemeDecorator, StoreDecorator} from 'shared/config/storybook';
+
+const state = {
+    user: {
+        authData: {
+            id: '',
+            username: ''
+        }
+    }
+};
 
 const meta: Meta<typeof Sidebar> = {
     title: 'widgets/Sidebar',
@@ -13,19 +22,20 @@ export default meta;
 
 type Story = StoryObj<typeof Sidebar>;
 
-// Desktop
-export const LightDesktop: Story = {};
-
-export const DarkDesktop: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)],
+export const PrimaryWithAuth: Story = {
+    decorators: [
+        StoreDecorator(state)
+    ],
 };
 
-// Mobile
-export const LightMobile: Story = {
-    ...storyGlobalsMobile
+export const PrimaryWithoutAuth: Story = {};
+
+// Dark
+export const PrimaryWithAuthDark: Story = {
+    decorators: [
+        StoreDecorator(state),
+        ThemeDecorator(Theme.DARK)
+    ],
 };
 
-export const DarkMobile: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)],
-    ...storyGlobalsMobile
-};
+export const PrimaryWithoutAuthDark: Story = {};
