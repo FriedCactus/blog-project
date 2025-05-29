@@ -5,7 +5,8 @@ import {ButtonHTMLAttributes, memo, PropsWithChildren} from "react";
 export enum ButtonVariant {
     CLEAR = 'clear',
     PRIMARY = 'primary',
-    SECONDARY = 'secondary'
+    SECONDARY = 'secondary',
+    OUTLINE = 'outline',
 }
 
 export enum ButtonSize {

@@ -1,15 +1,8 @@
-import {DynamicModuleLoader, ReducersList} from "shared/lib/components";
-import {ProfileCard, profileReducer} from "entities/Profile";
-
-const reducers: ReducersList = {
-    profile: profileReducer
-};
+import {EditableProfileCard} from "features/EditableProfileCard";
 
 const ProfilePage = () => {
     return (
-        <DynamicModuleLoader reducers={reducers}>
-            <ProfileCard/>
-        </DynamicModuleLoader>
+        <EditableProfileCard/>
     );
 };
 

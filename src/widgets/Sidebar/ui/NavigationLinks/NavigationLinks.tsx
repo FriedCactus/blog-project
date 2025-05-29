@@ -8,15 +8,17 @@ interface Props {
 }
 
 export const NavigationLinks = memo(function NavigationLinks({isCollapsed}: Props) {
-    return <div className={styles.NavigationLinks}>
-        {
-            sidebarItemsList.map(
-                (navLink) => <NavigationLink
-                    key={navLink.path}
-                    navLink={navLink}
-                    isCollapsed={isCollapsed}
-                />
-            )
-        }
-    </div>;
+    return (
+        <div className={styles.NavigationLinks}>
+            {
+                sidebarItemsList.map(
+                    (navLink) => <NavigationLink
+                        key={navLink.path}
+                        navLink={navLink}
+                        isCollapsed={isCollapsed}
+                    />
+                )
+            }
+        </div>
+    );
 });

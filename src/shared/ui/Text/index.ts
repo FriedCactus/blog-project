@@ -1,1 +1,1 @@
-export {Text, TextVariant} from "./Text";
+export {Text, TextVariant, TextAlign} from "./Text";

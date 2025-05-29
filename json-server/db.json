@@ -31,13 +31,13 @@
     }
   ],
   "profile": {
-    "firstName": "Иван",
-    "lastName": "Иванов",
+    "firstName": "Алексей",
+    "lastName": "Белянчиков",
     "age": 29,
     "currency": "RUB",
     "country": "Russia",
-    "city": "Ulyanovsk",
+    "city": "Ульяновск",
     "username": "admin",
-    "avatar": ""
+    "avatar": "https://dis-blog.thalesgroup.com/wp-content/uploads/2020/10/hacker-sqr-380x380.jpg"
   }
 }

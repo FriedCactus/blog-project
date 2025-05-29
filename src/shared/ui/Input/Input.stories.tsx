@@ -7,7 +7,8 @@ const meta: Meta<typeof Input> = {
     title: 'shared/Input',
     component: Input,
     args: {
-        autoFocus: true
+        autoFocus: true,
+        placeholder: 'Инпут'
     },
     ...storyGlobalsDesktop
 };

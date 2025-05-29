@@ -4,7 +4,7 @@ import {ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef, useState} fro
 
 interface Props extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'> {
     className?: string;
-    value?: string;
+    value?: string | number;
     onChange?: (value: string) => void;
     autoFocus?: boolean;
 }

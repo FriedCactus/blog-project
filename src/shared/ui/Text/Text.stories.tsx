@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {Text, TextVariant} from "./Text";
+import {Text, TextVariant, TextAlign} from "./Text";
 import {storyGlobalsDesktop, ThemeDecorator} from 'shared/config/storybook';
 import {Theme} from "app/providers/ThemeProvider";
 
@@ -48,6 +48,33 @@ export const OnlyText: Story = {
     }
 };
 
+export const LeftAlign: Story = {
+    args: {
+        children: 'Текст',
+        title: 'Заголовок',
+        textAlign: TextAlign.LEFT
+    }
+};
+
+export const RightAlign: Story = {
+    args: {
+        children: 'Текст',
+        title: 'Заголовок',
+        textAlign: TextAlign.RIGHT
+    }
+};
+
+
+export const CenterAlign: Story = {
+    args: {
+        children: 'Текст',
+        title: 'Заголовок',
+        textAlign: TextAlign.CENTER
+    }
+};
+
+
+// Dark
 export const PrimaryDark: Story = {
     args: {
         children: 'Текст',

@@ -60,3 +60,9 @@
     color: var(--primary-color);
     background-color: var(--bg-color);
 }
+
+.outline {
+    color: var(--primary-color);
+    background: none;
+    box-shadow: 0 0 0 2px var(--primary-color);
+}

@@ -38,15 +38,7 @@ export const buildLoaders = ({isDev}: BuildOptions): RuleSetRule[] => {
 
     const resourceLoader = {
         test: /\.(png|jpe?g|gif)$/i,
-        use: [
-            {
-                loader: 'url-loader',
-                options: {
-                    limit: 8192,
-                }
-            },
-        ],
-        type: 'javascript/auto'
+        type: 'asset/resource',
     };
 
     return [

@@ -1,0 +1,24 @@
+.selectContainer {
+    display: flex;
+    align-items: center;
+    gap: var(--small-gap);
+}
+
+.select {
+    font: var(--font-m);
+    color: var(--secondary-color);
+    width: fit-content;
+    padding: 2px 4px;
+
+    border: none;
+    border-radius: 2px;
+    background: var(--bg-color-inverted);
+
+    &:focus {
+        outline: 1px solid var(--secondary-color);
+    }
+
+    &:disabled {
+        opacity: 0.7;
+    }
+}

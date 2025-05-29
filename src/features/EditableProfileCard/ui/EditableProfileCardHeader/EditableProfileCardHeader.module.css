@@ -1,0 +1,9 @@
+.EditableProfileCardHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttonsContainer {
+    display: flex;
+    gap: var(--primary-gap)
+}

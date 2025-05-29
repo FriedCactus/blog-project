@@ -7,7 +7,8 @@ import {AppPaths} from "shared/config/routes/routes";
 export interface NavLink {
     text: string,
     path: AppPaths,
-    icon: ReactNode
+    icon: ReactNode,
+    authOnly?: boolean
 }
 
 export const sidebarItemsList: NavLink[] = [
@@ -24,6 +25,7 @@ export const sidebarItemsList: NavLink[] = [
     {
         text: "Профиль",
         path: AppPaths.PROFILE,
-        icon: <ProfileIcon width={20}/>
+        icon: <ProfileIcon width={20}/>,
+        authOnly: true
     },
 ];

@@ -29,6 +29,12 @@ export const Clear: Story = {
     },
 };
 
+export const Outline: Story = {
+    args: {
+        variant: ButtonVariant.OUTLINE,
+    },
+};
+
 export const WithoutPaddings: Story = {
     args: {
         withPaddings: false

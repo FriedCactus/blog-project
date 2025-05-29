@@ -1,6 +1,6 @@
 type ConditionalCls = Record<string, string | boolean | undefined>;
 
-export const classNames = (cls: string, conditionalCls: ConditionalCls = {}, additional: string[] = []): string => {
+export const classNames = (cls: string, conditionalCls: ConditionalCls = {}, additional: (string | undefined)[] = []): string => {
     return [
         cls,
         ...additional,

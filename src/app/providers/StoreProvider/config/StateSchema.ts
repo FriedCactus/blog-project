@@ -1,7 +1,7 @@
 import type {CounterSchema} from "entities/Counter";
 import type {UserSchema} from 'entities/User';
 import type {LoginSchema} from "features/AuthByUsername";
-import {ProfileSchema} from "entities/Profile";
+import {ProfileSchema} from "features/EditableProfileCard";
 import {AxiosInstance} from "axios";
 
 export interface StaticStateSchema {
@@ -21,6 +21,7 @@ interface ThunkWithExtra {
 export interface ThunkConfig<T> {
     rejectValue: T;
     extra: ThunkWithExtra;
+    state: StateSchema;
 }
 
 export type StateSchema = StaticStateSchema & LazyStateSchema;

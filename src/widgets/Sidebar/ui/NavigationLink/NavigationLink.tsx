@@ -4,6 +4,8 @@ import {RouterLink} from "shared/ui/RouterLink";
 import {RouterLinkVariant} from "shared/ui/RouterLink/RouterLink";
 import {useTranslation} from "react-i18next";
 import type {NavLink} from "../../model/items";
+import {useSelector} from "react-redux";
+import {getUserAuthData} from "entities/User";
 
 interface Props {
     navLink: NavLink;
@@ -11,11 +13,14 @@ interface Props {
 }
 
 export const NavigationLink = (props: Props) => {
+    const isAuth = useSelector(getUserAuthData);
     const {navLink, isCollapsed} = props;
     const {path, icon, text} = navLink;
 
     const {t} = useTranslation();
 
+    // Временный костыль
+    if (navLink.authOnly && !isAuth) return null;
     return (
         <RouterLink
             className={classNames(
