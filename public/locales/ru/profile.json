@@ -20,6 +20,7 @@
     "INCORRECT_AGE": "Ошибка в заполнении возраста",
     "INCORRECT_CITY": "Ошибка в заполнении города",
     "INCORRECT_COUNTRY": "Ошибка в заполнении страны",
+    "INCORRECT_CURRENCY": "Ошибка в заполнении валюты",
     "INCORRECT_USERNAME": "Ошибка в заполнении имени пользователя",
     "SERVER_ERROR": "Ошибка сервера"
   }
