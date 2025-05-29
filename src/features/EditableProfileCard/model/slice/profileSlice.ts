@@ -7,7 +7,8 @@ import {updateProfileData} from "../services/updateProfileData/updateProfileData
 const initialState: ProfileSchema = {
     error: '',
     isLoading: false,
-    isReadonly: true
+    isReadonly: true,
+    validateErrors: []
 };
 
 const profileSlice = createSlice({
@@ -19,6 +20,7 @@ const profileSlice = createSlice({
         },
         undoChanges(state) {
             state.formData = state.profileData;
+            state.validateErrors = [];
         },
         updateProfile(state, action: PayloadAction<Partial<Profile>>) {
             if (!state.formData) return;
@@ -47,7 +49,7 @@ const profileSlice = createSlice({
             })
             // updateProfileData
             .addCase(updateProfileData.pending, (state) => {
-                state.error = '';
+                state.validateErrors = [];
                 state.isLoading = true;
             })
             .addCase(updateProfileData.fulfilled, (state, action) => {
@@ -55,10 +57,11 @@ const profileSlice = createSlice({
                 state.profileData = action.payload;
                 state.formData = action.payload;
                 state.isReadonly = true;
+                state.validateErrors = [];
             })
             .addCase(updateProfileData.rejected, (state, action) => {
                 state.isLoading = false;
-                state.error = action.payload;
+                state.validateErrors = action.payload ?? [];
             });
     }
 });

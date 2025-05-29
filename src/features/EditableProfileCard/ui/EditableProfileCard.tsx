@@ -4,6 +4,7 @@ import {fetchProfileData} from "../model/services/fetchProfileData/fetchProfileD
 import {getProfileFormData} from "../model/selectors/getProfileFormData/getProfileFormData";
 import {getProfileIsLoading} from "../model/selectors/getProfileIsLoading/getProfileIsLoading";
 import {getProfileIsReadonly} from "../model/selectors/getProfileIsReadonly/getProfileIsReadonly";
+import {getProfileValidateErrors} from "../model/selectors/getProfileValidateErrors/getProfileValidateErrors";
 import {useCallback, useEffect} from "react";
 import {useSelector} from "react-redux";
 import {DynamicModuleLoader, ReducersList} from "shared/lib/components";
@@ -23,6 +24,7 @@ export const EditableProfileCard = () => {
     const isLoading = useSelector(getProfileIsLoading);
     const isReadonly = useSelector(getProfileIsReadonly);
     const error = useSelector(getProfileError);
+    const validateErrors = useSelector(getProfileValidateErrors);
 
     useEffect(() => {
         dispatch(fetchProfileData());
@@ -83,6 +85,7 @@ export const EditableProfileCard = () => {
             <div className={styles.EditableProfileCard}>
                 <EditableProfileCardHeader/>
                 <ProfileCard
+                    validateErrors={validateErrors}
                     profile={profile}
                     isLoading={isLoading}
                     isReadonly={isReadonly}

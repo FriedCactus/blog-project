@@ -1,17 +1,18 @@
 import styles from "./ProfileCard.module.css";
 import {useTranslation} from "react-i18next";
 import {Input} from "shared/ui/Input";
-import type {Profile} from "../../model/types/profile";
+import {Profile, ValidateProfileError} from "../../model/types/profile";
 import {LoadingSpinner} from "shared/ui/LoadingSpinner";
 import {classNames} from "shared/lib/classNames";
 import {Text, TextAlign, TextVariant} from 'shared/ui/Text';
-import {memo} from "react";
+import {memo, useMemo} from "react";
 import {Avatar} from 'shared/ui/Avatar';
 import {CurrencySelect} from "entities/Currency";
 import {CountrySelect} from "entities/Country";
 import type {Country, Currency} from "shared/const";
 
 interface Props {
+    validateErrors?: ValidateProfileError[];
     profile?: Profile;
     isReadonly?: boolean;
     isLoading?: boolean;
@@ -28,6 +29,7 @@ interface Props {
 
 export const ProfileCard = memo(function ProfileCard(props: Props) {
     const {
+        validateErrors,
         profile,
         isReadonly,
         isLoading,
@@ -44,6 +46,17 @@ export const ProfileCard = memo(function ProfileCard(props: Props) {
 
     const {t} = useTranslation('profile');
 
+    const validateErrorsTranslates = useMemo(() => ({
+        [ValidateProfileError.INCORRECT_PROFILE_DATA]: t("validateError.INCORRECT_PROFILE_DATA"),
+        [ValidateProfileError.INCORRECT_FIRSTNAME]: t("validateError.INCORRECT_FIRSTNAME"),
+        [ValidateProfileError.INCORRECT_LASTNAME]: t("validateError.INCORRECT_LASTNAME"),
+        [ValidateProfileError.INCORRECT_AGE]: t("validateError.INCORRECT_AGE"),
+        [ValidateProfileError.INCORRECT_CITY]: t("validateError.INCORRECT_CITY"),
+        [ValidateProfileError.INCORRECT_COUNTRY]: t("validateError.INCORRECT_COUNTRY"),
+        [ValidateProfileError.INCORRECT_USERNAME]: t("validateError.INCORRECT_USERNAME"),
+        [ValidateProfileError.SERVER_ERROR]: t("validateError.SERVER_ERROR"),
+    }), [t]);
+
     if (isLoading) {
         return (
             <div className={classNames(styles.ProfileCard, {}, [styles.loadingWrapper])}>
@@ -51,6 +64,7 @@ export const ProfileCard = memo(function ProfileCard(props: Props) {
             </div>
         );
     }
+
 
     if (error) {
         return (
@@ -125,6 +139,14 @@ export const ProfileCard = memo(function ProfileCard(props: Props) {
                     onChange={onAvatarChange}
                 />
             </div>
+
+            {
+                validateErrors?.map(error => (
+                    <Text key={error} variant={TextVariant.ERROR}>
+                        {validateErrorsTranslates[error]}
+                    </Text>
+                ))
+            }
 
         </div>
     );

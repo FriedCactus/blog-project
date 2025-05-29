@@ -12,5 +12,15 @@
   "Страна": "Country",
   "Город": "City",
   "Имя пользователя": "Username",
-  "Аватар": "Avatar"
+  "Аватар": "Avatar",
+  "validateError": {
+    "INCORRECT_PROFILE_DATA": "Error in profile data",
+    "INCORRECT_FIRSTNAME": "Incorrect firstname",
+    "INCORRECT_LASTNAME": "Incorrect lastname",
+    "INCORRECT_AGE": "Incorrect age",
+    "INCORRECT_CITY": "Incorrect city",
+    "INCORRECT_COUNTRY": "Incorrect country",
+    "INCORRECT_USERNAME": "Incorrect username",
+    "SERVER_ERROR": "Server error"
+  }
 }
