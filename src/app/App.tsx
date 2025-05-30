@@ -3,10 +3,12 @@ import {NavBar} from "widgets/NavBar";
 import {Sidebar} from "widgets/Sidebar";
 import {Suspense, useEffect} from "react";
 import {useAppDispatch} from "shared/lib/hooks";
-import {userActions} from "entities/User";
+import {getUserInited, userActions} from "entities/User";
+import {useSelector} from "react-redux";
 
 export const App = () => {
     const dispatch = useAppDispatch();
+    const userInited = useSelector(getUserInited);
 
     useEffect(() => {
         dispatch(userActions.initAuthData());
@@ -20,7 +22,7 @@ export const App = () => {
                 <div className="content-layout">
                     <Sidebar/>
                     <div className="page-wrapper">
-                        <AppRouter/>
+                        {userInited && <AppRouter/>}
                     </div>
                 </div>
             </Suspense>

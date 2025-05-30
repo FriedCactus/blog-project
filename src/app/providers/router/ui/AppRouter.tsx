@@ -1,31 +1,30 @@
-import {Suspense, useMemo} from "react";
 import {Route, Routes} from "react-router";
-import {routes} from "shared/config/routes";
+import {AppRouteProps, routes} from "shared/config/routes";
+import {ProtectedRoute} from "./ProtectedRoute/ProtectedRoute";
+import {Suspense, useCallback} from "react";
 import {PageLoader} from "widgets/PageLoader";
-import {useSelector} from "react-redux";
-import {getUserAuthData} from "entities/User";
 
 export const AppRouter = () => {
-    const isAuth = useSelector(getUserAuthData);
+    const routeRender = useCallback((route: AppRouteProps) => {
+        const element =
+            <Suspense fallback={<PageLoader/>}>
+                {route.element}
+            </Suspense>;
 
-    // Временный костыль
-    const routesList = useMemo(() => routes.filter((route) => !(route.authOnly && !isAuth)), [isAuth]);
+        return (
+            <Route
+                key={route.path}
+                path={route.path}
+                element={
+                    route.authOnly ? <ProtectedRoute>{element}</ProtectedRoute> : element
+                }
+            />
+        );
+    }, []);
 
     return (
         <Routes>
-            {
-                routesList.map(({path, element}) => (
-                    <Route
-                        key={path}
-                        path={path}
-                        element={
-                            <Suspense fallback={<PageLoader/>}>
-                                {element}
-                            </Suspense>
-                        }
-                    />
-                ))
-            }
+            {routes.map(routeRender)}
         </Routes>
     );
 };
