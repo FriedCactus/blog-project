@@ -1,9 +1,10 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {ProfileCard} from "./ProfileCard";
-import {storyGlobalsDesktop} from 'shared/config/storybook';
+import {storyGlobalsDesktop, ThemeDecorator} from 'shared/config/storybook';
 import {Country, Currency} from "shared/const";
 import avatar from 'shared/assets/test/avatar.jpg';
 import {ValidateProfileError} from "entities/Profile";
+import {Theme} from "app/providers/ThemeProvider";
 
 const meta: Meta<typeof ProfileCard> = {
     title: 'entities/ProfileCard',
@@ -48,43 +49,53 @@ export const WithValidateError: Story = {
 };
 
 // Dark
-export const PrimaryDark: Story = {};
+export const PrimaryDark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)]
+};
 
 export const ErrorDark: Story = {
     args: {
         error: 'Ошибка'
-    }
+    },
+    decorators: [ThemeDecorator(Theme.DARK)]
 };
 
 export const LoadingDark: Story = {
     args: {
         isLoading: true
-    }
+    },
+    decorators: [ThemeDecorator(Theme.DARK)]
 };
 
 export const WithValidateErrorDark: Story = {
     args: {
         validateErrors: [ValidateProfileError.INCORRECT_FIRSTNAME]
-    }
+    },
+    decorators: [ThemeDecorator(Theme.DARK)]
 };
 
 // Green
-export const PrimaryGreen: Story = {};
+export const PrimaryGreen: Story = {
+    decorators: [ThemeDecorator(Theme.GREEN)]
+};
 
 export const ErrorGreen: Story = {
     args: {
         error: 'Ошибка'
-    }
+    },
+    decorators: [ThemeDecorator(Theme.GREEN)]
 };
 
 export const LoadingGreen: Story = {
     args: {
         isLoading: true
-    }
+    },
+    decorators: [ThemeDecorator(Theme.GREEN)]
 };
 
 export const WithValidateErrorGreen: Story = {
     args: {
         validateErrors: [ValidateProfileError.INCORRECT_FIRSTNAME]
-    }
+    },
+    decorators: [ThemeDecorator(Theme.GREEN)]
 };

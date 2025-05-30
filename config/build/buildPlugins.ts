@@ -3,6 +3,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import {BuildOptions} from "./types/config";
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 
 export const definePlugin = (isDev: boolean, apiUrl: string, project: string) => (
     new webpack.DefinePlugin({
@@ -23,6 +24,7 @@ export const buildPlugins = ({paths, isDev, apiUrl, project}: BuildOptions): web
             chunkFilename: "css/[name].[contenthash:8].css",
         }),
         definePlugin(isDev, apiUrl, project),
+        // Для анализа бандла на проде
         // new BundleAnalyzerPlugin({
         //     openAnalyzer: false
         // })
@@ -32,6 +34,10 @@ export const buildPlugins = ({paths, isDev, apiUrl, project}: BuildOptions): web
         new BundleAnalyzerPlugin({
             openAnalyzer: false
         })
+    );
+
+    if (isDev) plugins.push(
+        new ReactRefreshWebpackPlugin()
     );
 
     return plugins;

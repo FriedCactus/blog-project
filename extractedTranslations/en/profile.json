@@ -1,0 +1,25 @@
+{
+  "validateError": {
+    "INCORRECT_AGE": "",
+    "INCORRECT_CITY": "",
+    "INCORRECT_COUNTRY": "",
+    "INCORRECT_CURRENCY": "",
+    "INCORRECT_FIRSTNAME": "",
+    "INCORRECT_LASTNAME": "",
+    "INCORRECT_PROFILE_DATA": "",
+    "INCORRECT_USERNAME": "",
+    "SERVER_ERROR": ""
+  },
+  "Аватар": "",
+  "Возраст": "",
+  "Город": "",
+  "Имя": "",
+  "Имя пользователя": "",
+  "Отменить": "",
+  "Попробуйте обновить страницу": "",
+  "Произошла ошибка при загрузке профиля": "",
+  "Профиль": "",
+  "Редактировать": "",
+  "Сохранить": "",
+  "Фамилия": ""
+}
