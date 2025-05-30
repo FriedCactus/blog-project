@@ -1,1 +1,1 @@
-export {CountrySelect,} from './ui/CountrySelect';
+export {CountrySelect} from './ui/CountrySelect';
