@@ -67,3 +67,24 @@ export const WithValidateErrorDark: Story = {
         validateErrors: [ValidateProfileError.INCORRECT_FIRSTNAME]
     }
 };
+
+// Green
+export const PrimaryGreen: Story = {};
+
+export const ErrorGreen: Story = {
+    args: {
+        error: 'Ошибка'
+    }
+};
+
+export const LoadingGreen: Story = {
+    args: {
+        isLoading: true
+    }
+};
+
+export const WithValidateErrorGreen: Story = {
+    args: {
+        validateErrors: [ValidateProfileError.INCORRECT_FIRSTNAME]
+    }
+};

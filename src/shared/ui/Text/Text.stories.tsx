@@ -64,7 +64,6 @@ export const RightAlign: Story = {
     }
 };
 
-
 export const CenterAlign: Story = {
     args: {
         children: 'Текст',
@@ -72,7 +71,6 @@ export const CenterAlign: Story = {
         textAlign: TextAlign.CENTER
     }
 };
-
 
 // Dark
 export const PrimaryDark: Story = {
@@ -113,4 +111,45 @@ export const OnlyTextDark: Story = {
         children: 'Текст'
     },
     decorators: [ThemeDecorator(Theme.DARK)]
+};
+
+// Green
+export const PrimaryGreen: Story = {
+    args: {
+        children: 'Текст',
+        title: 'Заголовок'
+    },
+    decorators: [ThemeDecorator(Theme.GREEN)]
+};
+
+export const SecondaryGreen: Story = {
+    args: {
+        children: 'Текст',
+        title: 'Заголовок',
+        variant: TextVariant.SECONDARY
+    },
+    decorators: [ThemeDecorator(Theme.GREEN)]
+};
+
+export const ErrorGreen: Story = {
+    args: {
+        children: 'Текст',
+        title: 'Заголовок',
+        variant: TextVariant.ERROR
+    },
+    decorators: [ThemeDecorator(Theme.GREEN)]
+};
+
+export const OnlyTitleGreen: Story = {
+    args: {
+        title: 'Заголовок'
+    },
+    decorators: [ThemeDecorator(Theme.GREEN)]
+};
+
+export const OnlyTextGreen: Story = {
+    args: {
+        children: 'Текст'
+    },
+    decorators: [ThemeDecorator(Theme.GREEN)]
 };

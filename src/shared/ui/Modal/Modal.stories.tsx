@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {Modal} from "./Modal";
-import {ThemeDecorator, storyGlobalsDesktop, storyGlobalsMobile} from "shared/config/storybook";
+import {ThemeDecorator, storyGlobalsDesktop} from "shared/config/storybook";
 import {Theme} from "app/providers/ThemeProvider";
 
 const meta: Meta<typeof Modal> = {
@@ -19,19 +19,12 @@ export default meta;
 
 type Story = StoryObj<typeof Modal>;
 
-// Desktop
-export const LightDesktop: Story = {};
+export const PrimaryLight: Story = {};
 
-export const DarkDesktop: Story = {
+export const PrimaryDark: Story = {
     decorators: [ThemeDecorator(Theme.DARK)],
 };
 
-// Mobile
-export const LightMobile: Story = {
-    ...storyGlobalsMobile
-};
-
-export const DarkMobile: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)],
-    ...storyGlobalsMobile
+export const PrimaryGreen: Story = {
+    decorators: [ThemeDecorator(Theme.GREEN)],
 };

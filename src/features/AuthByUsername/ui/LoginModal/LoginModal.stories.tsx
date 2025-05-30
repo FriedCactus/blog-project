@@ -21,3 +21,7 @@ export const Primary: Story = {};
 export const PrimaryDark: Story = {
     decorators: [ThemeDecorator(Theme.DARK)]
 };
+
+export const PrimaryGreen: Story = {
+    decorators: [ThemeDecorator(Theme.GREEN)]
+};

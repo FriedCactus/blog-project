@@ -1,0 +1,7 @@
+.green_theme {
+    --bg-color: rgb(213 208 192);
+    --bg-color-inverted: rgb(82 108 46);
+
+    --primary-color: rgb(91 64 23);
+    --secondary-color: rgb(213 208 192);
+}

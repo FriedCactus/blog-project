@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {RouterLink, RouterLinkVariant} from "./RouterLink";
 import {Theme} from "app/providers/ThemeProvider";
-import {storyGlobalsDesktop, storyGlobalsMobile, ThemeDecorator} from "shared/config/storybook";
+import {storyGlobalsDesktop, ThemeDecorator} from "shared/config/storybook";
 
 const meta: Meta<typeof RouterLink> = {
     title: 'shared/RouterLink',
@@ -16,47 +16,34 @@ export default meta;
 
 type Story = StoryObj<typeof RouterLink>;
 
-// Desktop
-export const PrimaryDesktop: Story = {};
+export const Primary: Story = {};
 
-export const SecondaryDesktop: Story = {
+export const Secondary: Story = {
     args: {
         variant: RouterLinkVariant.SECONDARY
     }
 };
 
-export const PrimaryDarkDesktop: Story = {
+export const PrimaryDark: Story = {
     decorators: [ThemeDecorator(Theme.DARK)]
 };
 
-export const SecondaryDarkDesktop: Story = {
+// Dark
+export const SecondaryDark: Story = {
     args: {
         variant: RouterLinkVariant.SECONDARY
     },
     decorators: [ThemeDecorator(Theme.DARK)]
 };
 
-// Mobile
-export const PrimaryMobile: Story = {
-    ...storyGlobalsMobile
+// Green
+export const PrimaryGreen: Story = {
+    decorators: [ThemeDecorator(Theme.GREEN)]
 };
 
-export const SecondaryMobile: Story = {
+export const SecondaryGreen: Story = {
     args: {
         variant: RouterLinkVariant.SECONDARY
     },
-    ...storyGlobalsMobile
-};
-
-export const PrimaryDarkMobile: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)],
-    ...storyGlobalsMobile
-};
-
-export const SecondaryDarkMobile: Story = {
-    args: {
-        variant: RouterLinkVariant.SECONDARY
-    },
-    decorators: [ThemeDecorator(Theme.DARK)],
-    ...storyGlobalsMobile
+    decorators: [ThemeDecorator(Theme.GREEN)]
 };

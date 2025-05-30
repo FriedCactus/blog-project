@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import MainPage from "./MainPage";
 import {Theme} from "app/providers/ThemeProvider";
-import {storyGlobalsMobile, storyGlobalsDesktop, ThemeDecorator} from 'shared/config/storybook';
+import {storyGlobalsDesktop, ThemeDecorator} from 'shared/config/storybook';
 
 const meta: Meta<typeof MainPage> = {
     title: 'pages/MainPage',
@@ -13,19 +13,12 @@ export default meta;
 
 type Story = StoryObj<typeof MainPage>;
 
-// Desktop
-export const LightDesktop: Story = {};
+export const Primary: Story = {};
 
-export const DarkDesktop: Story = {
+export const PrimaryDark: Story = {
     decorators: [ThemeDecorator(Theme.DARK)]
 };
 
-// Mobile
-export const LightMobile: Story = {
-    ...storyGlobalsMobile
-};
-
-export const DarkMobile: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)],
-    ...storyGlobalsMobile
+export const PrimaryGreen: Story = {
+    decorators: [ThemeDecorator(Theme.GREEN)]
 };

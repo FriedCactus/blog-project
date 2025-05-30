@@ -15,7 +15,6 @@ interface Props {
     options?: SelectOption[];
 }
 
-
 export const Select = memo(function Select(props: Props) {
     const {
         disabled,
@@ -27,7 +26,7 @@ export const Select = memo(function Select(props: Props) {
     } = props;
 
     const optionsList = useMemo(() => options?.map(({text, value}) => (
-        <option key={value} value={value}>{text}</option>
+        <option key={value} className={styles.option} value={value}>{text}</option>
     )), [options]);
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {

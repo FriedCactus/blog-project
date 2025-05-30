@@ -13,18 +13,14 @@ export default meta;
 
 type Story = StoryObj<typeof LoadingSpinner>;
 
-// Desktop
-export const LightDesktop: Story = {};
+export const Primary: Story = {};
 
-export const DarkDesktop: Story = {
+export const PrimaryDark: Story = {
     decorators: [ThemeDecorator(Theme.DARK)],
     ...storyGlobalsMobile
 };
 
-// Mobile
-export const LightMobile: Story = {};
-
-export const DarkMobile: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)],
+export const PrimaryGreen: Story = {
+    decorators: [ThemeDecorator(Theme.GREEN)],
     ...storyGlobalsMobile
 };

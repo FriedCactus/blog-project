@@ -38,4 +38,18 @@ export const PrimaryWithAuthDark: Story = {
     ],
 };
 
-export const PrimaryWithoutAuthDark: Story = {};
+export const PrimaryWithoutAuthDark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+// Green
+export const PrimaryWithAuthGreen: Story = {
+    decorators: [
+        StoreDecorator(state),
+        ThemeDecorator(Theme.GREEN)
+    ],
+};
+
+export const PrimaryWithoutAuthGreen: Story = {
+    decorators: [ThemeDecorator(Theme.GREEN)],
+};
