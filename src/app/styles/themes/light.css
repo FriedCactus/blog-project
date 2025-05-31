@@ -1,7 +1,12 @@
 .light_theme {
+    /* Background */
     --bg-color: rgb(188 198 204);
     --bg-color-inverted: rgb(49 49 61);
 
     --primary-color: #105f8c;
     --secondary-color: #47a8f1;
+
+    /* Skeleton */
+    --skeleton-color: #fff;
+    --skeleton-shadow: rgb(49 49 61 / 30%);
 }

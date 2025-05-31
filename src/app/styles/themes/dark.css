@@ -1,7 +1,12 @@
 .dark_theme {
+    /* Background */
     --bg-color: rgb(49 49 61);
     --bg-color-inverted: rgb(112 117 122);
 
     --primary-color: #ef89c6;
     --secondary-color: #6de1d1;
+
+    /* Skeleton */
+    --skeleton-color: #fff;
+    --skeleton-shadow: rgb(112 117 122 / 30%);
 }

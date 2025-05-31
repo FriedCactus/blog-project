@@ -1,0 +1,24 @@
+.ArticleSkeleton {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: var(--large-gap);
+    padding-bottom: 50px;
+}
+
+.circleSkeleton {
+    align-self: center;
+}
+
+.titleSkeleton {
+    display: flex;
+    flex-direction: column;
+    gap: var(--extra-gap);
+}
+
+.contentSkeleton {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--extra-gap);
+}

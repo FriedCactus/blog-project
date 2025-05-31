@@ -29,8 +29,7 @@ export const DynamicModuleLoader = (props: PropsWithChildren<Props>) => {
                 type: `@@INIT ${reducerPath} reducer`
             });
         });
-        //eslint-disable-next-line
-    }, []);
+    }, [dispatch, reducers]);
 
     return (
         <>

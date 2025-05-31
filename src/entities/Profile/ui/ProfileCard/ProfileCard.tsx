@@ -66,12 +66,10 @@ export const ProfileCard = memo(function ProfileCard(props: Props) {
         );
     }
 
-
     if (error) {
         return (
             <div className={styles.ProfileCard}>
                 <Text
-                    className={styles.errorText}
                     variant={TextVariant.ERROR}
                     textAlign={TextAlign.CENTER}
                     title={t('Произошла ошибка при загрузке профиля')}

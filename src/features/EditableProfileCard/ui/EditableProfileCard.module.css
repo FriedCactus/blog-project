@@ -1,5 +1,5 @@
 .EditableProfileCard {
     display: flex;
     flex-direction: column;
-    gap: var(--title-gap);
+    gap: var(--large-gap);
 }
