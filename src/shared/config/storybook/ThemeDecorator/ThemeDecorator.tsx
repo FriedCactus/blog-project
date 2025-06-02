@@ -13,7 +13,7 @@ export const ThemeDecorator = (theme: Theme): DecoratorFunction<ReactRenderer, o
 
         return (
             <ThemeProvider initialTheme={theme}>
-                <div id="app" className={`app ${theme}`}>
+                <div className={theme}>
                     <Story/>
                 </div>
             </ThemeProvider>

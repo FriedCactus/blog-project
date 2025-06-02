@@ -1,7 +1,7 @@
 import {Decorator} from "@storybook/react";
 
 export const PageDecorator: Decorator = (Story) => (
-    <div className="page-wrapper">
+    <div className="app page-wrapper">
         <Story/>
     </div>
 );
