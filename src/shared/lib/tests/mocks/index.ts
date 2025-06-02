@@ -1,1 +1,0 @@
-export {emptyProfile, filledProfile} from './profile';

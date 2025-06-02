@@ -1,7 +1,6 @@
 import {updateProfileData} from "./updateProfileData";
 import {TestAsyncThunk} from "shared/lib/tests";
-import {filledProfile} from "shared/lib/tests/mocks";
-import {ValidateProfileError} from "entities/Profile";
+import {filledProfile, ValidateProfileError} from "entities/Profile";
 
 const state = {
     profile: {

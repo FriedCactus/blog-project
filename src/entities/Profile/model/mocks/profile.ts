@@ -1,4 +1,4 @@
-import {Profile} from "entities/Profile";
+import {Profile} from "../types/profile";
 import {Country, Currency} from "shared/const";
 
 export const filledProfile: Profile = {

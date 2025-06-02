@@ -1,5 +1,5 @@
 import {ReactNode} from "react";
-import {AppPaths} from "shared/config/routes/routes";
+import {AppPaths} from "shared/config/routes";
 import {Icon} from "shared/ui/Icon";
 
 export interface NavLink {
@@ -9,7 +9,7 @@ export interface NavLink {
     authOnly?: boolean
 }
 
-export const sidebarItemsList: NavLink[] = [
+export const sidebarItems: NavLink[] = [
     {
         text: "Главная",
         path: AppPaths.MAIN,

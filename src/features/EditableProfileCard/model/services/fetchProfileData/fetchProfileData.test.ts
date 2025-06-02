@@ -1,6 +1,6 @@
 import {fetchProfileData} from "./fetchProfileData";
 import {TestAsyncThunk} from "shared/lib/tests";
-import {filledProfile} from "shared/lib/tests/mocks";
+import {filledProfile} from "entities/Profile";
 
 describe("fetchProfileData", () => {
     test('successful profile loading', async () => {

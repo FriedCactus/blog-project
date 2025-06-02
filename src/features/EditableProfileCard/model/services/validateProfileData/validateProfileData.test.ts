@@ -1,7 +1,6 @@
 import {validateProfileData} from "./validateProfileData";
-import {ValidateProfileError} from "entities/Profile";
+import {filledProfile, ValidateProfileError} from "entities/Profile";
 import {Country, Currency} from "shared/const";
-import {filledProfile} from "shared/lib/tests/mocks";
 
 describe('validateProfileData', () => {
     it(`Should return no errors`, () => {

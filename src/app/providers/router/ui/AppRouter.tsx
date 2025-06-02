@@ -1,8 +1,9 @@
 import {Route, Routes} from "react-router";
-import {AppRouteProps, routes} from "shared/config/routes";
 import {ProtectedRoute} from "./ProtectedRoute/ProtectedRoute";
 import {Suspense, useCallback} from "react";
 import {PageLoader} from "widgets/PageLoader";
+import {AppRouteProps} from "../model/types/routes";
+import {routeItems} from "../model/items/routeItems";
 
 export const AppRouter = () => {
     const routeRender = useCallback((route: AppRouteProps) => {
@@ -24,7 +25,7 @@ export const AppRouter = () => {
 
     return (
         <Routes>
-            {routes.map(routeRender)}
+            {routeItems.map(routeRender)}
         </Routes>
     );
 };

@@ -3,9 +3,9 @@ import {DetailedArticle} from "entities/Article";
 import {useParams} from "react-router";
 import {useTranslation} from "react-i18next";
 import {Text, TextAlign, TextVariant} from 'shared/ui/Text';
-import styles from './ArticleDetailsPage.module.css';
+import styles from './DetailedArticlePage.module.css';
 
-const ArticleDetailsPage = memo(function ArticlesPage() {
+const DetailedArticlePage = memo(function ArticlesPage() {
     const {id} = useParams<{ id: string }>();
     const {t} = useTranslation('detailedArticle');
 
@@ -28,4 +28,4 @@ const ArticleDetailsPage = memo(function ArticlesPage() {
     );
 });
 
-export default ArticleDetailsPage;
+export default DetailedArticlePage;

@@ -1,17 +1,17 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import ArticleDetailsPage from "./ArticleDetailsPage";
+import DetailedArticlePage from "./DetailedArticlePage";
 import {Theme} from "app/providers/ThemeProvider";
 import {storyGlobalsDesktop, ThemeDecorator} from 'shared/config/storybook';
 
-const meta: Meta<typeof ArticleDetailsPage> = {
+const meta: Meta<typeof DetailedArticlePage> = {
     title: 'pages/ArticleDetailsPage',
-    component: ArticleDetailsPage,
+    component: DetailedArticlePage,
     ...storyGlobalsDesktop
 };
 
 export default meta;
 
-type Story = StoryObj<typeof ArticleDetailsPage>;
+type Story = StoryObj<typeof DetailedArticlePage>;
 
 export const Primary: Story = {};
 

@@ -1,7 +1,7 @@
 import {profileReducer, profileActions} from './profileSlice';
 import {ProfileSchema} from "../types/profile";
-import {emptyProfile, filledProfile} from "shared/lib/tests/mocks";
 import {fetchProfileData} from "../services/fetchProfileData/fetchProfileData";
+import {emptyProfile, filledProfile} from "entities/Profile";
 
 const state: ProfileSchema = {
     isLoading: false,
