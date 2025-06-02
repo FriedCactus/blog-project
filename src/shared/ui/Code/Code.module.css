@@ -1,0 +1,14 @@
+.Code {
+    position: relative;
+    border: 1px solid black;
+    padding: var(--padding-s) var(--padding-l) var(--padding-s) var(--padding-l);
+    background: var(--bg-color-code);
+    color: var(--tertiary-color);
+}
+
+.copyButton {
+    position: absolute;
+    top: var(--padding-s);
+    right: var(--padding-l);
+    padding: 0;
+}

@@ -3,7 +3,7 @@ import {classNames} from "shared/lib/classNames";
 import {memo, useMemo} from "react";
 
 interface Props {
-    src?: string;
+    src: string;
     size?: number;
     alt?: string;
     className?: string;
@@ -11,7 +11,7 @@ interface Props {
 
 export const Avatar = memo(function Avatar(props: Props) {
     const {
-        alt,
+        alt = '',
         src,
         className,
         size = 100

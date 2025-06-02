@@ -1,9 +1,6 @@
-import MainIcon from "shared/assets/icons/main-icon.svg";
-import AboutIcon from "shared/assets/icons/about-icon.svg";
-import ProfileIcon from "shared/assets/icons/profile-icon.svg";
-import ArticlesIcon from "shared/assets/icons/articles-icon.svg";
 import {ReactNode} from "react";
 import {AppPaths} from "shared/config/routes/routes";
+import {Icon} from "shared/ui/Icon";
 
 export interface NavLink {
     text: string,
@@ -16,23 +13,23 @@ export const sidebarItemsList: NavLink[] = [
     {
         text: "Главная",
         path: AppPaths.MAIN,
-        icon: <MainIcon/>
+        icon: <Icon name="main" variant="secondary"/>
     },
     {
         text: "О сайте",
         path: AppPaths.ABOUT,
-        icon: <AboutIcon/>
+        icon: <Icon name="about" variant="secondary"/>
     },
     {
         text: "Профиль",
         path: AppPaths.PROFILE,
-        icon: <ProfileIcon width={20}/>,
+        icon: <Icon name="profile" variant="secondary"/>,
         authOnly: true
     },
     {
         text: "Статьи",
         path: AppPaths.ARTICLES,
-        icon: <ArticlesIcon/>,
+        icon: <Icon name="articles" variant="secondary"/>,
         authOnly: true
     },
 ];

@@ -19,12 +19,24 @@
 .title {
     font: var(--font-l);
 
+    &.s {
+        font: var(--font-m);
+    }
+
+    &.m {
+        font: var(--font-l);
+    }
+
+    &.l {
+        font: var(--font-xl);
+    }
+
     &.primary {
         color: var(--primary-color);
     }
 
     &.secondary {
-        color: var(--secondary-color);
+        color: var(--tertiary-color);
     }
 
     &.error {
@@ -33,10 +45,20 @@
 }
 
 .text {
-    font: var(--font-m);
+    &.s {
+        font: var(--font-s);
+    }
+
+    &.m {
+        font: var(--font-m);
+    }
+
+    &.l {
+        font: var(--font-l);
+    }
 
     &.primary {
-        color: var(--secondary-color);
+        color: var(--tertiary-color);
     }
 
     &.secondary {

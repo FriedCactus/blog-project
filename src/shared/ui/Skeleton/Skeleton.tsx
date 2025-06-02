@@ -2,8 +2,8 @@ import styles from './Skeleton.module.css';
 import {classNames} from "shared/lib/classNames";
 
 interface Props {
-    width?: string;
-    height?: string;
+    width?: string | number;
+    height?: string | number;
     borderRadius?: string;
     className?: string;
 }

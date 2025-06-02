@@ -2,9 +2,11 @@
     /* Background */
     --bg-color: rgb(188 198 204);
     --bg-color-inverted: rgb(49 49 61);
+    --bg-color-code: rgb(49 49 61 / 70%);
 
     --primary-color: #105f8c;
     --secondary-color: #47a8f1;
+    --tertiary-color: #47a8f1;
 
     /* Skeleton */
     --skeleton-color: #fff;

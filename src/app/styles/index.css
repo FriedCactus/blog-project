@@ -12,13 +12,14 @@ body {
 .app {
     display: flex;
     flex-direction: column;
-
-    min-height: 100vh;
+    height: 100vh;
 }
 
 .content-layout {
+    position: relative;
     display: flex;
     flex: 1;
+    overflow: hidden;
 }
 
 .page-wrapper {
@@ -26,6 +27,7 @@ body {
     flex-direction: column;
     padding: var(--content-padding);
     width: 100%;
+    overflow-y: auto;
 
     background: var(--bg-color);
 }

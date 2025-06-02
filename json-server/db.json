@@ -47,7 +47,7 @@
         {
           "id": "2",
           "type": "IMAGE",
-          "src": "https://miro.medium.com/v2/resize:fit:1400/1*P-AfkcWhzWW4mZfHjWnaRQ.png",
+          "src": "https://kinsta.com/wp-content/uploads/2022/02/node-inspect.png",
           "title": "Популярность JavaScript и экосистемы в 2025"
         },
         {
@@ -62,7 +62,7 @@
         {
           "id": "4",
           "type": "CODE",
-          "code": "// Пример использования серверных компонентов в React\nexport default function UserInfo({ userId }) {\n  const user = fetchUserData(userId);\n  return <div>{user.name}</div>;\n}"
+          "code": "const UserInfo = async () => {\n  const session = await getServerSession(authOptions);\n\n  if (!session) {\n    return <p>Вы не вошли в систему</p>;\n  }\n\n  return (\n    <div>\n      <h2>Привет, {session.user?.name}</h2>\n      <p>Email: {session.user?.email}</p>\n    </div>\n  );\n};\n\nexport default UserInfo;"
         },
         {
           "id": "5",
@@ -76,12 +76,12 @@
         {
           "id": "6",
           "type": "CODE",
-          "code": "type ApiResponse<T> = {\n  status: 'ok' | 'error';\n  data: T;\n};\n\nconst response: ApiResponse<User> = fetchUser();"
+          "code": "const ReactComponent = () => {\n    const [counter, setCounter] = useState(0);\n    \n    return (\n        <div>\n            <p>\n                React Test Component\n            </p>\n        </div>\n    );\n};"
         },
         {
           "id": "7",
           "type": "IMAGE",
-          "src": "https://res.cloudinary.com/practicaldev/image/fetch/s--0ZtLvM8H--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/y0x1dd79t5vfk5tbc8y0.png",
+          "src": "https://miro.medium.com/v2/resize:fit:1400/1*M8ZAGPiLDNiKv5Maurl8vA.png",
           "title": "Эволюция React и Next.js"
         }
       ]

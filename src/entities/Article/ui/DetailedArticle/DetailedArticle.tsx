@@ -1,6 +1,4 @@
 import {memo, useEffect} from "react";
-import {DynamicModuleLoader} from "shared/lib/components";
-import {detailedArticleReducer} from "../../model/slice/detailedArticleSlice";
 import {useAppDispatch} from "shared/lib/hooks";
 import {fetchArticleById} from "../../model/services/fetchArticleById/fetchArticleById";
 import {detailedArticleActions} from '../../model/slice/detailedArticleSlice';
@@ -12,27 +10,29 @@ import {
     getDetailedArticleIsLoading
 } from "../../model/selectors/getDetailedArticleIsLoading/getDetailedArticleIsLoading";
 import styles from './DetailedArticle.module.css';
-import {Text, TextAlign, TextVariant} from "shared/ui/Text";
-import {useTranslation} from "react-i18next";
-import {classNames} from "shared/lib/classNames";
 import {ArticleSkeleton} from "../ArticleSkeleton/ArticleSkeleton";
-
-const reducers = {
-    detailedArticle: detailedArticleReducer
-};
+import {ArticleError} from "../ArticleError/ArticleError";
+import {ArticleBlockComponent} from "entities/Article/ui/ArticleBlockComponent/ArticleBlockComponent";
+import {Avatar} from "shared/ui/Avatar";
+import {getDetailedArticleData} from "../../model/selectors/getDetailedArticleData/getDetailedArticleData";
+import {Text} from "shared/ui/Text";
+import {ArticleWrapper} from "../ArticleWrapper/ArticleWrapper";
+import {Icon} from 'shared/ui/Icon';
 
 interface Props {
     id: number;
 }
 
 export const DetailedArticle = memo(function DetailedArticle({id}: Props) {
-    const {t} = useTranslation('detailedArticle');
     const dispatch = useAppDispatch();
     const error = useSelector(getDetailedArticleError);
     const isLoading = useSelector(getDetailedArticleIsLoading);
+    const articleData = useSelector(getDetailedArticleData);
 
     useEffect(() => {
-        dispatch(fetchArticleById(id));
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchArticleById(id));
+        }
 
         return () => {
             dispatch(detailedArticleActions.clearArticle());
@@ -41,31 +41,58 @@ export const DetailedArticle = memo(function DetailedArticle({id}: Props) {
 
     if (isLoading) {
         return (
-            <div className={styles.DetailedArticle}>
+            <ArticleWrapper>
                 <ArticleSkeleton/>
-            </div>
+            </ArticleWrapper>
         );
     }
 
-    if (error) {
+    if (error || !articleData) {
         return (
-            <div className={classNames(styles.DetailedArticle, {}, [styles.error])}>
-                <Text
-                    variant={TextVariant.ERROR}
-                    textAlign={TextAlign.CENTER}
-                    title={t('Произошла ошибка при загрузке статьи')}
-                >
-                    {t('Попробуйте обновить страницу')}
-                </Text>
-            </div>
+            <ArticleWrapper>
+                <ArticleError/>
+            </ArticleWrapper>
         );
     }
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
-            <div className={styles.DetailedArticle}>
-                DetailedArticle
+        <ArticleWrapper>
+            {
+                articleData.img && (
+                    <Avatar
+                        className={styles.avatar}
+                        size={200}
+                        src={articleData.img}
+                        alt={articleData.title}
+                    />
+                )
+            }
+
+            <div className={styles.titleContainer}>
+                <Text title={articleData.title} size="l">
+                    {articleData.subtitle}
+                </Text>
+
+                <div className={styles.infoContainer}>
+                    <div className={styles.info}>
+                        <Icon name="eye"/>
+                        <Text>{articleData.views}</Text>
+                    </div>
+                    <div className={styles.info}>
+                        <Icon name="calendar"/>
+                        <Text>{articleData.createdAt}</Text>
+                    </div>
+                </div>
             </div>
-        </DynamicModuleLoader>
+
+
+            <div className={styles.blocks}>
+                {
+                    articleData.blocks.map(block => (
+                        <ArticleBlockComponent key={block.id} block={block}/>
+                    ))
+                }
+            </div>
+        </ArticleWrapper>
     );
 });

@@ -1,0 +1,6 @@
+.ArticleTextBlockComponent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--large-gap);
+    text-indent: 40px;
+}

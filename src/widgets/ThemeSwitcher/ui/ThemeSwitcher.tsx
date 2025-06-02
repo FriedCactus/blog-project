@@ -1,10 +1,10 @@
 import {Button} from "shared/ui/Button";
 import {useTheme} from "app/providers/ThemeProvider";
-import ThemeIcon from "shared/assets/icons/theme-icon.svg";
 import {ButtonVariant} from "shared/ui/Button/Button";
 import {memo} from "react";
 import {classNames} from "shared/lib/classNames";
 import styles from './ThemeSwitcher.module.css';
+import {Icon} from "shared/ui/Icon";
 
 interface ThemeSwitcherProps {
     className?: string;
@@ -20,7 +20,7 @@ export const ThemeSwitcher = memo(function ThemeSwitcher({className}: ThemeSwitc
             variant={ButtonVariant.CLEAR}
             withPaddings={false}
         >
-            <ThemeIcon/>
+            <Icon variant="secondary" name="theme" size={60}/>
         </Button>
     );
 });

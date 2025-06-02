@@ -22,6 +22,9 @@
     --navbar-height: 50px;
 
     /* Отступы */
+    --padding-s: 18px;
+    --padding-m: 24px;
+    --padding-l: 32px;
     --content-padding: 20px;
 
     --small-gap: 4px;
