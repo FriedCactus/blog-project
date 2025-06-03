@@ -1,19 +1,22 @@
 import {PropsWithChildren} from "react";
 import {Provider} from "react-redux";
 import {createReduxStore} from "../config/store";
-import type {StateSchema} from "../config/StateSchema";
+import {LazyStateSchema, StateSchema} from "../config/StateSchema";
+import {ReducersMapObject} from "@reduxjs/toolkit";
 
 interface Props {
     initialState?: DeepPartial<StateSchema>;
+    asyncReducers?: DeepPartial<ReducersMapObject<LazyStateSchema>>,
 }
 
 export const StoreProvider = (props: PropsWithChildren<Props>) => {
     const {
         children,
-        initialState
+        initialState,
+        asyncReducers
     } = props;
 
-    const store = createReduxStore(initialState as StateSchema);
+    const store = createReduxStore(initialState as StateSchema, asyncReducers);
 
     return (
         <Provider store={store}>

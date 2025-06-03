@@ -2,21 +2,25 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {DetailedArticle} from "./DetailedArticle";
 import {StoreDecorator, storyGlobalsDesktop, ThemeDecorator} from 'shared/config/storybook';
 import {Theme} from "app/providers/ThemeProvider";
-import type {StateSchema} from "app/providers/StoreProvider";
-import {articleMock} from "entities/Article/model/mocks/article";
+import {articleMock} from "../../model/mocks/article";
+import {detailedArticleReducer} from "../../model/slice/detailedArticleSlice";
 
-const initialState: DeepPartial<StateSchema> = {
+const state = {
     detailedArticle: {
         article: articleMock,
         isLoading: false
-    }
+    },
+};
+
+const asyncReducers = {
+    detailedArticle: detailedArticleReducer,
 };
 
 const meta: Meta<typeof DetailedArticle> = {
     title: 'entities/DetailedArticle',
     component: DetailedArticle,
     decorators: [
-        StoreDecorator(initialState)
+        StoreDecorator(state, asyncReducers)
     ],
     ...storyGlobalsDesktop
 };

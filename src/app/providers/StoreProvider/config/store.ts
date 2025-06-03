@@ -1,17 +1,24 @@
-import {combineSlices, configureStore} from "@reduxjs/toolkit";
-import {LazyStateSchema, StateSchema} from "../config/StateSchema";
+import {configureStore, ReducersMapObject} from "@reduxjs/toolkit";
+import {LazyStateSchema, ReduxStoreWithManager, StateSchema} from "../config/StateSchema";
 import {counterReducer} from "entities/Counter";
 import {userReducer} from "entities/User";
 import {$api} from "shared/api";
+import {createReducerManager} from "./reducerManager";
 
-export const rootReducer = combineSlices({
-    counter: counterReducer,
-    user: userReducer,
-}).withLazyLoadedSlices<LazyStateSchema>();
+export const createReduxStore = (
+    initialState?: StateSchema,
+    asyncReducers?: ReducersMapObject<LazyStateSchema>,
+) => {
+    const rootReducers: ReducersMapObject<StateSchema> = {
+        ...asyncReducers,
+        counter: counterReducer,
+        user: userReducer,
+    };
 
-export const createReduxStore = (initialState?: StateSchema) => (
-    configureStore({
-        reducer: rootReducer,
+    const reducerManager = createReducerManager(rootReducers);
+
+    const store = configureStore({
+        reducer: reducerManager.reduce,
         devTools: __IS_DEV__,
         preloadedState: initialState,
         middleware: (getDefaultMiddleware) =>
@@ -22,6 +29,11 @@ export const createReduxStore = (initialState?: StateSchema) => (
                     },
                 },
             }),
-    }));
+    }) as ReduxStoreWithManager;
+
+    store.reducerManager = reducerManager;
+
+    return store;
+};
 
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

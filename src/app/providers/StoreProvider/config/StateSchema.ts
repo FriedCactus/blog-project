@@ -4,8 +4,9 @@ import {DetailedArticleSchema} from 'entities/Article';
 import type {LoginSchema} from "features/AuthByUsername";
 import {ProfileSchema} from "features/EditableProfileCard";
 import {AxiosInstance} from "axios";
+import {Action, EnhancedStore, Reducer, ReducersMapObject} from "@reduxjs/toolkit";
 
-export interface StaticStateSchema {
+interface StaticStateSchema {
     counter: CounterSchema;
     user: UserSchema;
 }
@@ -29,3 +30,14 @@ export interface ThunkConfig<T> {
 export type StateSchema = StaticStateSchema & LazyStateSchema;
 
 export type StateSchemaKey = keyof StateSchema;
+
+export interface ReducerManager {
+    getReducerMap: () => ReducersMapObject<StateSchema>;
+    reduce: (state: StateSchema | undefined, action: Action) => StateSchema;
+    add: (key: StateSchemaKey, reducer: Reducer) => void;
+    remove: (key: StateSchemaKey) => void;
+}
+
+export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
+    reducerManager: ReducerManager;
+}
