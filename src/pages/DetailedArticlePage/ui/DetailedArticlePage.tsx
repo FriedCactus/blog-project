@@ -1,13 +1,36 @@
 import {memo} from "react";
-import {DetailedArticle} from "entities/Article";
 import {useParams} from "react-router";
 import {useTranslation} from "react-i18next";
 import {Text, TextAlign, TextVariant} from 'shared/ui/Text';
 import styles from './DetailedArticlePage.module.css';
+import {CommentList} from "entities/Comment";
+import {useAppDispatch, useInitialEffect} from "shared/lib/hooks";
+import {fetchCommentsByArticleId} from "../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
+import {DynamicModuleLoader} from "shared/lib/components";
+import {detailedArticleCommentsReducer, getDetailedArticleComments} from "../model/slice/detailedArticleComments";
+import {useSelector} from "react-redux";
+import {DetailedArticle} from "entities/Article";
+import {
+    getDetailedArticleCommentsIsLoading
+} from "../model/selectors/getDetailedArticleCommentsIsLoading/getDetailedArticleCommentsIsLoading";
+
+const reducers = {
+    detailedArticleComments: detailedArticleCommentsReducer
+};
 
 const DetailedArticlePage = memo(function ArticlesPage() {
     const {id} = useParams<{ id: string }>();
     const {t} = useTranslation('detailedArticle');
+
+    const dispatch = useAppDispatch();
+    const articleComments = useSelector(getDetailedArticleComments.selectAll);
+    const isLoading = useSelector(getDetailedArticleCommentsIsLoading);
+
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchCommentsByArticleId(id));
+        }
+    });
 
     if (!id || isNaN(+id)) {
         return (
@@ -24,7 +47,12 @@ const DetailedArticlePage = memo(function ArticlesPage() {
     }
 
     return (
-        <DetailedArticle id={+id}/>
+        <DynamicModuleLoader reducers={reducers}>
+            <div className={styles.DetailedArticlePage}>
+                <DetailedArticle id={+id}/>
+                <CommentList isLoading={isLoading} comments={articleComments}/>
+            </div>
+        </DynamicModuleLoader>
     );
 });
 

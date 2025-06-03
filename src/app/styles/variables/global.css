@@ -22,15 +22,16 @@
     --navbar-height: 50px;
 
     /* Отступы */
+    --padding-xs: 12px;
     --padding-s: 18px;
     --padding-m: 24px;
     --padding-l: 32px;
     --content-padding: 20px;
 
-    --small-gap: 4px;
-    --primary-gap: 8px;
-    --extra-gap: 12px;
-    --large-gap: 20px;
+    --gap-s: 4px;
+    --gap-m: 8px;
+    --gap-l: 12px;
+    --gap-xl: 20px;
 
     /* Z индексы */;
     --modal-z-index: 10;

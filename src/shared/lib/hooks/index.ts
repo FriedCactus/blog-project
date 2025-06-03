@@ -1,1 +1,7 @@
-export {useAppDispatch} from "./useAppDispatch/useAppDispatch";
+import {useAppDispatch} from "./useAppDispatch/useAppDispatch";
+import {useInitialEffect} from './useInitialEffect/useInitialEffect';
+
+export {
+    useAppDispatch,
+    useInitialEffect
+};

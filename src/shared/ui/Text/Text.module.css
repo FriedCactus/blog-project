@@ -1,7 +1,7 @@
 .Text {
     display: flex;
     flex-direction: column;
-    gap: var(--small-gap);
+    gap: var(--gap-s);
 
     &.left {
         text-align: left;

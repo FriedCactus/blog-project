@@ -6,19 +6,19 @@
 .titleContainer {
     display: flex;
     flex-direction: column;
-    gap: var(--primary-gap);
+    gap: var(--gap-m);
 }
 
 .infoContainer {
     display: flex;
     flex-direction: column;
-    gap: var(--small-gap);
+    gap: var(--gap-s);
 }
 
 .info {
     display: flex;
     align-items: center;
-    gap: var(--small-gap);
+    gap: var(--gap-s);
 }
 
 .avatar {
@@ -28,5 +28,5 @@
 .blocks {
     display: flex;
     flex-direction: column;
-    gap: var(--large-gap);
+    gap: var(--gap-xl);
 }

@@ -1,5 +1,5 @@
 import {articleMock} from "../mocks/article";
-import {detailedArticleReducer, detailedArticleActions} from './detailedArticleSlice';
+import {detailedArticleReducer} from './detailedArticleSlice';
 import {DetailedArticleSchema} from "entities/Article";
 import {fetchArticleById} from "../services/fetchArticleById/fetchArticleById";
 
@@ -9,13 +9,6 @@ const state: DetailedArticleSchema = {
 };
 
 describe("detailedArticleSlice", () => {
-    test("should clear article", () => {
-        expect(detailedArticleReducer(state, detailedArticleActions.clearArticle())).toEqual({
-            ...state,
-            article: undefined
-        });
-    });
-
     test('fetchArticleById should clear loading and errors while pending', () => {
         const action = {type: fetchArticleById.pending.type};
 

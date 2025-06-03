@@ -1,5 +1,5 @@
 import {configureStore, ReducersMapObject} from "@reduxjs/toolkit";
-import {LazyStateSchema, ReduxStoreWithManager, StateSchema} from "../config/StateSchema";
+import {LazyStateSchema, StateSchema} from "../config/StateSchema";
 import {counterReducer} from "entities/Counter";
 import {userReducer} from "entities/User";
 import {$api} from "shared/api";
@@ -29,8 +29,9 @@ export const createReduxStore = (
                     },
                 },
             }),
-    }) as ReduxStoreWithManager;
+    });
 
+    //@ts-expect-error reducerManager error
     store.reducerManager = reducerManager;
 
     return store;

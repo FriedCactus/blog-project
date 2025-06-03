@@ -10,11 +10,7 @@ const initialState: DetailedArticleSchema = {
 const detailedArticleSlice = createSlice({
     name: 'detailedArticle',
     initialState,
-    reducers: {
-        clearArticle(state) {
-            state.article = undefined;
-        }
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(fetchArticleById.pending, (state) => {

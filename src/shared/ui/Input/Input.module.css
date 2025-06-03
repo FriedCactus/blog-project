@@ -1,6 +1,6 @@
 .InputContainer {
     display: flex;
-    gap: var(--small-gap);
+    gap: var(--gap-s);
 }
 
 .caretWrapper {

@@ -1,0 +1,12 @@
+.CommentSkeleton {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-m);
+    padding: var(--padding-xs) var(--padding-s);
+}
+
+.userInfo {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-m);
+}

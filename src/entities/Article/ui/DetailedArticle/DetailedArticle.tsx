@@ -1,7 +1,6 @@
-import {memo, useEffect} from "react";
-import {useAppDispatch} from "shared/lib/hooks";
+import {memo} from "react";
+import {useAppDispatch, useInitialEffect} from "shared/lib/hooks";
 import {fetchArticleById} from "../../model/services/fetchArticleById/fetchArticleById";
-import {detailedArticleActions} from '../../model/slice/detailedArticleSlice';
 import {useSelector} from "react-redux";
 import {
     getDetailedArticleError
@@ -29,15 +28,9 @@ export const DetailedArticle = memo(function DetailedArticle({id}: Props) {
     const isLoading = useSelector(getDetailedArticleIsLoading);
     const articleData = useSelector(getDetailedArticleData);
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchArticleById(id));
-        }
-
-        return () => {
-            dispatch(detailedArticleActions.clearArticle());
-        };
-    }, [dispatch, id]);
+    useInitialEffect(() => {
+        dispatch(fetchArticleById(id));
+    });
 
     if (isLoading) {
         return (

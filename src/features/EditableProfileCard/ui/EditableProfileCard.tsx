@@ -1,11 +1,11 @@
 import {ProfileCard} from "entities/Profile";
-import {useAppDispatch} from "shared/lib/hooks";
+import {useAppDispatch, useInitialEffect} from "shared/lib/hooks";
 import {fetchProfileData} from "../model/services/fetchProfileData/fetchProfileData";
 import {getProfileFormData} from "../model/selectors/getProfileFormData/getProfileFormData";
 import {getProfileIsLoading} from "../model/selectors/getProfileIsLoading/getProfileIsLoading";
 import {getProfileIsReadonly} from "../model/selectors/getProfileIsReadonly/getProfileIsReadonly";
 import {getProfileValidateErrors} from "../model/selectors/getProfileValidateErrors/getProfileValidateErrors";
-import {useCallback, useEffect} from "react";
+import {useCallback} from "react";
 import {useSelector} from "react-redux";
 import {DynamicModuleLoader, ReducersList} from "shared/lib/components";
 import {profileActions, profileReducer} from "../model/slice/profileSlice";
@@ -26,11 +26,9 @@ export const EditableProfileCard = () => {
     const error = useSelector(getProfileError);
     const validateErrors = useSelector(getProfileValidateErrors);
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
-        }
-    }, [dispatch]);
+    useInitialEffect(() => {
+        dispatch(fetchProfileData());
+    });
 
     const onFirstnameChange = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({

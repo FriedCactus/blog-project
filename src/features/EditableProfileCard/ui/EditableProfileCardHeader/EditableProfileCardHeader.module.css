@@ -5,5 +5,5 @@
 
 .buttonsContainer {
     display: flex;
-    gap: var(--primary-gap)
+    gap: var(--gap-m)
 }
