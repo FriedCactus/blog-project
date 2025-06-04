@@ -4,15 +4,19 @@ import type {Profile} from "entities/Profile";
 
 export const fetchProfileData = createAsyncThunk<
     Profile,
-    undefined,
+    string,
     ThunkConfig<string>
 >(
     'profile/fetchProfileData',
-    async (_, thunkAPI) => {
+    async (profileId, thunkAPI) => {
         const {extra, rejectWithValue} = thunkAPI;
 
+        if (!profileId) {
+            throw new Error('Не указан id пользователя');
+        }
+
         try {
-            const response = await extra.api.get<Profile>('/profile');
+            const response = await extra.api.get<Profile>(`/profiles/${profileId}`);
 
             if (!response.data) {
                 throw new Error();

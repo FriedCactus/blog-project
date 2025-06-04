@@ -21,8 +21,8 @@ export const sidebarItems: NavLink[] = [
         icon: <Icon name="about" variant="secondary"/>
     },
     {
-        text: "Профиль",
-        path: AppPaths.PROFILE,
+        text: "Мой профиль",
+        path: AppPaths.MY_PROFILE,
         icon: <Icon name="profile" variant="secondary"/>,
         authOnly: true
     },

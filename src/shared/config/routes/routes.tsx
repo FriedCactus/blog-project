@@ -1,7 +1,8 @@
 export enum AppPaths {
     MAIN = '/',
     ABOUT = '/about',
-    PROFILE = '/profile',
+    MY_PROFILE = '/profile',
+    PROFILE = '/profile/:id',
     ARTICLES = '/articles',
     ARTICLE_DETAILS = '/articles/:id',
     NOTFOUND = '*'

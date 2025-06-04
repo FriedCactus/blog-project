@@ -6,10 +6,12 @@ import {ArticlesPage} from "pages/ArticlesPage";
 import {DetailedArticlePage} from "pages/DetailedArticlePage";
 import {NotFoundPage} from "pages/NotFoundPage";
 import {AppRouteProps, AppRoutes} from "../types/routes";
+import {ViewProfilePage} from "pages/ViewProfilePage";
 
 const RoutePaths: Record<AppRoutes, string> = {
     [AppRoutes.MAIN]: AppPaths.MAIN,
     [AppRoutes.ABOUT]: AppPaths.ABOUT,
+    [AppRoutes.MY_PROFILE]: AppPaths.MY_PROFILE,
     [AppRoutes.PROFILE]: AppPaths.PROFILE,
     [AppRoutes.ARTICLES]: AppPaths.ARTICLES,
     [AppRoutes.ARTICLE_DETAILS]: AppPaths.ARTICLE_DETAILS,
@@ -26,9 +28,13 @@ export const routeItems: AppRouteProps[] = [
         element: <AboutPage/>
     },
     {
-        path: RoutePaths.profile,
+        path: RoutePaths.myProfile,
         element: <ProfilePage/>,
         authOnly: true
+    },
+    {
+        path: RoutePaths.profile,
+        element: <ViewProfilePage/>,
     },
     {
         path: RoutePaths.articles,

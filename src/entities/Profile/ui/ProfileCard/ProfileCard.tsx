@@ -43,7 +43,6 @@ export const ProfileCard = memo(function ProfileCard(props: Props) {
         onUsernameChange,
         onAvatarChange
     } = props;
-
     const {t} = useTranslation('profile');
 
     const validateErrorsTranslates = useMemo(() => ({

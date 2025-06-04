@@ -5,20 +5,32 @@ import {getProfileFormData} from "../model/selectors/getProfileFormData/getProfi
 import {getProfileIsLoading} from "../model/selectors/getProfileIsLoading/getProfileIsLoading";
 import {getProfileIsReadonly} from "../model/selectors/getProfileIsReadonly/getProfileIsReadonly";
 import {getProfileValidateErrors} from "../model/selectors/getProfileValidateErrors/getProfileValidateErrors";
-import {useCallback} from "react";
+import {useCallback, useState} from "react";
 import {useSelector} from "react-redux";
 import {DynamicModuleLoader, ReducersList} from "shared/lib/components";
 import {profileActions, profileReducer} from "../model/slice/profileSlice";
 import {getProfileError} from "../model/selectors/getProfileError/getProfileError";
 import {EditableProfileCardHeader} from "./EditableProfileCardHeader/EditableProfileCardHeader";
 import styles from './EditableProfileCard.module.css';
-import {Country, Currency} from "shared/const";
+import {Country, Currency, USER_LOCALSTORAGE_KEY} from "shared/const";
+import {User} from "entities/User";
 
 const reducers: ReducersList = {
     profile: profileReducer
 };
 
-export const EditableProfileCard = () => {
+interface Props {
+    id?: string;
+    editable?: boolean;
+}
+
+export const EditableProfileCard = (props: Props) => {
+    const {
+        id,
+        editable = true
+    } = props;
+    const [profileId, setProfileId] = useState(id);
+
     const dispatch = useAppDispatch();
     const profile = useSelector(getProfileFormData);
     const isLoading = useSelector(getProfileIsLoading);
@@ -27,7 +39,19 @@ export const EditableProfileCard = () => {
     const validateErrors = useSelector(getProfileValidateErrors);
 
     useInitialEffect(() => {
-        dispatch(fetchProfileData());
+        if (id) {
+            dispatch(fetchProfileData(id));
+        } else {
+            const user = localStorage.getItem(USER_LOCALSTORAGE_KEY);
+
+            if (user) {
+                const userData: User = JSON.parse(user);
+                if (userData.id) {
+                    setProfileId(userData.id);
+                    dispatch(fetchProfileData(userData.id));
+                }
+            }
+        }
     });
 
     const onFirstnameChange = useCallback((value: string) => {
@@ -83,7 +107,9 @@ export const EditableProfileCard = () => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <div className={styles.EditableProfileCard}>
-                <EditableProfileCardHeader/>
+                {
+                    editable && profileId && <EditableProfileCardHeader profileId={profileId}/>
+                }
                 <ProfileCard
                     validateErrors={validateErrors}
                     profile={profile}

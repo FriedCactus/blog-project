@@ -1,0 +1,1 @@
+export {ViewProfilePageAsync as ViewProfilePage} from "./ui/ViewProfilePage.async";

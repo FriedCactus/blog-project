@@ -10,7 +10,11 @@ import {updateProfileData} from "../../model/services/updateProfileData/updatePr
 import {getProfileIsLoading} from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
 import {getProfileIsReadonly} from "../../model/selectors/getProfileIsReadonly/getProfileIsReadonly";
 
-export const EditableProfileCardHeader = memo(function EditableProfileCardHeader() {
+interface Props {
+    profileId: string;
+}
+
+export const EditableProfileCardHeader = memo(function EditableProfileCardHeader({profileId}: Props) {
     const {t} = useTranslation('profile');
 
     const dispatch = useAppDispatch();
@@ -22,7 +26,7 @@ export const EditableProfileCardHeader = memo(function EditableProfileCardHeader
     };
 
     const onSave = () => {
-        dispatch(updateProfileData());
+        dispatch(updateProfileData(profileId));
     };
 
     const onUndoChanges = () => {

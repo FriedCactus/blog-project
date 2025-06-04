@@ -16,19 +16,19 @@
       "id": "1",
       "text": "Комментарий к статье 1",
       "articleId": "1",
-      "userId": "2"
+      "userId": "1"
     },
     {
       "id": "2",
       "text": "Ещё комментарий к статье 1",
       "articleId": "1",
-      "userId": "2"
+      "userId": "1"
     },
     {
       "id": "3",
       "text": "Ещё комментарий к статье 1",
       "articleId": "1",
-      "userId": "3"
+      "userId": "2"
     }
   ],
   "articles": [
@@ -270,29 +270,39 @@
       "id": "1",
       "username": "admin",
       "password": "123456",
-      "avatar": "https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/9B20/production/_128221793_gettyimages-1090872318.jpg.webp"
+      "avatar": "https://dis-blog.thalesgroup.com/wp-content/uploads/2020/10/hacker-sqr-380x380.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "user",
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa5x1b1KgHOrprIeZnft0wyiCiV4enSu44fg&s"
-    },
-    {
-      "id": "3",
-      "username": "FriedLemon",
-      "password": "123456",
-      "avatar": "https://st4.depositphotos.com/3881799/27242/i/450/depositphotos_272424264-stock-photo-hacker-working-laptop-dark.jpg"
     }
   ],
-  "profile": {
-    "firstName": "Алексей",
-    "lastName": "Белянчиков",
-    "age": 30,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Ульяновск",
-    "username": "admin",
-    "avatar": "https://dis-blog.thalesgroup.com/wp-content/uploads/2020/10/hacker-sqr-380x380.jpg"
-  }
+  "profiles": [
+    {
+      "id": "1",
+      "userId": "1",
+      "firstName": "Алексей",
+      "lastName": "Белянчиков",
+      "age": 29,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Ульяновск",
+      "username": "admin",
+      "avatar": "https://dis-blog.thalesgroup.com/wp-content/uploads/2020/10/hacker-sqr-380x380.jpg"
+    },
+    {
+      "id": "2",
+      "userId": "2",
+      "firstName": "Иван",
+      "lastName": "Иванов",
+      "age": 20,
+      "currency": "USD",
+      "country": "Russia",
+      "city": "Москва",
+      "username": "user",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa5x1b1KgHOrprIeZnft0wyiCiV4enSu44fg&s"
+    }
+  ]
 }
