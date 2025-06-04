@@ -18,7 +18,7 @@ describe("updateProfileData", () => {
             data: filledProfile
         }));
 
-        const result = await thunk.callThunk(undefined);
+        const result = await thunk.callThunk('1');
 
         expect(thunk.api.put).toHaveBeenCalled();
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
@@ -30,7 +30,7 @@ describe("updateProfileData", () => {
         const thunk = new TestAsyncThunk(updateProfileData, state);
         thunk.api.put.mockReturnValue(Promise.reject('Error'));
 
-        const result = await thunk.callThunk(undefined);
+        const result = await thunk.callThunk('1');
 
         expect(thunk.api.put).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('rejected');
@@ -48,7 +48,7 @@ describe("updateProfileData", () => {
             }
         });
 
-        const result = await thunk.callThunk(undefined);
+        const result = await thunk.callThunk('1');
 
         expect(thunk.api.put).not.toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('rejected');
@@ -58,7 +58,7 @@ describe("updateProfileData", () => {
     test('should fail with empty state', async () => {
         const thunk = new TestAsyncThunk(updateProfileData, {});
 
-        const result = await thunk.callThunk(undefined);
+        const result = await thunk.callThunk('1');
 
         expect(thunk.api.put).not.toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('rejected');
