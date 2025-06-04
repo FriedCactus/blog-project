@@ -13,6 +13,9 @@ import {DetailedArticle} from "entities/Article";
 import {
     getDetailedArticleCommentsIsLoading
 } from "../model/selectors/getDetailedArticleCommentsIsLoading/getDetailedArticleCommentsIsLoading";
+import {AddCommentForm} from "features/AddCommentForm";
+import {addArticleComment} from "../model/services/addArticleComment/addArticleComment";
+import {getCommentSendingError} from "../model/selectors/getCommentSendingError/getCommentSendingError";
 
 const reducers = {
     detailedArticleComments: detailedArticleCommentsReducer
@@ -21,6 +24,7 @@ const reducers = {
 const DetailedArticlePage = memo(function ArticlesPage() {
     const {id} = useParams<{ id: string }>();
     const {t} = useTranslation('detailedArticle');
+    const commentSendingError = useSelector(getCommentSendingError);
 
     const dispatch = useAppDispatch();
     const articleComments = useSelector(getDetailedArticleComments.selectAll);
@@ -31,6 +35,10 @@ const DetailedArticlePage = memo(function ArticlesPage() {
             dispatch(fetchCommentsByArticleId(id));
         }
     });
+
+    const onSubmit = async (commentText: string) => {
+        return dispatch(addArticleComment(commentText));
+    };
 
     if (!id || isNaN(+id)) {
         return (
@@ -50,7 +58,14 @@ const DetailedArticlePage = memo(function ArticlesPage() {
         <DynamicModuleLoader reducers={reducers}>
             <div className={styles.DetailedArticlePage}>
                 <DetailedArticle id={+id}/>
-                <CommentList isLoading={isLoading} comments={articleComments}/>
+                <AddCommentForm
+                    onSubmit={onSubmit}
+                    error={commentSendingError && t("Ошибка добавления комментария к статье")}
+                />
+                <CommentList
+                    isLoading={isLoading}
+                    comments={articleComments}
+                />
             </div>
         </DynamicModuleLoader>
     );

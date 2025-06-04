@@ -32,7 +32,7 @@ const config: Config = {
         "node"
     ],
     moduleNameMapper: {
-        '\\.svg': path.resolve(__dirname, 'emptySvgComponent'),
+        '\\.(svg|jpe?g|png)': path.resolve(__dirname, 'emptyImageComponent'),
         '\\.(css|less)$': 'identity-obj-proxy',
     },
 };

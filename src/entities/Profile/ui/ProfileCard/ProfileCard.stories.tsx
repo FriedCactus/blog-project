@@ -2,7 +2,6 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {ProfileCard} from "./ProfileCard";
 import {storyGlobalsDesktop, ThemeDecorator} from 'shared/config/storybook';
 import {Country, Currency} from "shared/const";
-import avatar from 'shared/assets/test/avatar.jpg';
 import {ValidateProfileError} from "entities/Profile";
 import {Theme} from "app/providers/ThemeProvider";
 
@@ -11,6 +10,8 @@ const meta: Meta<typeof ProfileCard> = {
     component: ProfileCard,
     args: {
         profile: {
+            id: '',
+            userId: '',
             firstName: 'Иван',
             lastName: 'Иванов',
             age: 30,
@@ -18,7 +19,7 @@ const meta: Meta<typeof ProfileCard> = {
             country: Country.Russia,
             city: 'Москва',
             username: 'Username',
-            avatar,
+            avatar: ''
         }
     },
     ...storyGlobalsDesktop

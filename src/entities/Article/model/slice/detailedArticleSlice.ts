@@ -29,6 +29,5 @@ const detailedArticleSlice = createSlice({
 });
 
 export const {
-    actions: detailedArticleActions,
     reducer: detailedArticleReducer,
 } = detailedArticleSlice;

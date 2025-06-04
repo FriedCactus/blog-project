@@ -1,0 +1,18 @@
+.AddCommentForm {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-m);
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border: 1px solid var(--primary-color);
+    padding: var(--padding-xs) var(--padding-s);
+}
+
+.input {
+    width: 80%;
+}

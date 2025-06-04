@@ -22,6 +22,8 @@ export const CommentList = (props: Props) => {
         return (
             <div className={styles.CommentList}>
                 <CommentSkeleton/>
+                <CommentSkeleton/>
+                <CommentSkeleton/>
             </div>
         );
     }
