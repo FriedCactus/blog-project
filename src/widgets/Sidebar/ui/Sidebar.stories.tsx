@@ -2,16 +2,17 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {Sidebar} from "./Sidebar";
 import {Theme} from "app/providers/ThemeProvider";
 import {storyGlobalsDesktop, ThemeDecorator, StoreDecorator} from 'shared/config/storybook';
+import {StateSchema} from "app/providers/StoreProvider";
 
-const state = {
+const state: DeepPartial<StateSchema> = {
     user: {
         authData: {
             id: '',
-            username: ''
+            username: '',
+            password: ''
         }
     }
 };
-
 const meta: Meta<typeof Sidebar> = {
     title: 'widgets/Sidebar',
     component: Sidebar,

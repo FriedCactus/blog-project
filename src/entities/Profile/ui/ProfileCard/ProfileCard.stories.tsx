@@ -4,6 +4,7 @@ import {storyGlobalsDesktop, ThemeDecorator} from 'shared/config/storybook';
 import {Country, Currency} from "shared/const";
 import {ValidateProfileError} from "entities/Profile";
 import {Theme} from "app/providers/ThemeProvider";
+import AvatarImage from 'shared/assets/test/avatar.jpg';
 
 const meta: Meta<typeof ProfileCard> = {
     title: 'entities/ProfileCard',
@@ -19,7 +20,7 @@ const meta: Meta<typeof ProfileCard> = {
             country: Country.Russia,
             city: 'Москва',
             username: 'Username',
-            avatar: ''
+            avatar: AvatarImage
         }
     },
     ...storyGlobalsDesktop

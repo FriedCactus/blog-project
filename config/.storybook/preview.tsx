@@ -9,18 +9,6 @@ import {
     PageDecorator,
     TranslationDecorator
 } from "../../src/shared/config/storybook";
-import {loginReducer} from "../../src/features/AuthByUsername";
-import {profileReducer} from "../../src/features/EditableProfileCard";
-import {LazyStateSchema} from "../../src/app/providers/StoreProvider";
-import {detailedArticleCommentsReducer} from "../../src/pages/DetailedArticlePage/model/slice/detailedArticleComments";
-import {detailedArticleReducer} from "../../src/entities/Article";
-
-const reducers: LazyStateSchema = {
-    loginForm: loginReducer,
-    profile: profileReducer,
-    detailedArticle: detailedArticleReducer,
-    detailedArticleComments: detailedArticleCommentsReducer
-};
 
 // Стоит переделать на mode для синхронизации с chromatic
 const CUSTOM_VIEWPORTS = {
@@ -58,7 +46,7 @@ const preview: Preview = {
         ThemeDecorator(Theme.LIGHT),
         PageDecorator,
         TranslationDecorator,
-        StoreDecorator(undefined, reducers),
+        StoreDecorator(undefined),
         RouterDecorator,
     ]
 };

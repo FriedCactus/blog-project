@@ -1,10 +1,11 @@
 import {Comment} from "../types/comment";
+import AvatarImage from 'shared/assets/test/avatar.jpg';
 
 const userMock = {
     id: "1",
     username: "username",
     password: "password",
-    avatar: '',
+    avatar: AvatarImage,
 };
 
 export const commentListMock: Comment[] = [
