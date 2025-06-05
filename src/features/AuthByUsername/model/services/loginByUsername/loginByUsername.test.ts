@@ -1,8 +1,12 @@
 import {loginByUsername} from "./loginByUsername";
-import {userActions} from "entities/User";
+import {User, userActions} from "entities/User";
 import {TestAsyncThunk} from "shared/lib/tests";
 
-const userValue = {username: '123', id: '1'};
+const userValue: User = {
+    id: '1',
+    username: '123',
+    password: ""
+};
 const authData = {
     username: 'username',
     password: '123456'
