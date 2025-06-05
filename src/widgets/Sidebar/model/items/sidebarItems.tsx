@@ -30,6 +30,5 @@ export const sidebarItems: NavLink[] = [
         text: "Статьи",
         path: AppPaths.ARTICLES,
         icon: <Icon name="articles" variant="secondary"/>,
-        authOnly: true
     },
 ];

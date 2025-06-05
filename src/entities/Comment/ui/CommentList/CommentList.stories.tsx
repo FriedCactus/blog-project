@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {CommentList} from "./CommentList";
-import {storyGlobalsDesktop, ThemeDecorator} from 'shared/config/storybook';
+import {RouterDecorator, storyGlobalsDesktop, ThemeDecorator} from 'shared/config/storybook';
 import {Theme} from "app/providers/ThemeProvider";
 import {commentListMock} from "../../model/mocks/comment";
 
@@ -10,6 +10,7 @@ const meta: Meta<typeof CommentList> = {
     args: {
         comments: commentListMock
     },
+    decorators: [RouterDecorator()],
     ...storyGlobalsDesktop
 };
 

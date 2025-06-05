@@ -39,12 +39,10 @@ export const routeItems: AppRouteProps[] = [
     {
         path: RoutePaths.articles,
         element: <ArticlesPage/>,
-        authOnly: true
     },
     {
         path: RoutePaths.articleDetails,
         element: <DetailedArticlePage/>,
-        authOnly: true
     },
     {
         path: RoutePaths["*"],
