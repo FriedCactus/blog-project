@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {Sidebar} from "./Sidebar";
 import {Theme} from "app/providers/ThemeProvider";
-import {storyGlobalsDesktop, ThemeDecorator, StoreDecorator} from 'shared/config/storybook';
+import {storyGlobalsDesktop, ThemeDecorator, StoreDecorator, RouterDecorator} from 'shared/config/storybook';
 import {StateSchema} from "app/providers/StoreProvider";
 
 const state: DeepPartial<StateSchema> = {
@@ -16,6 +16,7 @@ const state: DeepPartial<StateSchema> = {
 const meta: Meta<typeof Sidebar> = {
     title: 'widgets/Sidebar',
     component: Sidebar,
+    decorators: [RouterDecorator()],
     ...storyGlobalsDesktop
 };
 

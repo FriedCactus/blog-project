@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import DetailedArticlePage from "./DetailedArticlePage";
 import {Theme} from "app/providers/ThemeProvider";
-import {StoreDecorator, storyGlobalsDesktop, ThemeDecorator} from 'shared/config/storybook';
+import {RouterDecorator, StoreDecorator, storyGlobalsDesktop, ThemeDecorator} from 'shared/config/storybook';
 import {articleMock, detailedArticleReducer} from "entities/Article";
 import {detailedArticleCommentsReducer} from "../model/slice/detailedArticleComments";
 import {StateSchema} from "app/providers/StoreProvider";
@@ -29,7 +29,8 @@ const meta: Meta<typeof DetailedArticlePage> = {
     title: 'pages/ArticleDetailsPage',
     component: DetailedArticlePage,
     decorators: [
-        StoreDecorator(state, asyncReducers)
+        StoreDecorator(state, asyncReducers),
+        RouterDecorator('/articles/1', '/articles/:id')
     ],
     ...storyGlobalsDesktop
 };

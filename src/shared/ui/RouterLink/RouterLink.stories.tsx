@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {RouterLink, RouterLinkVariant} from "./RouterLink";
 import {Theme} from "app/providers/ThemeProvider";
-import {storyGlobalsDesktop, ThemeDecorator} from "shared/config/storybook";
+import {RouterDecorator, storyGlobalsDesktop, ThemeDecorator} from "shared/config/storybook";
 
 const meta: Meta<typeof RouterLink> = {
     title: 'shared/RouterLink',
@@ -9,6 +9,7 @@ const meta: Meta<typeof RouterLink> = {
     args: {
         children: 'Ссылка'
     },
+    decorators: [RouterDecorator()],
     ...storyGlobalsDesktop
 };
 

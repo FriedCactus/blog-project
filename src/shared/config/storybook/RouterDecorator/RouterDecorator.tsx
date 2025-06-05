@@ -1,8 +1,18 @@
-import {Decorator} from "@storybook/react";
-import {BrowserRouter} from "react-router";
+import {ReactRenderer} from "@storybook/react";
+import {MemoryRouter, Route, Routes} from "react-router";
+import {DecoratorFunction} from "@storybook/csf";
 
-export const RouterDecorator: Decorator = (Story) => (
-    <BrowserRouter>
-        <Story/>
-    </BrowserRouter>
-);
+export const RouterDecorator = (
+    initialEntry: string = '',
+    routePath: string = ''
+): DecoratorFunction<ReactRenderer, object> => {
+    return function StoryComponent(Story) {
+        return (
+            <MemoryRouter initialEntries={[initialEntry]}>
+                <Routes>
+                    <Route path={routePath} element={<Story/>}/>
+                </Routes>
+            </MemoryRouter>
+        );
+    };
+};

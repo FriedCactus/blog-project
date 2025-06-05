@@ -4,7 +4,6 @@ import {Theme} from "../../src/app/providers/ThemeProvider";
 import {INITIAL_VIEWPORTS} from "@storybook/addon-viewport";
 import {
     ThemeDecorator,
-    RouterDecorator,
     StoreDecorator,
     PageDecorator,
     TranslationDecorator
@@ -47,7 +46,6 @@ const preview: Preview = {
         PageDecorator,
         TranslationDecorator,
         StoreDecorator(undefined),
-        RouterDecorator,
     ]
 };
 
