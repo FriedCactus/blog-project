@@ -7,10 +7,9 @@ const articles: Article[] = Array(10).fill(articleMock).map((article, index) => 
     id: String(index),
 }));
 
-
 const ArticlesPage = memo(function ArticlesPage() {
     return (
-        <ArticleList view="big" articles={articles}/>
+        <ArticleList articles={articles}/>
     );
 });
 
