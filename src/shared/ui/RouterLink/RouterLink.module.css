@@ -9,3 +9,7 @@
 .secondary {
     color: var(--secondary-color);
 }
+
+.withoutUnderline {
+    text-decoration: none;
+}

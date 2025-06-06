@@ -16,6 +16,7 @@
       "",
       {}
     ],
-    "value-keyword-case": null
+    "value-keyword-case": null,
+    "no-descending-specificity": null
   }
 }

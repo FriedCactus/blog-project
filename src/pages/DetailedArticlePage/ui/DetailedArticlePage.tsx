@@ -16,6 +16,9 @@ import {
 import {AddCommentForm} from "features/AddCommentForm";
 import {addArticleComment} from "../model/services/addArticleComment/addArticleComment";
 import {getCommentSendingError} from "../model/selectors/getCommentSendingError/getCommentSendingError";
+import {Button, ButtonVariant} from "shared/ui/Button";
+import {RouterLink} from "shared/ui/RouterLink";
+import {AppPaths} from "shared/config/routes";
 
 const reducers = {
     detailedArticleComments: detailedArticleCommentsReducer
@@ -57,15 +60,23 @@ const DetailedArticlePage = memo(function ArticlesPage() {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <div className={styles.DetailedArticlePage}>
-                <DetailedArticle id={+id}/>
-                <AddCommentForm
-                    onSubmit={onSubmit}
-                    error={commentSendingError && t("Ошибка добавления комментария к статье")}
-                />
-                <CommentList
-                    isLoading={isLoading}
-                    comments={articleComments}
-                />
+                <RouterLink to={AppPaths.ARTICLES} withoutUnderline>
+                    <Button variant={ButtonVariant.OUTLINE}>
+                        {t('К статьям')}
+                    </Button>
+                </RouterLink>
+
+                <div className={styles.articleContainer}>
+                    <DetailedArticle id={+id}/>
+                    <AddCommentForm
+                        onSubmit={onSubmit}
+                        error={commentSendingError && t("Ошибка добавления комментария к статье")}
+                    />
+                    <CommentList
+                        isLoading={isLoading}
+                        comments={articleComments}
+                    />
+                </div>
             </div>
         </DynamicModuleLoader>
     );

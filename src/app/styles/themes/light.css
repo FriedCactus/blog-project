@@ -11,4 +11,7 @@
     /* Skeleton */
     --skeleton-color: #fff;
     --skeleton-shadow: rgb(49 49 61 / 30%);
+
+    /* Card */
+    --bg-card: rgb(145 168 182);
 }

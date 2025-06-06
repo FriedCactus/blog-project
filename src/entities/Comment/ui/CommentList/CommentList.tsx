@@ -21,9 +21,11 @@ export const CommentList = (props: Props) => {
     if (isLoading) {
         return (
             <div className={styles.CommentList}>
-                <CommentSkeleton/>
-                <CommentSkeleton/>
-                <CommentSkeleton/>
+                {
+                    Array(3).fill(null).map((_, index) => (
+                        <CommentSkeleton key={index}/>
+                    ))
+                }
             </div>
         );
     }

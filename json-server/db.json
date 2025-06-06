@@ -28,6 +28,7 @@
   "articles": [
     {
       "id": "1",
+      "userId": "1",
       "title": "JavaScript в 2025: новые фреймворки и стандарты",
       "subtitle": "Глубокий анализ текущих трендов в разработке на JS",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
@@ -90,6 +91,7 @@
     },
     {
       "id": "2",
+      "userId": "2",
       "title": "Чёрные дыры и квантовая гравитация: шаг к теории всего?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/GravitationalWaveDiagram.png/800px-GravitationalWaveDiagram.png",
       "views": 2042,
@@ -141,6 +143,7 @@
     },
     {
       "id": "3",
+      "userId": "2",
       "title": "Крипторынок в 2025: рост или стагнация?",
       "subtitle": "Как цифровые активы меняют финансовый мир",
       "img": "https://cryptologos.cc/logos/bitcoin-btc-logo.png",
@@ -193,6 +196,7 @@
     },
     {
       "id": "4",
+      "userId": "3",
       "title": "Разработка Web3-приложений: от смарт-контрактов до фронтенда",
       "subtitle": "Как соединяются миры программирования и блокчейна",
       "img": "https://miro.medium.com/v2/resize:fit:1200/1*1fyw8vbbErOfJ8c8Ybo6-A.png",
@@ -271,6 +275,12 @@
       "username": "user",
       "password": "user",
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa5x1b1KgHOrprIeZnft0wyiCiV4enSu44fg&s"
+    },
+    {
+      "id": "3",
+      "username": "FriedLemon",
+      "password": "123456",
+      "avatar": "https://dknews.kz/storage/news/2023-09/r3tclQdJ40qKlTwgVO0SXAXmQhsE2pMPX8Ai6gzA.jpg"
     }
   ],
   "profiles": [
@@ -297,6 +307,18 @@
       "city": "Москва",
       "username": "user",
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa5x1b1KgHOrprIeZnft0wyiCiV4enSu44fg&s"
+    },
+    {
+      "id": "3",
+      "userId": "3",
+      "firstName": "Михаил",
+      "lastName": "Михайлов",
+      "age": 25,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Санкт-Петербург",
+      "username": "FriedLemon",
+      "avatar": "https://dknews.kz/storage/news/2023-09/r3tclQdJ40qKlTwgVO0SXAXmQhsE2pMPX8Ai6gzA.jpg"
     }
   ]
 }

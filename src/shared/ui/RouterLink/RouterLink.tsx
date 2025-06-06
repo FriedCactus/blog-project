@@ -11,6 +11,7 @@ export enum RouterLinkVariant {
 interface Props extends LinkProps {
     className?: string;
     variant?: RouterLinkVariant;
+    withoutUnderline?: boolean;
 }
 
 export const RouterLink = memo(function RouterLink(
@@ -18,12 +19,18 @@ export const RouterLink = memo(function RouterLink(
         children,
         className = '',
         variant = RouterLinkVariant.PRIMARY,
+        withoutUnderline,
         ...props
     }: Props) {
 
     return (
         <Link
-            className={classNames(styles.RouterLink, {}, [className, styles[variant]])}
+            className={classNames(
+                styles.RouterLink,
+                {
+                    [styles.withoutUnderline]: withoutUnderline
+                },
+                [className, styles[variant]])}
             {...props}
         >
             {children}

@@ -4,6 +4,12 @@
     gap: var(--gap-xl);
 }
 
+.articleContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xl);
+}
+
 .error {
     display: flex;
     height: 100%;

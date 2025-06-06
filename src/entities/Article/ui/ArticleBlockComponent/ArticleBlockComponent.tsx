@@ -1,5 +1,5 @@
 import {memo} from "react";
-import {ArticleBlock, ArticalBlockType} from "../../model/types/article";
+import {ArticleBlock, ArticleBlockType} from "../../model/types/article";
 import {ArticleCodeBlockComponent} from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import {ArticleImageBlockComponent} from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
 import {ArticleTextBlockComponent} from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
@@ -12,11 +12,11 @@ export const ArticleBlockComponent = memo(function ArticleBlockComponent({block}
     const {type} = block;
 
     switch (type) {
-        case ArticalBlockType.TEXT:
+        case ArticleBlockType.TEXT:
             return <ArticleTextBlockComponent block={block}/>;
-        case ArticalBlockType.IMAGE:
+        case ArticleBlockType.IMAGE:
             return <ArticleImageBlockComponent block={block}/>;
-        case ArticalBlockType.CODE:
+        case ArticleBlockType.CODE:
             return <ArticleCodeBlockComponent block={block}/>;
         default:
             return null;

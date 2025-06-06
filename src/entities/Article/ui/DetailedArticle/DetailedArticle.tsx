@@ -10,7 +10,7 @@ import {
 } from "../../model/selectors/getDetailedArticleIsLoading/getDetailedArticleIsLoading";
 import styles from './DetailedArticle.module.css';
 import {ArticleSkeleton} from "../ArticleSkeleton/ArticleSkeleton";
-import {ArticleError} from "../ArticleError/ArticleError";
+import {DetailedArticleError} from "../DetailedArticleError/DetailedArticleError";
 import {ArticleBlockComponent} from "entities/Article/ui/ArticleBlockComponent/ArticleBlockComponent";
 import {Avatar} from "shared/ui/Avatar";
 import {getDetailedArticleData} from "../../model/selectors/getDetailedArticleData/getDetailedArticleData";
@@ -43,7 +43,7 @@ export const DetailedArticle = memo(function DetailedArticle({id}: Props) {
     if (error || !articleData) {
         return (
             <ArticleWrapper>
-                <ArticleError/>
+                <DetailedArticleError/>
             </ArticleWrapper>
         );
     }
