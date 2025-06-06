@@ -1,13 +1,16 @@
 import {Text, TextAlign, TextVariant} from "shared/ui/Text";
+import {useTranslation} from "react-i18next";
 
 export const ArticleError = () => {
+    const {t} = useTranslation();
+
     return (
         <Text
-            title="Произошла ошибка при загрузке статей"
+            title={t('Произошла ошибка при загрузке статей')}
             variant={TextVariant.ERROR}
             textAlign={TextAlign.CENTER}
         >
-            Попробуйте обновить страницу
+            {t('Попробуйте обновить страницу')}
         </Text>
     );
 };
