@@ -10,7 +10,11 @@ interface Props {
 
 export const CommentItem = ({comment}: Props) => (
     <div className={styles.CommentItem}>
-        <RouterLink className={styles.userInfo} to={`/profile/${comment.user.id}`}>
+        <RouterLink
+            className={styles.userInfo}
+            to={`/profile/${comment.user.id}`}
+            withoutUnderline
+        >
             {
                 comment.user.avatar && (
                     <Avatar src={comment.user.avatar} size={30}/>
