@@ -12,7 +12,7 @@ const state: DetailedArticleCommentsSchema = {
 };
 
 describe("detailedArticleComments", () => {
-    test('fetchCommentsByArticleId should clear loading and errors while pending', () => {
+    test('fetchCommentsByArticleId should clear loading and error while pending', () => {
         const action = {type: fetchCommentsByArticleId.pending.type};
 
         expect(detailedArticleCommentsReducer(state, action)).toEqual({

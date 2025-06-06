@@ -6,7 +6,7 @@ import type {LoginSchema} from "features/AuthByUsername";
 import {ProfileSchema} from "features/EditableProfileCard";
 import {AxiosInstance} from "axios";
 import {Action, EnhancedStore, Reducer, ReducersMapObject} from "@reduxjs/toolkit";
-
+import {ArticlesSchema} from "pages/ArticlesPage";
 
 interface StaticStateSchema {
     counter: CounterSchema;
@@ -18,6 +18,7 @@ export interface LazyStateSchema {
     profile?: ProfileSchema;
     detailedArticle?: DetailedArticleSchema;
     detailedArticleComments?: DetailedArticleCommentsSchema;
+    articles?: ArticlesSchema;
 }
 
 interface ThunkWithExtra {

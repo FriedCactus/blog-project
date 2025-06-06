@@ -1,5 +1,10 @@
 import {User} from "entities/User";
 
+export enum ArticleListView {
+    SMALL = "small",
+    BIG = 'big'
+}
+
 export enum ArticleType {
     IT = "IT",
     SCIENCE = "SCIENCE",

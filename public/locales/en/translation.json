@@ -15,5 +15,8 @@
   "Введите логин": "Enter username",
   "Введите пароль": "Enter password",
   "Форма авторизации": "Authorization form",
-  "Неверный логин или пароль": "Incorrect login or password"
+  "Неверный логин или пароль": "Incorrect login or password",
+  "Читать далее": "Read more",
+  "Произошла ошибка при загрузке статей": "There was an error loading the article",
+  "Попробуйте обновить страницу": "Try refreshing the page"
 }

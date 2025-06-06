@@ -6,6 +6,8 @@ import EyeIcon from '../../assets/icons/eye-icon.svg';
 import MainIcon from '../../assets/icons/main-icon.svg';
 import ProfileIcon from '../../assets/icons/profile-icon.svg';
 import ThemeIcon from '../../assets/icons/theme-icon.svg';
+import BurgerIcon from '../../assets/icons/burger-icon.svg';
+import GridIcon from '../../assets/icons/grid-icon.svg';
 
 import styles from './Icon.module.css';
 
@@ -20,6 +22,8 @@ const Icons = {
     main: MainIcon,
     profile: ProfileIcon,
     theme: ThemeIcon,
+    grid: GridIcon,
+    burger: BurgerIcon,
 } as const;
 
 type IconName = keyof typeof Icons

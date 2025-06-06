@@ -17,8 +17,7 @@ interface Props {
 export const ArticleItemBig = ({article}: Props) => {
     const {id, user, title, type, img, blocks, createdAt, views} = article;
 
-    const {t} = useTranslation('article');
-
+    const {t} = useTranslation('');
     const firstParagraph = blocks.find(block => block.type === ArticleBlockType.TEXT);
 
     return (

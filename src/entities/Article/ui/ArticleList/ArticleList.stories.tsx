@@ -2,7 +2,7 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {ArticleList} from "./ArticleList";
 import {Theme} from "app/providers/ThemeProvider";
 import {RouterDecorator, storyGlobalsDesktop, ThemeDecorator} from 'shared/config/storybook';
-import {Article} from "entities/Article/model/types/article";
+import {Article, ArticleListView} from "../../model/types/article";
 import {articleMock} from "entities/Article";
 
 const articles: Article[] = Array(9).fill(articleMock).map((article, index) => ({
@@ -29,27 +29,27 @@ export const PrimarySmall: Story = {};
 
 export const PrimaryBig: Story = {
     args: {
-        view: 'big'
+        view: ArticleListView.BIG
     }
 };
 
 export const PrimarySmallSkeleton: Story = {
     args: {
-        view: 'small',
+        view: ArticleListView.SMALL,
         isLoading: true
     }
 };
 
 export const PrimaryBigSkeleton: Story = {
     args: {
-        view: 'big',
+        view: ArticleListView.BIG,
         isLoading: true
     }
 };
 
 export const PrimaryError: Story = {
     args: {
-        isError: true
+        error: 'Ошибка'
     }
 };
 
@@ -61,14 +61,14 @@ export const PrimarySmallDark: Story = {
 export const PrimaryBigDark: Story = {
     decorators: [ThemeDecorator(Theme.DARK)],
     args: {
-        view: 'big'
+        view: ArticleListView.BIG
     }
 };
 
 export const PrimarySmallSkeletonDark: Story = {
     decorators: [ThemeDecorator(Theme.DARK)],
     args: {
-        view: 'small',
+        view: ArticleListView.SMALL,
         isLoading: true
     }
 };
@@ -76,7 +76,7 @@ export const PrimarySmallSkeletonDark: Story = {
 export const PrimaryBigSkeletonDark: Story = {
     decorators: [ThemeDecorator(Theme.DARK)],
     args: {
-        view: 'big',
+        view: ArticleListView.BIG,
         isLoading: true
     }
 };
@@ -84,7 +84,7 @@ export const PrimaryBigSkeletonDark: Story = {
 export const PrimaryErrorDark: Story = {
     decorators: [ThemeDecorator(Theme.DARK)],
     args: {
-        isError: true
+        error: "Ошибка"
     }
 };
 
@@ -96,14 +96,14 @@ export const PrimarySmallGreen: Story = {
 export const PrimaryBigGreen: Story = {
     decorators: [ThemeDecorator(Theme.GREEN)],
     args: {
-        view: 'big'
+        view: ArticleListView.BIG
     }
 };
 
 export const PrimarySmallSkeletonGreen: Story = {
     decorators: [ThemeDecorator(Theme.GREEN)],
     args: {
-        view: 'small',
+        view: ArticleListView.SMALL,
         isLoading: true
     }
 };
@@ -111,7 +111,7 @@ export const PrimarySmallSkeletonGreen: Story = {
 export const PrimaryBigSkeletonGreen: Story = {
     decorators: [ThemeDecorator(Theme.GREEN)],
     args: {
-        view: 'big',
+        view: ArticleListView.BIG,
         isLoading: true
     }
 };
@@ -119,6 +119,6 @@ export const PrimaryBigSkeletonGreen: Story = {
 export const PrimaryErrorGreen: Story = {
     decorators: [ThemeDecorator(Theme.GREEN)],
     args: {
-        isError: true
+        error: 'Ошибка'
     }
 };

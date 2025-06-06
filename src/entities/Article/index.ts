@@ -4,6 +4,7 @@ import {detailedArticleReducer} from './model/slice/detailedArticleSlice';
 import {articleMock} from './model/mocks/article';
 import {getDetailedArticleData} from "./model/selectors/getDetailedArticleData/getDetailedArticleData";
 import {ArticleList} from "./ui/ArticleList/ArticleList";
+import {type Article, ArticleListView} from "./model/types/article";
 
 export {
     DetailedArticleSchema,
@@ -11,5 +12,7 @@ export {
     detailedArticleReducer,
     articleMock,
     getDetailedArticleData,
-    ArticleList
+    ArticleList,
+    Article,
+    ArticleListView
 };

@@ -1,4 +1,4 @@
-import {Article} from "../../model/types/article";
+import {Article, ArticleListView} from "../../model/types/article";
 import {ArticleItemSmall} from "../ArticleItemSmall/ArticleItemSmall";
 import {ArticleItemBig} from "../ArticleItemBig/ArticleItemBig";
 import {useMemo} from "react";
@@ -10,9 +10,9 @@ import {ArticleItemBigSkeleton} from "../ArticleItemBig/ArticleItemBigSkeleton";
 
 interface Props {
     articles: Article[];
-    view?: 'small' | 'big';
+    view?: ArticleListView;
     isLoading?: boolean;
-    isError?: boolean;
+    error?: string;
 }
 
 const SmallSkeleton = () => (
@@ -30,16 +30,16 @@ const BigSkeleton = () => (
 export const ArticleList = (props: Props) => {
     const {
         articles,
-        view = 'small',
+        view = ArticleListView.SMALL,
         isLoading,
-        isError
+        error
     } = props;
 
     const ArticleItem = useMemo(() => (
-        view === 'small' ? ArticleItemSmall : ArticleItemBig
+        view === ArticleListView.SMALL ? ArticleItemSmall : ArticleItemBig
     ), [view]);
 
-    if (isError) {
+    if (error) {
         return (
             <div className={styles.error}>
                 <ArticleError/>
@@ -50,8 +50,8 @@ export const ArticleList = (props: Props) => {
     if (isLoading) {
         return (
             <div className={classNames(styles.ArticleList, {}, [styles[view]])}>
-                {view === 'small' && <SmallSkeleton/>}
-                {view === 'big' && <BigSkeleton/>}
+                {view === ArticleListView.SMALL && <SmallSkeleton/>}
+                {view === ArticleListView.BIG && <BigSkeleton/>}
             </div>
         );
     }

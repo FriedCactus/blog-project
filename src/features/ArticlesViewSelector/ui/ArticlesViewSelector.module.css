@@ -1,0 +1,8 @@
+.ArticlesViewSelector {
+    display: flex;
+    gap: var(--gap-m)
+}
+
+.active svg {
+    color: var(--tertiary-color);
+}
