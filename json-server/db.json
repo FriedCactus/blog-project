@@ -93,7 +93,7 @@
       "id": "2",
       "userId": "2",
       "title": "Чёрные дыры и квантовая гравитация: шаг к теории всего?",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/GravitationalWaveDiagram.png/800px-GravitationalWaveDiagram.png",
+      "img": "https://habrastorage.org/getpro/habr/upload_files/a07/068/18c/a0706818c93d36d98808ad56c42178f8.png",
       "views": 2042,
       "createdAt": "05.03.2025",
       "type": [
@@ -146,7 +146,7 @@
       "userId": "2",
       "title": "Крипторынок в 2025: рост или стагнация?",
       "subtitle": "Как цифровые активы меняют финансовый мир",
-      "img": "https://cryptologos.cc/logos/bitcoin-btc-logo.png",
+      "img": "https://content.kaspersky-labs.com/fm/press-releases/e0/e0c122e63ca4199bb2f758617abad50b/processed/cryptocurrencyimage11130490519670x377px300dpi-q75.jpg",
       "views": 3195,
       "createdAt": "30.05.2025",
       "type": [
@@ -199,7 +199,7 @@
       "userId": "3",
       "title": "Разработка Web3-приложений: от смарт-контрактов до фронтенда",
       "subtitle": "Как соединяются миры программирования и блокчейна",
-      "img": "https://miro.medium.com/v2/resize:fit:1200/1*1fyw8vbbErOfJ8c8Ybo6-A.png",
+      "img": "https://img.c-inform.info/cache/0/5/b2342434.jpg/dw900h500.jpg",
       "views": 2745,
       "createdAt": "27.05.2025",
       "type": [
@@ -258,6 +258,394 @@
           "paragraphs": [
             "Сначала контракты тестируются в локальной сети (например, Hardhat или Foundry), затем разворачиваются в testnet (Goerli, Sepolia). Для деплоя можно использовать Alchemy, Infura или собственные RPC-ноды.",
             "Фронтенд подключается к смарт-контрактам по ABI, взаимодействуя через Web3-провайдер. Для хостинга применяются IPFS, Fleek или традиционные CDN с верифицированной подписью сборки."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Будущее JavaScript: Новые горизонты",
+      "subtitle": "Тренды в развитии JS в 2025 году",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+      "views": 1320,
+      "createdAt": "10.03.2025",
+      "type": [
+        "IT"
+      ],
+      "userId": "1",
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Введение",
+          "paragraphs": [
+            "JavaScript продолжает оставаться ведущим языком веб-разработки.",
+            "В 2025 году наблюдается рост популярности серверных фреймворков на базе JS."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "const greet = (name) => console.log(`Hello, ${name}`);\ngreet('world');"
+        },
+        {
+          "id": "3",
+          "type": "IMAGE",
+          "src": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Node.js_logo.svg",
+          "title": "Node.js — серверный JavaScript"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Новые открытия в астрофизике",
+      "subtitle": "Как телескоп James Webb изменяет науку",
+      "img": "https://img.freepik.com/free-photo/laboratory-supplies-medical-work_23-2149744711.jpg?semt=ais_hybrid&w=740",
+      "views": 981,
+      "createdAt": "14.04.2025",
+      "type": [
+        "SCIENCE"
+      ],
+      "userId": "2",
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Новое оборудование",
+          "paragraphs": [
+            "Телескоп James Webb позволяет заглянуть глубже во Вселенную, чем когда-либо.",
+            "Наблюдения уже подтвердили существование галактик, старше ожидаемых."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://upload.wikimedia.org/wikipedia/commons/0/00/Deep_Field.jpg",
+          "title": "Изображения глубокого космоса"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "title": "Криптовалюта и смарт-контракты",
+      "subtitle": "Роль блокчейна в будущем экономики",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg",
+      "views": 2455,
+      "createdAt": "01.05.2025",
+      "type": [
+        "CRYPTO"
+      ],
+      "userId": "3",
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Децентрализация",
+          "paragraphs": [
+            "Блокчейн обеспечивает прозрачность и защищенность операций.",
+            "Смарт-контракты позволяют автоматизировать сделки без посредников."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://upload.wikimedia.org/wikipedia/commons/9/97/Ethereum_logo.svg",
+          "title": "Ethereum и смарт-контракты"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "title": "Совмещение науки и технологий",
+      "subtitle": "AI в астрономии",
+      "img": "https://img.freepik.com/free-vector/science-symbols-glass-container_1308-4744.jpg?semt=ais_items_boosted&w=740",
+      "views": 1567,
+      "createdAt": "12.05.2025",
+      "type": [
+        "IT",
+        "SCIENCE"
+      ],
+      "userId": "2",
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "ИИ в космосе",
+          "paragraphs": [
+            "Алгоритмы машинного обучения обрабатывают изображения космоса.",
+            "Это позволяет быстрее находить аномалии и интересные объекты."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Neural_network_example.svg",
+          "title": "Пример нейросети"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "title": "Статья номер 8",
+      "subtitle": "Подзаголовок статьи 8",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg",
+      "views": 1080,
+      "createdAt": "08.06.2025",
+      "type": [
+        "CRYPTO"
+      ],
+      "userId": "3",
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Введение",
+          "paragraphs": [
+            "Это статья номер 8. Она содержит полезную информацию.",
+            "В данном блоке описываются ключевые моменты темы."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+          "title": "Изображение к статье"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "title": "Заключение",
+          "paragraphs": [
+            "Статья завершает обзор темы.",
+            "Надеемся, информация была полезной."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "title": "Статья номер 9",
+      "subtitle": "Подзаголовок статьи 9",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg",
+      "views": 1090,
+      "createdAt": "09.06.2025",
+      "type": [
+        "IT"
+      ],
+      "userId": "1",
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Введение",
+          "paragraphs": [
+            "Это статья номер 9. Она содержит полезную информацию.",
+            "В данном блоке описываются ключевые моменты темы."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+          "title": "Изображение к статье"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "title": "Заключение",
+          "paragraphs": [
+            "Статья завершает обзор темы.",
+            "Надеемся, информация была полезной."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "title": "Статья номер 10",
+      "subtitle": "Подзаголовок статьи 10",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg",
+      "views": 1100,
+      "createdAt": "010.06.2025",
+      "type": [
+        "SCIENCE"
+      ],
+      "userId": "2",
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Введение",
+          "paragraphs": [
+            "Это статья номер 10. Она содержит полезную информацию.",
+            "В данном блоке описываются ключевые моменты темы."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+          "title": "Изображение к статье"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "title": "Заключение",
+          "paragraphs": [
+            "Статья завершает обзор темы.",
+            "Надеемся, информация была полезной."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "title": "Статья номер 11",
+      "subtitle": "Подзаголовок статьи 11",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg",
+      "views": 1110,
+      "createdAt": "011.06.2025",
+      "type": [
+        "CRYPTO"
+      ],
+      "userId": "3",
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Введение",
+          "paragraphs": [
+            "Это статья номер 11. Она содержит полезную информацию.",
+            "В данном блоке описываются ключевые моменты темы."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+          "title": "Изображение к статье"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "title": "Заключение",
+          "paragraphs": [
+            "Статья завершает обзор темы.",
+            "Надеемся, информация была полезной."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "title": "Статья номер 12",
+      "subtitle": "Подзаголовок статьи 12",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg",
+      "views": 1120,
+      "createdAt": "012.06.2025",
+      "type": [
+        "IT"
+      ],
+      "userId": "1",
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Введение",
+          "paragraphs": [
+            "Это статья номер 12. Она содержит полезную информацию.",
+            "В данном блоке описываются ключевые моменты темы."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+          "title": "Изображение к статье"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "title": "Заключение",
+          "paragraphs": [
+            "Статья завершает обзор темы.",
+            "Надеемся, информация была полезной."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "title": "Статья номер 13",
+      "subtitle": "Подзаголовок статьи 13",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg",
+      "views": 1130,
+      "createdAt": "013.06.2025",
+      "type": [
+        "SCIENCE"
+      ],
+      "userId": "2",
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Введение",
+          "paragraphs": [
+            "Это статья номер 13. Она содержит полезную информацию.",
+            "В данном блоке описываются ключевые моменты темы."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+          "title": "Изображение к статье"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "title": "Заключение",
+          "paragraphs": [
+            "Статья завершает обзор темы.",
+            "Надеемся, информация была полезной."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "title": "Статья номер 14",
+      "subtitle": "Подзаголовок статьи 14",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg",
+      "views": 1140,
+      "createdAt": "014.06.2025",
+      "type": [
+        "CRYPTO"
+      ],
+      "userId": "3",
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Введение",
+          "paragraphs": [
+            "Это статья номер 14. Она содержит полезную информацию.",
+            "В данном блоке описываются ключевые моменты темы."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+          "title": "Изображение к статье"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "title": "Заключение",
+          "paragraphs": [
+            "Статья завершает обзор темы.",
+            "Надеемся, информация была полезной."
           ]
         }
       ]

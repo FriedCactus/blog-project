@@ -1,6 +1,5 @@
 .ArticleItemSmall {
     cursor: pointer;
-    width: 200px !important;
     transition: transform 0.2s;
 
     &:hover {
@@ -25,7 +24,7 @@
 
 .imageContainer {
     position: relative;
-    height: 200px;
+    height: 400px;
 }
 
 .image {

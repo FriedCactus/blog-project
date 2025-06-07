@@ -3,6 +3,6 @@ import {Card} from "shared/ui/Card";
 
 export const ArticleItemSmallSkeleton = () => (
     <Card>
-        <Skeleton width={200} height={250}/>
+        <Skeleton height={400}/>
     </Card>
 );

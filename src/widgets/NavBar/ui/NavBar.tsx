@@ -35,14 +35,14 @@ export const NavBar = memo(function NavBar() {
 
     if (authData) {
         return (
-            <div className={classNames(styles.Navbar)}>
+            <header className={classNames(styles.Navbar)}>
                 <Button onClick={onLogout}>{t('Выйти')}</Button>
-            </div>
+            </header>
         );
     }
 
     return (
-        <div className={classNames(styles.Navbar)}>
+        <header className={classNames(styles.Navbar)}>
             <Button onClick={onShowModal}>{t('Войти')}</Button>
             {
                 isModalOpen && <LoginModal
@@ -51,7 +51,7 @@ export const NavBar = memo(function NavBar() {
                     onSuccess={onSuccess}
                 />
             }
-        </div>
+        </header>
     );
 });
 

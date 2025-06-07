@@ -16,7 +16,7 @@ interface Props {
 }
 
 const SmallSkeleton = () => (
-    Array(9).fill(null).map((_, index) => (
+    Array(12).fill(null).map((_, index) => (
         <ArticleItemSmallSkeleton key={index}/>
     ))
 );
