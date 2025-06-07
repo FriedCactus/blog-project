@@ -1,6 +1,4 @@
 .DetailedArticlePage {
-    display: flex;
-    flex-direction: column;
     gap: var(--gap-xl);
 }
 
@@ -11,8 +9,5 @@
 }
 
 .error {
-    display: flex;
-    height: 100%;
-    flex-direction: column;
     justify-content: center;
 }

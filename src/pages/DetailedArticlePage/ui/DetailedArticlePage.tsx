@@ -19,6 +19,7 @@ import {getCommentSendingError} from "../model/selectors/getCommentSendingError/
 import {Button, ButtonVariant} from "shared/ui/Button";
 import {RouterLink} from "shared/ui/RouterLink";
 import {AppPaths} from "shared/config/routes";
+import {Page} from "shared/ui/Page";
 
 const reducers = {
     detailedArticleComments: detailedArticleCommentsReducer
@@ -45,7 +46,7 @@ const DetailedArticlePage = memo(function ArticlesPage() {
 
     if (!id || isNaN(+id)) {
         return (
-            <div className={styles.error}>
+            <Page className={styles.error}>
                 <Text
                     variant={TextVariant.ERROR}
                     textAlign={TextAlign.CENTER}
@@ -53,13 +54,13 @@ const DetailedArticlePage = memo(function ArticlesPage() {
                 >
                     {t('Проверьте ссылку или попробуйте обновить страницу')}
                 </Text>
-            </div>
+            </Page>
         );
     }
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={styles.DetailedArticlePage}>
+            <Page className={styles.DetailedArticlePage}>
                 <RouterLink to={AppPaths.ARTICLES} withoutUnderline>
                     <Button variant={ButtonVariant.OUTLINE}>
                         {t('К статьям')}
@@ -77,7 +78,7 @@ const DetailedArticlePage = memo(function ArticlesPage() {
                         comments={articleComments}
                     />
                 </div>
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 });

@@ -10,6 +10,7 @@ import {getArticlesError} from "../model/selectors/getArticlesError/getArticlesE
 import {ArticlesViewSelector} from "features/ArticlesViewSelector";
 import styles from './ArticlesPage.module.css';
 import {LOCAL_STORAGE_ARTICLES_PAGE_VIEW} from "shared/const";
+import {Page} from "shared/ui/Page";
 
 const reducers = {
     articles: articlesReducer
@@ -37,7 +38,7 @@ const ArticlesPage = memo(function ArticlesPage() {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={styles.ArticlesPage}>
+            <Page className={styles.ArticlesPage}>
                 <ArticlesViewSelector view={view} onChange={onViewChange}/>
                 <ArticleList
                     view={view}
@@ -45,7 +46,7 @@ const ArticlesPage = memo(function ArticlesPage() {
                     isLoading={isLoading}
                     error={error}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 });

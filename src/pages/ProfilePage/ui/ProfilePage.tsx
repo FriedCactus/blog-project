@@ -1,8 +1,11 @@
 import {EditableProfileCard} from "features/EditableProfileCard";
+import {Page} from "shared/ui/Page";
 
 const ProfilePage = () => {
     return (
-        <EditableProfileCard/>
+        <Page>
+            <EditableProfileCard/>
+        </Page>
     );
 };
 

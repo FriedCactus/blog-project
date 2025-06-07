@@ -1,0 +1,10 @@
+.Page {
+    display: flex;
+    flex-direction: column;
+    padding: var(--content-padding);
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+
+    background: var(--bg-color);
+}
