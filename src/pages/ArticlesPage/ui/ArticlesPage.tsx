@@ -1,44 +1,48 @@
-import {memo, useCallback, useState} from "react";
+import {memo, useCallback} from "react";
 import {ArticleList, ArticleListView} from "entities/Article";
 import {useSelector} from "react-redux";
-import {articlesReducer, getArticles} from "../model/slice/articlesSlice";
+import {articlesActions, articlesReducer, getArticles} from "../model/slice/articlesSlice";
 import {DynamicModuleLoader} from "shared/lib/components";
 import {useAppDispatch, useInitialEffect} from "shared/lib/hooks";
 import {fetchArticles} from "../model/services/fetchArticles/fetchArticles";
 import {getArticlesIsLoading} from "../model/selectors/getArticlesIsLoading/getArticlesIsLoading";
 import {getArticlesError} from "../model/selectors/getArticlesError/getArticlesError";
+import {getArticlesView} from "../model/selectors/getArticlesView/getArticlesView";
 import {ArticlesViewSelector} from "features/ArticlesViewSelector";
 import styles from './ArticlesPage.module.css';
-import {LOCAL_STORAGE_ARTICLES_PAGE_VIEW} from "shared/const";
-import {Page} from "shared/ui/Page";
+import {PageWrapper} from "widgets/PageWrapper";
+import {getArticlesPage} from "../model/selectors/getArticlesPage/getArticlesPage";
+import {fetchNextArticlesPage} from "../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 
 const reducers = {
     articles: articlesReducer
 };
 
 const ArticlesPage = memo(function ArticlesPage() {
-    const [view, setView] = useState(ArticleListView.SMALL);
-
     const dispatch = useAppDispatch();
+
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(getArticlesIsLoading);
     const error = useSelector(getArticlesError);
+    const view = useSelector(getArticlesView);
+    const page = useSelector(getArticlesPage);
 
     useInitialEffect(() => {
-        dispatch(fetchArticles());
-
-        const view = localStorage.getItem(LOCAL_STORAGE_ARTICLES_PAGE_VIEW) as ArticleListView;
-        setView(view ?? ArticleListView.SMALL);
+        dispatch(articlesActions.initState());
+        dispatch(fetchArticles(page));
     });
 
     const onViewChange = useCallback((view: ArticleListView) => {
-        setView(view);
-        localStorage.setItem(LOCAL_STORAGE_ARTICLES_PAGE_VIEW, view);
-    }, []);
+        dispatch(articlesActions.setView(view));
+    }, [dispatch]);
+
+    const onPageEnd = () => {
+        dispatch(fetchNextArticlesPage());
+    };
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <Page className={styles.ArticlesPage}>
+            <PageWrapper className={styles.ArticlesPage} onPageEnd={onPageEnd}>
                 <ArticlesViewSelector view={view} onChange={onViewChange}/>
                 <ArticleList
                     view={view}
@@ -46,7 +50,7 @@ const ArticlesPage = memo(function ArticlesPage() {
                     isLoading={isLoading}
                     error={error}
                 />
-            </Page>
+            </PageWrapper>
         </DynamicModuleLoader>
     );
 });

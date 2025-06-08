@@ -1,10 +1,37 @@
 import {fetchArticles} from "../fetchArticles/fetchArticles";
 import {TestAsyncThunk} from "shared/lib/tests";
-import {articleMock} from "entities/Article";
+import {ArticleListView, articleMock} from "entities/Article";
+import {StateSchema} from "app/providers/StoreProvider";
+
+const state: DeepPartial<StateSchema> = {
+    articles: {
+        isLoading: false,
+        view: ArticleListView.BIG,
+        page: 1,
+        limit: 4,
+        hasMore: false,
+        ids: [],
+        entities: {}
+    }
+};
 
 describe("fetchArticles", () => {
     test('successful articles fetch', async () => {
-        const thunk = new TestAsyncThunk(fetchArticles);
+        const thunk = new TestAsyncThunk(fetchArticles, state);
+        thunk.api.get.mockReturnValue(Promise.resolve({
+            data: [{...articleMock}]
+        }));
+
+        const result = await thunk.callThunk(1);
+
+        expect(thunk.api.get).toHaveBeenCalled();
+        expect(thunk.dispatch).toHaveBeenCalledTimes(2);
+        expect(result.meta.requestStatus).toBe('fulfilled');
+        expect(result.payload).toEqual([{...articleMock}]);
+    });
+
+    test('successful articles when page undefined', async () => {
+        const thunk = new TestAsyncThunk(fetchArticles, state);
         thunk.api.get.mockReturnValue(Promise.resolve({
             data: [{...articleMock}]
         }));
@@ -18,7 +45,7 @@ describe("fetchArticles", () => {
     });
 
     test('failure articles fetch', async () => {
-        const thunk = new TestAsyncThunk(fetchArticles);
+        const thunk = new TestAsyncThunk(fetchArticles, state);
         thunk.api.get.mockReturnValue(Promise.reject('error'));
 
         const result = await thunk.callThunk(undefined);

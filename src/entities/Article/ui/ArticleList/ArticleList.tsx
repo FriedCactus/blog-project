@@ -39,19 +39,14 @@ export const ArticleList = (props: Props) => {
         view === ArticleListView.SMALL ? ArticleItemSmall : ArticleItemBig
     ), [view]);
 
+    const ArticleItemSkeleton = useMemo(() => (
+        view === ArticleListView.SMALL ? SmallSkeleton : BigSkeleton
+    ), [view]);
+
     if (error) {
         return (
             <div className={styles.error}>
                 <ArticleError/>
-            </div>
-        );
-    }
-
-    if (isLoading) {
-        return (
-            <div className={classNames(styles.ArticleList, {}, [styles[view]])}>
-                {view === ArticleListView.SMALL && <SmallSkeleton/>}
-                {view === ArticleListView.BIG && <BigSkeleton/>}
             </div>
         );
     }
@@ -63,6 +58,7 @@ export const ArticleList = (props: Props) => {
                     <ArticleItem key={article.id} article={article}/>
                 ))
             }
+            {isLoading && <ArticleItemSkeleton/>}
         </div>
     );
 };

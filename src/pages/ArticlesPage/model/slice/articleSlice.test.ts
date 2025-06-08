@@ -1,15 +1,48 @@
 import {fetchArticles} from "../services/fetchArticles/fetchArticles";
-import {articlesReducer} from '../slice/articlesSlice';
-import {ArticlesSchema} from "pages/ArticlesPage";
-import {articleMock} from "entities/Article";
+import {ArticlesSchema} from "../types/articlesSchema";
+import {articlesActions, articlesReducer} from './articlesSlice';
+import {ArticleListView, articleMock} from "entities/Article";
+import {LOCAL_STORAGE_ARTICLES_PAGE_VIEW} from "shared/const";
+import {fetchNextArticlesPage} from "../services/fetchNextArticlesPage/fetchNextArticlesPage";
 
 const state: ArticlesSchema = {
     isLoading: false,
     ids: [],
-    entities: {}
+    entities: {},
+    view: ArticleListView.SMALL,
+    page: 1,
+    limit: 10,
+    hasMore: true
 };
 
 describe('articleSlice', () => {
+    beforeEach(() => {
+        localStorage.clear();
+    });
+
+    test('initState should update view and limit', () => {
+        localStorage.setItem(LOCAL_STORAGE_ARTICLES_PAGE_VIEW, ArticleListView.BIG);
+        const result = articlesReducer(state, articlesActions.initState());
+
+        expect(result).toEqual({
+            ...state,
+            view: ArticleListView.BIG,
+            limit: 4
+        });
+
+    });
+
+    test('setView should update view and localStorage', () => {
+        const result = articlesReducer(state, articlesActions.setView(ArticleListView.BIG));
+
+        expect(result).toEqual({
+            ...state,
+            view: ArticleListView.BIG,
+            limit: 4
+        });
+        expect(localStorage.getItem(LOCAL_STORAGE_ARTICLES_PAGE_VIEW)).toEqual(ArticleListView.BIG);
+    });
+
     test('fetchArticles should clear loading and error while pending', () => {
         const action = {type: fetchArticles.pending.type};
 
@@ -28,10 +61,11 @@ describe('articleSlice', () => {
 
         expect(articlesReducer(state, action)).toEqual({
             ...state,
+            hasMore: false,
             ids: ['1'],
             entities: {
                 "1": articleMock
-            }
+            },
         });
     });
 
@@ -50,6 +84,15 @@ describe('articleSlice', () => {
             ...state,
             isLoading: false,
             error: 'Ошибка'
+        });
+    });
+
+    test('fetchNextArticlesPage should update page when fulfilled', () => {
+        const action = {type: fetchNextArticlesPage.fulfilled.type};
+
+        expect(articlesReducer(state, action)).toEqual({
+            ...state,
+            page: 2
         });
     });
 });

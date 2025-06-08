@@ -1,2 +1,7 @@
-export {componentRender} from './componentRender/componentRender';
-export {TestAsyncThunk} from './TestAsyncThunk/TestAsyncThunk';
+import {componentRender} from './componentRender/componentRender';
+import {TestAsyncThunk} from './TestAsyncThunk/TestAsyncThunk';
+
+export {
+    TestAsyncThunk,
+    componentRender
+};

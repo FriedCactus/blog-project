@@ -23,6 +23,12 @@
       "text": "Ещё комментарий к статье 1",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "userId": "1",
+      "articleId": "14",
+      "text": "Комментарий",
+      "id": "w2bLpa1"
     }
   ],
   "articles": [
@@ -385,9 +391,9 @@
       ]
     },
     {
-      "id": "8",
-      "title": "Статья номер 8",
-      "subtitle": "Подзаголовок статьи 8",
+      "id": "9",
+      "title": "Статья номер 9",
+      "subtitle": "Подзаголовок статьи 9",
       "img": "https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg",
       "views": 1080,
       "createdAt": "08.06.2025",
@@ -395,44 +401,6 @@
         "CRYPTO"
       ],
       "userId": "3",
-      "blocks": [
-        {
-          "id": "1",
-          "type": "TEXT",
-          "title": "Введение",
-          "paragraphs": [
-            "Это статья номер 8. Она содержит полезную информацию.",
-            "В данном блоке описываются ключевые моменты темы."
-          ]
-        },
-        {
-          "id": "2",
-          "type": "IMAGE",
-          "src": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-          "title": "Изображение к статье"
-        },
-        {
-          "id": "3",
-          "type": "TEXT",
-          "title": "Заключение",
-          "paragraphs": [
-            "Статья завершает обзор темы.",
-            "Надеемся, информация была полезной."
-          ]
-        }
-      ]
-    },
-    {
-      "id": "9",
-      "title": "Статья номер 9",
-      "subtitle": "Подзаголовок статьи 9",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg",
-      "views": 1090,
-      "createdAt": "09.06.2025",
-      "type": [
-        "IT"
-      ],
-      "userId": "1",
       "blocks": [
         {
           "id": "1",
@@ -465,12 +433,12 @@
       "title": "Статья номер 10",
       "subtitle": "Подзаголовок статьи 10",
       "img": "https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg",
-      "views": 1100,
-      "createdAt": "10.06.2025",
+      "views": 1090,
+      "createdAt": "09.06.2025",
       "type": [
-        "SCIENCE"
+        "IT"
       ],
-      "userId": "2",
+      "userId": "1",
       "blocks": [
         {
           "id": "1",
@@ -503,12 +471,12 @@
       "title": "Статья номер 11",
       "subtitle": "Подзаголовок статьи 11",
       "img": "https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg",
-      "views": 1110,
-      "createdAt": "11.06.2025",
+      "views": 1100,
+      "createdAt": "10.06.2025",
       "type": [
-        "CRYPTO"
+        "SCIENCE"
       ],
-      "userId": "3",
+      "userId": "2",
       "blocks": [
         {
           "id": "1",
@@ -541,12 +509,12 @@
       "title": "Статья номер 12",
       "subtitle": "Подзаголовок статьи 12",
       "img": "https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg",
-      "views": 1120,
-      "createdAt": "12.06.2025",
+      "views": 1110,
+      "createdAt": "11.06.2025",
       "type": [
-        "IT"
+        "CRYPTO"
       ],
-      "userId": "1",
+      "userId": "3",
       "blocks": [
         {
           "id": "1",
@@ -579,12 +547,12 @@
       "title": "Статья номер 13",
       "subtitle": "Подзаголовок статьи 13",
       "img": "https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg",
-      "views": 1130,
-      "createdAt": "13.06.2025",
+      "views": 1120,
+      "createdAt": "12.06.2025",
       "type": [
-        "SCIENCE"
+        "IT"
       ],
-      "userId": "2",
+      "userId": "1",
       "blocks": [
         {
           "id": "1",
@@ -617,6 +585,44 @@
       "title": "Статья номер 14",
       "subtitle": "Подзаголовок статьи 14",
       "img": "https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg",
+      "views": 1130,
+      "createdAt": "13.06.2025",
+      "type": [
+        "SCIENCE"
+      ],
+      "userId": "2",
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Введение",
+          "paragraphs": [
+            "Это статья номер 14. Она содержит полезную информацию.",
+            "В данном блоке описываются ключевые моменты темы."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+          "title": "Изображение к статье"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "title": "Заключение",
+          "paragraphs": [
+            "Статья завершает обзор темы.",
+            "Надеемся, информация была полезной."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "title": "Статья номер 15",
+      "subtitle": "Подзаголовок статьи 15",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg",
       "views": 1140,
       "createdAt": "14.06.2025",
       "type": [
@@ -629,7 +635,7 @@
           "type": "TEXT",
           "title": "Введение",
           "paragraphs": [
-            "Это статья номер 14. Она содержит полезную информацию.",
+            "Это статья номер 15. Она содержит полезную информацию.",
             "В данном блоке описываются ключевые моменты темы."
           ]
         },

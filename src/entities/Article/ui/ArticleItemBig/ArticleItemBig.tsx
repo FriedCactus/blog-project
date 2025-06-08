@@ -8,13 +8,14 @@ import {Button, ButtonVariant} from "shared/ui/Button";
 import {Icon} from "shared/ui/Icon";
 import {RouterLink} from "shared/ui/RouterLink";
 import {useTranslation} from "react-i18next";
+import {memo} from "react";
 
 
 interface Props {
     article: Article;
 }
 
-export const ArticleItemBig = ({article}: Props) => {
+export const ArticleItemBig = memo(function ArticleItemBig({article}: Props) {
     const {id, user, title, type, img, blocks, createdAt, views} = article;
 
     const {t} = useTranslation('');
@@ -66,4 +67,4 @@ export const ArticleItemBig = ({article}: Props) => {
             </div>
         </Card>
     );
-};
+});
