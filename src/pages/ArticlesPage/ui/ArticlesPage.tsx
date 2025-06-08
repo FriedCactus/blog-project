@@ -4,15 +4,14 @@ import {useSelector} from "react-redux";
 import {articlesActions, articlesReducer, getArticles} from "../model/slice/articlesSlice";
 import {DynamicModuleLoader} from "shared/lib/components";
 import {useAppDispatch, useInitialEffect} from "shared/lib/hooks";
-import {fetchArticles} from "../model/services/fetchArticles/fetchArticles";
 import {getArticlesIsLoading} from "../model/selectors/getArticlesIsLoading/getArticlesIsLoading";
 import {getArticlesError} from "../model/selectors/getArticlesError/getArticlesError";
 import {getArticlesView} from "../model/selectors/getArticlesView/getArticlesView";
 import {ArticlesViewSelector} from "features/ArticlesViewSelector";
 import styles from './ArticlesPage.module.css';
 import {PageWrapper} from "widgets/PageWrapper";
-import {getArticlesPage} from "../model/selectors/getArticlesPage/getArticlesPage";
 import {fetchNextArticlesPage} from "../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
+import {initArticlesPage} from "../model/services/initArticlesPage/initArticlesPage";
 
 const reducers = {
     articles: articlesReducer
@@ -25,11 +24,9 @@ const ArticlesPage = memo(function ArticlesPage() {
     const isLoading = useSelector(getArticlesIsLoading);
     const error = useSelector(getArticlesError);
     const view = useSelector(getArticlesView);
-    const page = useSelector(getArticlesPage);
 
     useInitialEffect(() => {
-        dispatch(articlesActions.initState());
-        dispatch(fetchArticles(page));
+        dispatch(initArticlesPage());
     });
 
     const onViewChange = useCallback((view: ArticleListView) => {
@@ -41,7 +38,7 @@ const ArticlesPage = memo(function ArticlesPage() {
     };
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <PageWrapper className={styles.ArticlesPage} onPageEnd={onPageEnd}>
                 <ArticlesViewSelector view={view} onChange={onViewChange}/>
                 <ArticleList

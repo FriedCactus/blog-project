@@ -12,7 +12,8 @@ const initialState: ArticlesSchema = articlesAdapter.getInitialState({
     view: ArticleListView.SMALL,
     page: 1,
     limit: 12,
-    hasMore: true
+    hasMore: true,
+    _inited: false
 });
 
 const articlesSlice = createSlice({
@@ -24,6 +25,7 @@ const articlesSlice = createSlice({
 
             state.view = view ?? ArticleListView.SMALL;
             state.limit = view === ArticleListView.SMALL ? 12 : 4;
+            state._inited = true;
         },
         setView(state, action: PayloadAction<ArticleListView>) {
             state.view = action.payload;

@@ -12,7 +12,8 @@ const state: ArticlesSchema = {
     view: ArticleListView.SMALL,
     page: 1,
     limit: 10,
-    hasMore: true
+    hasMore: true,
+    _inited: false
 };
 
 describe('articleSlice', () => {
@@ -27,7 +28,8 @@ describe('articleSlice', () => {
         expect(result).toEqual({
             ...state,
             view: ArticleListView.BIG,
-            limit: 4
+            limit: 4,
+            _inited: true
         });
 
     });

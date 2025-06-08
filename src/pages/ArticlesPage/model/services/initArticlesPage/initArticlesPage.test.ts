@@ -1,10 +1,10 @@
-import {fetchNextArticlesPage} from "./fetchNextArticlesPage";
+import {initArticlesPage} from "./initArticlesPage";
 import {TestAsyncThunk} from "shared/lib/tests";
 import {StateSchema} from "app/providers/StoreProvider";
-import {ArticleListView,} from "entities/Article";
+import {ArticleListView} from "entities/Article";
 import {fetchArticles} from "../fetchArticles/fetchArticles";
 
-jest.mock("../fetchArticles/fetchArticles");
+jest.mock('../fetchArticles/fetchArticles');
 
 const state: DeepPartial<StateSchema> = {
     articles: {
@@ -19,29 +19,30 @@ const state: DeepPartial<StateSchema> = {
     }
 };
 
-describe("fetchNextArticlesPage", () => {
-    test("successful fetch next articles page", async () => {
-        const thunk = new TestAsyncThunk(fetchNextArticlesPage, state);
+describe("initArticlesPage", () => {
+    test('should init successful', async () => {
+        const thunk = new TestAsyncThunk(initArticlesPage, state);
 
         const result = await thunk.callThunk(undefined);
 
-        expect(thunk.dispatch).toHaveBeenCalledTimes(3);
+        expect(thunk.dispatch).toHaveBeenCalledTimes(4);
         expect(result.meta.requestStatus).toBe('fulfilled');
-        expect(fetchArticles).toHaveBeenCalledWith(2);
+        expect(fetchArticles).toHaveBeenCalledWith(1);
     });
 
-    test("not fetch if hasMore false", async () => {
-        const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
+    test('should init successful', async () => {
+        const thunk = new TestAsyncThunk(initArticlesPage, {
             articles: {
                 ...state.articles!,
-                hasMore: false
+                _inited: true
             }
         });
 
         const result = await thunk.callThunk(undefined);
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
-        expect(result.meta.requestStatus).toBe('rejected');
+        expect(result.meta.requestStatus).toBe('fulfilled');
         expect(fetchArticles).not.toHaveBeenCalled();
     });
+
 });
