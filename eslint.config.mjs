@@ -55,7 +55,8 @@ export default defineConfig([
             "react/jsx-props-no-spreading": ['warn'],
             "max-lines": ["error", 300],
             "i18next/no-literal-string": 'warn',
-            "@typescript-eslint/no-require-imports": "off"
+            "@typescript-eslint/no-require-imports": "off",
+            '@typescript-eslint/no-explicit-any': 'warn',
         },
     },
     // Правила для тестов

@@ -7,10 +7,12 @@ import {ProfileSchema} from "features/EditableProfileCard";
 import {AxiosInstance} from "axios";
 import {Action, EnhancedStore, Reducer, ReducersMapObject} from "@reduxjs/toolkit";
 import {ArticlesSchema} from "pages/ArticlesPage";
+import {ScrollRestorationSchema} from "features/ScrollRestoration";
 
 interface StaticStateSchema {
     counter: CounterSchema;
     user: UserSchema;
+    scrollRestoration: ScrollRestorationSchema;
 }
 
 export interface LazyStateSchema {

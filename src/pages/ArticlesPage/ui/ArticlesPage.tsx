@@ -39,7 +39,11 @@ const ArticlesPage = memo(function ArticlesPage() {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-            <PageWrapper className={styles.ArticlesPage} onPageEnd={onPageEnd}>
+            <PageWrapper
+                className={styles.ArticlesPage}
+                onPageEnd={onPageEnd}
+                saveScrollPosition
+            >
                 <ArticlesViewSelector view={view} onChange={onViewChange}/>
                 <ArticleList
                     view={view}
