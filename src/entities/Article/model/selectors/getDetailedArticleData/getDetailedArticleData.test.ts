@@ -1,29 +1,19 @@
 import {getDetailedArticleData} from "../getDetailedArticleData/getDetailedArticleData";
 import {StateSchema} from "app/providers/StoreProvider";
-import {Article} from "../../types/article";
-
-const article: Article = {
-    id: "1",
-    title: "Статья",
-    img: "",
-    views: 10,
-    createdAt: "01.01.2025",
-    type: [],
-    blocks: []
-};
+import {articleMock} from "../../mocks/article";
 
 describe("getDetailedArticleData", () => {
     test("Should return error value", () => {
         const state: DeepPartial<StateSchema> = {
             detailedArticle: {
                 article: {
-                    ...article
+                    ...articleMock
                 },
                 isLoading: false
             }
         };
 
-        expect(getDetailedArticleData(state as StateSchema)).toEqual(article);
+        expect(getDetailedArticleData(state as StateSchema)).toEqual(articleMock);
     });
 
     test("Should work with empty state", () => {

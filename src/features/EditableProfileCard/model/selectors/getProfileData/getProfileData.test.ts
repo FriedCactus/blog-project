@@ -1,8 +1,11 @@
 import {getProfileData} from "./getProfileData";
 import {StateSchema} from "app/providers/StoreProvider";
 import {Country, Currency} from "shared/const";
+import {Profile} from "entities/Profile";
 
-const profileData = {
+const profileData: Profile = {
+    id: "",
+    userId: "",
     firstName: "",
     lastName: "",
     age: 0,
@@ -10,7 +13,7 @@ const profileData = {
     country: Country.Russia,
     city: "",
     username: "",
-    avatar: ""
+    avatar: "",
 };
 
 describe("getProfileData", () => {

@@ -1,5 +1,6 @@
 import {getArticlesError} from "../getArticlesError/getArticlesError";
 import {StateSchema} from "app/providers/StoreProvider";
+import {ArticleListView} from "entities/Article";
 
 describe("getArticlesError", () => {
     test("Should return error value", () => {
@@ -8,7 +9,12 @@ describe("getArticlesError", () => {
                 isLoading: false,
                 error: 'Ошибка',
                 ids: [],
-                entities: {}
+                entities: {},
+                view: ArticleListView.SMALL,
+                page: 0,
+                limit: 0,
+                hasMore: false,
+                _inited: false
             }
         };
 
