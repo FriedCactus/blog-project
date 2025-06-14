@@ -14,7 +14,8 @@ describe("getArticlesError", () => {
                 page: 0,
                 limit: 0,
                 hasMore: false,
-                _inited: false
+                _inited: false,
+                selectedCategories: []
             }
         };
 

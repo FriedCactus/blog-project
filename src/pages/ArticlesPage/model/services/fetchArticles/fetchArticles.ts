@@ -9,6 +9,7 @@ import {getSortField} from "../../selectors/getSortField/getSortField";
 import {getSearchValue} from "../../selectors/getSearchValue/getSearchValue";
 import {getArticlesPage} from "../../selectors/getArticlesPage/getArticlesPage";
 import {getSelectedCategories} from "../../selectors/getSelectedCategories/getSelectedCategories";
+import {ArticleSortParam} from "features/ArticlesSortSelector";
 
 interface ApiParams {
     _expand: string,
@@ -42,10 +43,10 @@ export const fetchArticles = createAsyncThunk<
         const selectedCategories = getSelectedCategories(getState());
 
         addQueryParams({
-            field: sortField,
-            order: sortOrder,
-            search: searchValue,
-            type: selectedCategories
+            [ArticleSortParam.FIELD]: sortField,
+            [ArticleSortParam.ORDER]: sortOrder,
+            [ArticleSortParam.SEARCH]: searchValue,
+            [ArticleSortParam.TYPE]: selectedCategories
         });
 
         const params: ApiParams = {

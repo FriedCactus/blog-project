@@ -1,29 +1,29 @@
-import {getArticlesView} from "./getArticlesView";
+import {getArticlesInited} from "./getArticlesInited";
 import {StateSchema} from "app/providers/StoreProvider";
 import {ArticleListView} from "entities/Article";
 
-describe("getArticlesView", () => {
-    test("Should return page value", () => {
+describe("getArticlesInited", () => {
+    test("Should return _inited value", () => {
         const state: DeepPartial<StateSchema> = {
             articles: {
                 isLoading: false,
                 view: ArticleListView.SMALL,
                 page: 0,
                 limit: 0,
-                hasMore: false,
+                hasMore: true,
                 ids: [],
                 entities: {},
-                _inited: false,
+                _inited: true,
                 selectedCategories: []
             }
         };
 
-        expect(getArticlesView(state as StateSchema)).toBe(ArticleListView.SMALL);
+        expect(getArticlesInited(state as StateSchema)).toBe(true);
     });
 
     test("Should work with empty state", () => {
         const state: DeepPartial<StateSchema> = {};
 
-        expect(getArticlesView(state as StateSchema)).toBe(undefined);
+        expect(getArticlesInited(state as StateSchema)).toBe(undefined);
     });
 });

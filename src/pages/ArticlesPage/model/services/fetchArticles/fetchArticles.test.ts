@@ -2,6 +2,10 @@ import {fetchArticles} from "../fetchArticles/fetchArticles";
 import {TestAsyncThunk} from "shared/lib/tests";
 import {ArticleListView, articleMock} from "entities/Article";
 import {StateSchema} from "app/providers/StoreProvider";
+import {addQueryParams} from "shared/lib/url";
+import {ArticleSortParam} from "features/ArticlesSortSelector";
+
+jest.mock('shared/lib/url');
 
 const state: DeepPartial<StateSchema> = {
     articles: {
@@ -11,8 +15,18 @@ const state: DeepPartial<StateSchema> = {
         limit: 4,
         hasMore: false,
         ids: [],
-        entities: {}
+        entities: {},
+        _inited: false,
+        selectedCategories: [],
+        searchValue: 'search'
     }
+};
+
+const queryParams = {
+    [ArticleSortParam.FIELD]: '',
+    [ArticleSortParam.ORDER]: '',
+    [ArticleSortParam.SEARCH]: 'search',
+    [ArticleSortParam.TYPE]: [],
 };
 
 describe("fetchArticles", () => {
@@ -22,9 +36,11 @@ describe("fetchArticles", () => {
             data: [{...articleMock}]
         }));
 
-        const result = await thunk.callThunk(1);
+        const result = await thunk.callThunk(undefined);
 
         expect(thunk.api.get).toHaveBeenCalled();
+        expect(addQueryParams).toHaveBeenCalledWith(queryParams);
+
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(result.meta.requestStatus).toBe('fulfilled');
         expect(result.payload).toEqual([{...articleMock}]);

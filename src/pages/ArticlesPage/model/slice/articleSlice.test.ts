@@ -3,7 +3,6 @@ import {ArticlesSchema} from "../types/articlesSchema";
 import {articlesActions, articlesReducer} from './articlesSlice';
 import {ArticleListView, articleMock} from "entities/Article";
 import {LOCAL_STORAGE_ARTICLES_PAGE_VIEW} from "shared/const";
-import {fetchNextArticlesPage} from "../services/fetchNextArticlesPage/fetchNextArticlesPage";
 
 const state: ArticlesSchema = {
     isLoading: false,
@@ -62,6 +61,31 @@ describe('articleSlice', () => {
         });
     });
 
+    test('fetchArticles with replace param should remove all articles', () => {
+        const action = {
+            type: fetchArticles.pending.type,
+            meta: {
+                arg: {
+                    replace: true
+                }
+            }
+        };
+
+        const stateWithArticles: ArticlesSchema = {
+            ...state,
+            ids: ['1'],
+            entities: {
+                '1': articleMock
+            },
+        };
+
+        expect(articlesReducer(stateWithArticles, action)).toEqual({
+            ...state,
+            isLoading: true,
+            error: ''
+        });
+    });
+
     test('fetchArticles should update state when fulfilled', () => {
         const action = {
             type: fetchArticles.fulfilled.type,
@@ -75,6 +99,41 @@ describe('articleSlice', () => {
             ids: ['1'],
             entities: {
                 "1": articleMock
+            },
+        });
+    });
+
+    test('fetchArticles with replace param should replace articles', () => {
+        const action = {
+            type: fetchArticles.fulfilled.type,
+            payload: [{
+                ...articleMock,
+                id: '2'
+            }],
+            meta: {
+                arg: {
+                    replace: true
+                }
+            }
+        };
+
+        const stateWithArticles: ArticlesSchema = {
+            ...state,
+            ids: ['1'],
+            entities: {
+                articleMock
+            },
+        };
+
+        expect(articlesReducer(stateWithArticles, action)).toEqual({
+            ...state,
+            hasMore: false,
+            ids: ['2'],
+            entities: {
+                "2": {
+                    ...articleMock,
+                    id: '2'
+                }
             },
         });
     });
@@ -94,15 +153,6 @@ describe('articleSlice', () => {
             ...state,
             isLoading: false,
             error: 'Ошибка'
-        });
-    });
-
-    test('fetchNextArticlesPage should update page when fulfilled', () => {
-        const action = {type: fetchNextArticlesPage.fulfilled.type};
-
-        expect(articlesReducer(state, action)).toEqual({
-            ...state,
-            page: 2
         });
     });
 });

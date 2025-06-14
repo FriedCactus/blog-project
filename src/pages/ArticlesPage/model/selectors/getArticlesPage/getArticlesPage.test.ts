@@ -12,7 +12,9 @@ describe("getArticlesLimit", () => {
                 limit: 0,
                 hasMore: false,
                 ids: [],
-                entities: {}
+                entities: {},
+                _inited: false,
+                selectedCategories: []
             }
         };
 

@@ -1,5 +1,6 @@
 import {getArticlesIsLoading} from "../getArticlesIsLoading/getArticlesIsLoading";
 import {StateSchema} from "app/providers/StoreProvider";
+import {ArticleListView} from "entities/Article";
 
 describe("getArticlesIsLoading", () => {
     test("Should return isLoading value", () => {
@@ -7,7 +8,13 @@ describe("getArticlesIsLoading", () => {
             articles: {
                 isLoading: true,
                 ids: [],
-                entities: {}
+                entities: {},
+                view: ArticleListView.SMALL,
+                page: 0,
+                limit: 0,
+                hasMore: false,
+                _inited: false,
+                selectedCategories: []
             }
         };
 

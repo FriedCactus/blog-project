@@ -1,9 +1,9 @@
-import {getArticlesHasMore} from "./getArticlesHasMore";
+import {getSortField} from "./getSortField";
 import {StateSchema} from "app/providers/StoreProvider";
-import {ArticleListView} from "entities/Article";
+import {ArticleListView, ArticleSortField} from "entities/Article";
 
-describe("getArticlesHasMore", () => {
-    test("Should return hasMore value", () => {
+describe("getSortField", () => {
+    test("Should return sort field value", () => {
         const state: DeepPartial<StateSchema> = {
             articles: {
                 isLoading: false,
@@ -13,17 +13,18 @@ describe("getArticlesHasMore", () => {
                 hasMore: true,
                 ids: [],
                 entities: {},
-                _inited: false,
-                selectedCategories: []
+                _inited: true,
+                selectedCategories: [],
+                sortField: ArticleSortField.VIEWS
             }
         };
 
-        expect(getArticlesHasMore(state as StateSchema)).toBe(true);
+        expect(getSortField(state as StateSchema)).toBe(ArticleSortField.VIEWS);
     });
 
     test("Should work with empty state", () => {
         const state: DeepPartial<StateSchema> = {};
 
-        expect(getArticlesHasMore(state as StateSchema)).toBe(undefined);
+        expect(getSortField(state as StateSchema)).toBe(ArticleSortField.WITHOUT_SORT);
     });
 });

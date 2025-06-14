@@ -1,10 +1,11 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import type {ThunkConfig} from "app/providers/StoreProvider";
+import {SortOrder} from "shared/types";
+import {ArticleSortParam} from "features/ArticlesSortSelector";
+import {ArticleSortField, ArticleType} from "entities/Article";
 import {getArticlesInited} from "../../selectors/getArticlesInited/getArticlesInited";
 import {articlesActions} from '../../slice/articlesSlice';
 import {fetchArticles} from "../../services/fetchArticles/fetchArticles";
-import {ArticleSortField, ArticleType} from "entities/Article";
-import {SortOrder} from "shared/types";
 
 export const initArticlesPage = createAsyncThunk<
     void,
@@ -17,13 +18,12 @@ export const initArticlesPage = createAsyncThunk<
         const inited = getArticlesInited(getState());
 
         if (inited) return;
-
-        // Вынести все поля в features
+        
         const initialSearchParams = {
-            sortField: searchParams?.get("field") as ArticleSortField,
-            sortOrder: searchParams?.get("order") as SortOrder,
-            searchValue: searchParams?.get("search"),
-            selectedCategories: searchParams?.get('type')?.split(',') as ArticleType[]
+            sortField: searchParams?.get(ArticleSortParam.FIELD) as ArticleSortField,
+            sortOrder: searchParams?.get(ArticleSortParam.ORDER) as SortOrder,
+            searchValue: searchParams?.get(ArticleSortParam.SEARCH),
+            selectedCategories: searchParams?.get(ArticleSortParam.TYPE)?.split(',') as ArticleType[]
         };
 
         dispatch(articlesActions.initState(initialSearchParams));

@@ -3,6 +3,7 @@ import {TestAsyncThunk} from "shared/lib/tests";
 import {StateSchema} from "app/providers/StoreProvider";
 import {ArticleListView,} from "entities/Article";
 import {fetchArticles} from "../fetchArticles/fetchArticles";
+import {articlesActions} from "pages/ArticlesPage/model/slice/articlesSlice";
 
 jest.mock("../fetchArticles/fetchArticles");
 
@@ -27,6 +28,7 @@ describe("fetchNextArticlesPage", () => {
         const result = await thunk.callThunk(undefined);
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(4);
+        expect(thunk.dispatch).toHaveBeenCalledWith(articlesActions.setPage(2));
         expect(result.meta.requestStatus).toBe('fulfilled');
     });
 

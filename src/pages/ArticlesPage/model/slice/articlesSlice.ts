@@ -4,7 +4,6 @@ import {ArticlesSchema} from "../types/articlesSchema";
 import {StateSchema} from "app/providers/StoreProvider";
 import {fetchArticles} from "../services/fetchArticles/fetchArticles";
 import {LOCAL_STORAGE_ARTICLES_PAGE_VIEW} from "shared/const";
-import {fetchNextArticlesPage} from "../services/fetchNextArticlesPage/fetchNextArticlesPage";
 import {SortOrder} from "shared/types";
 
 interface InitStateParams {
@@ -88,10 +87,6 @@ const articlesSlice = createSlice({
             .addCase(fetchArticles.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;
-            })
-            // fetchNextArticlesPage
-            .addCase(fetchNextArticlesPage.fulfilled, (state) => {
-                state.page++;
             })
         ;
     }

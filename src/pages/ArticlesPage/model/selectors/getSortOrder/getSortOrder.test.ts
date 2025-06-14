@@ -1,29 +1,30 @@
-import {getArticlesView} from "./getArticlesView";
+import {getSortOrder} from "./getSortOrder";
 import {StateSchema} from "app/providers/StoreProvider";
 import {ArticleListView} from "entities/Article";
 
-describe("getArticlesView", () => {
-    test("Should return page value", () => {
+describe("getSortOrder", () => {
+    test("Should return sort order value", () => {
         const state: DeepPartial<StateSchema> = {
             articles: {
                 isLoading: false,
                 view: ArticleListView.SMALL,
                 page: 0,
                 limit: 0,
-                hasMore: false,
+                hasMore: true,
                 ids: [],
                 entities: {},
-                _inited: false,
-                selectedCategories: []
+                _inited: true,
+                selectedCategories: [],
+                sortOrder: 'asc'
             }
         };
 
-        expect(getArticlesView(state as StateSchema)).toBe(ArticleListView.SMALL);
+        expect(getSortOrder(state as StateSchema)).toBe('asc');
     });
 
     test("Should work with empty state", () => {
         const state: DeepPartial<StateSchema> = {};
 
-        expect(getArticlesView(state as StateSchema)).toBe(undefined);
+        expect(getSortOrder(state as StateSchema)).toBe('');
     });
 });
