@@ -1,17 +1,18 @@
-import {memo, useCallback} from "react";
-import {ArticleList, ArticleListView} from "entities/Article";
+import {memo} from "react";
+import {ArticleList} from "entities/Article";
 import {useSelector} from "react-redux";
-import {articlesActions, articlesReducer, getArticles} from "../model/slice/articlesSlice";
+import {articlesReducer, getArticles} from "../model/slice/articlesSlice";
 import {DynamicModuleLoader} from "shared/lib/components";
 import {useAppDispatch, useInitialEffect} from "shared/lib/hooks";
 import {getArticlesIsLoading} from "../model/selectors/getArticlesIsLoading/getArticlesIsLoading";
 import {getArticlesError} from "../model/selectors/getArticlesError/getArticlesError";
 import {getArticlesView} from "../model/selectors/getArticlesView/getArticlesView";
-import {ArticlesViewSelector} from "features/ArticlesViewSelector";
 import styles from './ArticlesPage.module.css';
 import {PageWrapper} from "widgets/PageWrapper";
 import {fetchNextArticlesPage} from "../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 import {initArticlesPage} from "../model/services/initArticlesPage/initArticlesPage";
+import {ArticlesPageControls} from './ArticlesPageControls/ArticlesPageControls';
+import {useSearchParams} from "react-router";
 
 const reducers = {
     articles: articlesReducer
@@ -24,14 +25,11 @@ const ArticlesPage = memo(function ArticlesPage() {
     const isLoading = useSelector(getArticlesIsLoading);
     const error = useSelector(getArticlesError);
     const view = useSelector(getArticlesView);
+    const [searchParams] = useSearchParams();
 
     useInitialEffect(() => {
-        dispatch(initArticlesPage());
+        dispatch(initArticlesPage(searchParams));
     });
-
-    const onViewChange = useCallback((view: ArticleListView) => {
-        dispatch(articlesActions.setView(view));
-    }, [dispatch]);
 
     const onPageEnd = () => {
         dispatch(fetchNextArticlesPage());
@@ -44,7 +42,7 @@ const ArticlesPage = memo(function ArticlesPage() {
                 onPageEnd={onPageEnd}
                 saveScrollPosition
             >
-                <ArticlesViewSelector view={view} onChange={onViewChange}/>
+                <ArticlesPageControls/>
                 <ArticleList
                     view={view}
                     articles={articles}

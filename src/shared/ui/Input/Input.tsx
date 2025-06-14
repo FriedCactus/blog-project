@@ -1,6 +1,7 @@
 import styles from "./Input.module.css";
 import {classNames} from "shared/lib/classNames";
 import {ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef, useState} from "react";
+import {Text, TextVariant} from 'shared/ui/Text';
 
 interface Props extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'> {
     className?: string;
@@ -39,7 +40,15 @@ export const Input = memo(function Input(props: Props) {
 
     return (
         <div className={classNames(styles.InputContainer, {}, [className])}>
-            {placeholder && <div>{`${placeholder}>`}</div>}
+            {
+                placeholder &&
+                <Text
+                    className={styles.placeholder}
+                    variant={TextVariant.SECONDARY}
+                >
+                    {`${placeholder}>`}
+                </Text>
+            }
 
             <div className={styles.caretWrapper}>
                 <input

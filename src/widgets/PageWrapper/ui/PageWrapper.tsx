@@ -5,6 +5,7 @@ import {getScrollByPath, scrollRestorationActions} from "features/ScrollRestorat
 import {useLocation} from "react-router";
 import {useSelector} from "react-redux";
 import {StateSchema} from "app/providers/StoreProvider";
+import styles from './PageWrapper.module.css';
 
 interface Props {
     className?: string;
@@ -52,7 +53,10 @@ export const PageWrapper = memo(function PageWrapper(props: PropsWithChildren<Pr
     return (
         <Page ref={pageRef} className={className} onScroll={throttleCallback}>
             {children}
-            {onPageEnd && <div ref={targetRef}/>}
+
+            <div className={styles.intersectionContainer}>
+                {onPageEnd && <div ref={targetRef} className={styles.intersection}/>}
+            </div>
         </Page>
     );
 });

@@ -1,0 +1,8 @@
+.intersectionContainer {
+    position: relative;
+}
+
+.intersection {
+    position: absolute;
+    bottom: 100px;
+}

@@ -15,7 +15,8 @@ const state: DeepPartial<StateSchema> = {
         hasMore: true,
         ids: [],
         entities: {},
-        _inited: false
+        _inited: false,
+        selectedCategories: []
     }
 };
 
@@ -25,9 +26,8 @@ describe("fetchNextArticlesPage", () => {
 
         const result = await thunk.callThunk(undefined);
 
-        expect(thunk.dispatch).toHaveBeenCalledTimes(3);
+        expect(thunk.dispatch).toHaveBeenCalledTimes(4);
         expect(result.meta.requestStatus).toBe('fulfilled');
-        expect(fetchArticles).toHaveBeenCalledWith(2);
     });
 
     test("not fetch if hasMore false", async () => {

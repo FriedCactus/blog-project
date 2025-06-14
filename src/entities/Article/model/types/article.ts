@@ -17,6 +17,13 @@ export enum ArticleBlockType {
     CODE = 'CODE'
 }
 
+export enum ArticleSortField {
+    WITHOUT_SORT = '',
+    TITLE = 'title',
+    VIEWS = 'views',
+    CREATED_AT = 'createdAt',
+}
+
 interface ArticleGeneralBlock {
     id: string;
     type: ArticleBlockType;

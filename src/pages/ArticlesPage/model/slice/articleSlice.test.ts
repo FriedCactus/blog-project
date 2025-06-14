@@ -13,7 +13,8 @@ const state: ArticlesSchema = {
     page: 1,
     limit: 10,
     hasMore: true,
-    _inited: false
+    _inited: false,
+    selectedCategories: []
 };
 
 describe('articleSlice', () => {
@@ -23,13 +24,16 @@ describe('articleSlice', () => {
 
     test('initState should update view and limit', () => {
         localStorage.setItem(LOCAL_STORAGE_ARTICLES_PAGE_VIEW, ArticleListView.BIG);
-        const result = articlesReducer(state, articlesActions.initState());
+        const result = articlesReducer(state, articlesActions.initState({
+            searchValue: 'search'
+        }));
 
         expect(result).toEqual({
             ...state,
             view: ArticleListView.BIG,
             limit: 4,
-            _inited: true
+            _inited: true,
+            searchValue: 'search'
         });
 
     });
@@ -46,7 +50,10 @@ describe('articleSlice', () => {
     });
 
     test('fetchArticles should clear loading and error while pending', () => {
-        const action = {type: fetchArticles.pending.type};
+        const action = {
+            type: fetchArticles.pending.type,
+            meta: {}
+        };
 
         expect(articlesReducer(state, action)).toEqual({
             ...state,
@@ -58,7 +65,8 @@ describe('articleSlice', () => {
     test('fetchArticles should update state when fulfilled', () => {
         const action = {
             type: fetchArticles.fulfilled.type,
-            payload: [articleMock]
+            payload: [articleMock],
+            meta: {}
         };
 
         expect(articlesReducer(state, action)).toEqual({

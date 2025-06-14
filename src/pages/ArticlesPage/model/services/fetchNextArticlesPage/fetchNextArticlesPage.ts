@@ -4,6 +4,7 @@ import {getArticlesHasMore} from "../../selectors/getArticlesHasMore/getArticles
 import {getArticlesIsLoading} from "../../selectors/getArticlesIsLoading/getArticlesIsLoading";
 import {fetchArticles} from "../../services/fetchArticles/fetchArticles";
 import {getArticlesPage} from "../../selectors/getArticlesPage/getArticlesPage";
+import {articlesActions} from '../../slice/articlesSlice';
 
 export const fetchNextArticlesPage = createAsyncThunk<
     undefined,
@@ -21,7 +22,8 @@ export const fetchNextArticlesPage = createAsyncThunk<
         if (!hasMore || isLoading || !page) {
             return rejectWithValue();
         }
-
-        dispatch(fetchArticles(page + 1));
+        
+        dispatch(articlesActions.setPage(page + 1));
+        dispatch(fetchArticles());
     }
 );

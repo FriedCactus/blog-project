@@ -6,7 +6,7 @@ import {useState} from "react";
 
 const SelectRender = () => {
     const [value, setValue] = useState('');
-    const options: SelectOption[] = [
+    const options: SelectOption<string>[] = [
         {
             value: 'кот',
             text: 'Кот',

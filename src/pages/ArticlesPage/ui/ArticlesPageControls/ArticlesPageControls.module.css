@@ -1,0 +1,10 @@
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-l);
+}
+
+.topRow {
+    display: flex;
+    justify-content: space-between;
+}

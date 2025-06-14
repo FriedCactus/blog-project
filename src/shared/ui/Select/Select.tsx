@@ -1,21 +1,21 @@
 import styles from "./Select.module.css";
 import {ChangeEvent, memo, useMemo} from "react";
 
-export interface SelectOption {
-    value: string;
+export interface SelectOption<T extends string> {
+    value: T;
     text: string;
 }
 
-interface Props {
+interface Props<T extends string> {
     disabled?: boolean;
     label?: string;
     placeholder?: string;
-    value?: string;
-    onChange?: (value: string) => void;
-    options?: SelectOption[];
+    value?: T;
+    onChange?: (value: T) => void;
+    options?: SelectOption<T>[];
 }
 
-export const Select = memo(function Select(props: Props) {
+function SelectComponent<T extends string>(props: Props<T>) {
     const {
         disabled,
         label,
@@ -30,7 +30,7 @@ export const Select = memo(function Select(props: Props) {
     )), [options]);
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-        onChange?.(e.target.value);
+        onChange?.(e.target.value as T);
     };
 
     return (
@@ -43,7 +43,7 @@ export const Select = memo(function Select(props: Props) {
                 id={label}
                 disabled={disabled}
                 className={styles.select}
-                value={value}
+                value={value as string}
                 onChange={onChangeHandler}
             >
                 {placeholder && (
@@ -53,4 +53,8 @@ export const Select = memo(function Select(props: Props) {
             </select>
         </div>
     );
-});
+}
+
+export const Select = memo(
+    SelectComponent
+) as <T extends string>(props: Props<T>) => ReturnType<typeof SelectComponent>;

@@ -15,7 +15,8 @@ const state: DeepPartial<StateSchema> = {
         hasMore: true,
         ids: [],
         entities: {},
-        _inited: false
+        _inited: false,
+        selectedCategories: []
     }
 };
 
@@ -27,7 +28,7 @@ describe("initArticlesPage", () => {
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(4);
         expect(result.meta.requestStatus).toBe('fulfilled');
-        expect(fetchArticles).toHaveBeenCalledWith(1);
+        expect(fetchArticles).toHaveBeenCalledWith();
     });
 
     test('should init successful', async () => {

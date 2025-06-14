@@ -65,4 +65,12 @@
     color: var(--primary-color);
     background: none;
     box-shadow: 0 0 0 2px var(--primary-color);
+
+    @media (hover: hover) {
+        &:hover {
+            color: var(--secondary-color);
+            background-color: var(--bg-color-inverted);
+            box-shadow: 0 0 0 2px var(--secondary-color);
+        }
+    }
 }

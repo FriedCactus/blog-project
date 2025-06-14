@@ -1,0 +1,4 @@
+.ArticlesSortSelector {
+    display: flex;
+    gap: var(--gap-m);
+}
