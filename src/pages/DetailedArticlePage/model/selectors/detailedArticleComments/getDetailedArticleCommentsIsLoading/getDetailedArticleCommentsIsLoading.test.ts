@@ -4,11 +4,20 @@ import {getDetailedArticleCommentsIsLoading} from "./getDetailedArticleCommentsI
 describe("getDetailedArticleCommentsIsLoading", () => {
     test("Should return isLoading value", () => {
         const state: DeepPartial<StateSchema> = {
-            detailedArticleComments: {
-                isLoading: true,
-                isCommentSending: false,
-                ids: [],
-                entities: {}
+            detailedArticlePage: {
+                comments: {
+                    commentSendingError: 'Ошибка отправки',
+                    isLoading: true,
+                    isCommentSending: false,
+                    ids: [],
+                    entities: {}
+                },
+                recommendations: {
+                    isLoading: false,
+                    limit: 0,
+                    ids: [],
+                    entities: {}
+                }
             }
         };
 

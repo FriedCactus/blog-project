@@ -4,12 +4,20 @@ import {getCommentSendingError} from "./getCommentSendingError";
 describe("getCommentSendingError", () => {
     test("Should return error value", () => {
         const state: DeepPartial<StateSchema> = {
-            detailedArticleComments: {
-                commentSendingError: 'Ошибка отправки',
-                isLoading: false,
-                isCommentSending: false,
-                ids: [],
-                entities: {}
+            detailedArticlePage: {
+                comments: {
+                    commentSendingError: 'Ошибка отправки',
+                    isLoading: false,
+                    isCommentSending: false,
+                    ids: [],
+                    entities: {}
+                },
+                recommendations: {
+                    isLoading: false,
+                    limit: 0,
+                    ids: [],
+                    entities: {}
+                }
             }
         };
 

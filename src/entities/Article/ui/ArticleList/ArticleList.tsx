@@ -1,7 +1,7 @@
 import {Article, ArticleListView} from "../../model/types/article";
 import {ArticleItemSmall} from "../ArticleItemSmall/ArticleItemSmall";
 import {ArticleItemBig} from "../ArticleItemBig/ArticleItemBig";
-import {useMemo} from "react";
+import {HTMLAttributeAnchorTarget, useMemo} from "react";
 import styles from './ArticleList.module.css';
 import {classNames} from "shared/lib/classNames";
 import {ArticleError} from "../ArticleError/ArticleError";
@@ -9,10 +9,12 @@ import {ArticleItemSmallSkeleton} from "../ArticleItemSmall/ArticleItemSmallSkel
 import {ArticleItemBigSkeleton} from "../ArticleItemBig/ArticleItemBigSkeleton";
 
 interface Props {
+    className?: string;
     articles: Article[];
     view?: ArticleListView;
     isLoading?: boolean;
     error?: string;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 const SmallSkeleton = () => (
@@ -29,10 +31,12 @@ const BigSkeleton = () => (
 
 export const ArticleList = (props: Props) => {
     const {
+        className,
         articles,
         view = ArticleListView.SMALL,
         isLoading,
-        error
+        error,
+        target
     } = props;
 
     const ArticleItem = useMemo(() => (
@@ -52,10 +56,10 @@ export const ArticleList = (props: Props) => {
     }
 
     return (
-        <div className={classNames(styles.ArticleList, {}, [styles[view]])}>
+        <div className={classNames(styles.ArticleList, {}, [styles[view], className])}>
             {
                 articles.map((article) => (
-                    <ArticleItem key={article.id} article={article}/>
+                    <ArticleItem key={article.id} article={article} target={target}/>
                 ))
             }
             {isLoading && <ArticleItemSkeleton/>}

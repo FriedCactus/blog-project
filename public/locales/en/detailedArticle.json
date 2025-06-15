@@ -2,5 +2,8 @@
   "Произошла ошибка при загрузке статьи": "There was an error loading the article",
   "Проверьте ссылку или попробуйте обновить страницу": "Check the link or try refreshing the page",
   "Ошибка добавления комментария к статье": "Error adding comment to article",
-  "К статьям": "To articles"
+  "Ошибка при получении рекомендуемых статей": "Error receiving article recommendations",
+  "К статьям": "To articles",
+  "Комментарии": "Comments",
+  "Рекомендуем": "Recommendations"
 }

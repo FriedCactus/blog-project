@@ -3,7 +3,7 @@ import DetailedArticlePage from "./DetailedArticlePage";
 import {Theme} from "app/providers/ThemeProvider";
 import {RouterDecorator, StoreDecorator, storyGlobalsDesktop, ThemeDecorator} from 'shared/config/storybook';
 import {articleMock, detailedArticleReducer} from "entities/Article";
-import {detailedArticleCommentsReducer} from "../model/slice/detailedArticleComments";
+import {detailedArticleCommentsReducer} from "../model/slice/detailedArticleComments/detailedArticleComments";
 import {StateSchema} from "app/providers/StoreProvider";
 import {articleCommentEntitiesMock} from "../model/mocks/articleComment";
 

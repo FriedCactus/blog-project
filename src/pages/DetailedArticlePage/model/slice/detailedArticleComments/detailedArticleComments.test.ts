@@ -1,8 +1,12 @@
-import {fetchCommentsByArticleId} from "../services/fetchCommentsByArticleId/fetchCommentsByArticleId";
-import {detailedArticleCommentsReducer} from "../slice/detailedArticleComments";
-import {DetailedArticleCommentsSchema} from "../types/detailedArticleCommentsSchema";
-import {articleCommentEntitiesMock} from "../mocks/articleComment";
-import {addArticleComment} from "../services/addArticleComment/addArticleComment";
+import {
+    fetchCommentsByArticleId
+} from "../../services/detailedArticleComments/fetchCommentsByArticleId/fetchCommentsByArticleId";
+import {detailedArticleCommentsReducer} from "./detailedArticleComments";
+import {DetailedArticleCommentsSchema} from "../../types/detailedArticleCommentsSchema";
+import {articleCommentEntitiesMock} from "../../mocks/articleComment";
+import {
+    addArticleComment
+} from "pages/DetailedArticlePage/model/services/detailedArticleComments/addArticleComment/addArticleComment";
 
 const state: DetailedArticleCommentsSchema = {
     isLoading: false,

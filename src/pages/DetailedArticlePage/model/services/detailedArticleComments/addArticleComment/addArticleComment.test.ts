@@ -1,9 +1,11 @@
-import {addArticleComment} from "../addArticleComment/addArticleComment";
+import {addArticleComment} from "./addArticleComment";
 import {TestAsyncThunk} from "shared/lib/tests";
-import {articleCommentEntitiesMock} from "../../mocks/articleComment";
+import {articleCommentEntitiesMock} from "../../../mocks/articleComment";
+import {StateSchema} from "app/providers/StoreProvider";
+import {userMock} from "entities/User";
 
 const comment = articleCommentEntitiesMock["1"];
-const state = {
+const state: DeepPartial<StateSchema> = {
     user: {
         authData: {
             id: "1",
@@ -20,7 +22,9 @@ const state = {
             views: 0,
             createdAt: "",
             type: [],
-            blocks: []
+            blocks: [],
+            userId: "",
+            user: userMock
         }
     }
 };
@@ -59,7 +63,7 @@ describe("addArticleComment", () => {
             user: {
                 ...state.user,
                 authData: {
-                    ...state.user?.authData,
+                    ...state.user!.authData!,
                     id: "",
                 }
             }

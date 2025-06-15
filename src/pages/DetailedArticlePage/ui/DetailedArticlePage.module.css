@@ -8,6 +8,22 @@
     gap: var(--gap-xl);
 }
 
+.blockContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-l);
+}
+
+.recommendations {
+    grid-template-columns: repeat(4, 400px) !important;
+    justify-content: left !important;
+    padding-bottom: var(--padding-xs);
+    overflow: auto hidden;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary-color) var(--bg-color-inverted);
+}
+
 .error {
     justify-content: center;
 }

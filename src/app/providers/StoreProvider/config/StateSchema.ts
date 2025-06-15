@@ -1,7 +1,7 @@
 import type {CounterSchema} from "entities/Counter";
 import type {UserSchema} from 'entities/User';
 import {DetailedArticleSchema} from 'entities/Article';
-import {DetailedArticleCommentsSchema} from "pages/DetailedArticlePage";
+import {DetailedArticlePageSchema} from "pages/DetailedArticlePage";
 import type {LoginSchema} from "features/AuthByUsername";
 import {ProfileSchema} from "features/EditableProfileCard";
 import {AxiosInstance} from "axios";
@@ -19,7 +19,7 @@ export interface LazyStateSchema {
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
     detailedArticle?: DetailedArticleSchema;
-    detailedArticleComments?: DetailedArticleCommentsSchema;
+    detailedArticlePage?: DetailedArticlePageSchema;
     articles?: ArticlesSchema;
 }
 

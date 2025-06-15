@@ -1,4 +1,4 @@
-import {fetchArticleById} from "../fetchArticleById/fetchArticleById";
+import {fetchArticleById} from "./fetchArticleById";
 import {TestAsyncThunk} from "shared/lib/tests";
 import {articleMock} from "entities/Article/model/mocks/article";
 

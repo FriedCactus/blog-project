@@ -8,14 +8,15 @@ import {Button, ButtonVariant} from "shared/ui/Button";
 import {Icon} from "shared/ui/Icon";
 import {RouterLink} from "shared/ui/RouterLink";
 import {useTranslation} from "react-i18next";
-import {memo} from "react";
+import {HTMLAttributeAnchorTarget, memo} from "react";
 
 
 interface Props {
     article: Article;
+    target?: HTMLAttributeAnchorTarget;
 }
 
-export const ArticleItemBig = memo(function ArticleItemBig({article}: Props) {
+export const ArticleItemBig = memo(function ArticleItemBig({article, target}: Props) {
     const {id, user, title, type, img, blocks, createdAt, views} = article;
 
     const {t} = useTranslation('');
@@ -53,7 +54,7 @@ export const ArticleItemBig = memo(function ArticleItemBig({article}: Props) {
                 }
 
                 <div className={styles.linksContainer}>
-                    <RouterLink to={`/articles/${id}`} withoutUnderline>
+                    <RouterLink to={`/articles/${id}`} withoutUnderline target={target}>
                         <Button variant={ButtonVariant.OUTLINE}>
                             {t('Читать далее')}
                         </Button>

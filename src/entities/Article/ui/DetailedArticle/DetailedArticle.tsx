@@ -30,7 +30,7 @@ export const DetailedArticle = memo(function DetailedArticle({id}: Props) {
 
     useInitialEffect(() => {
         dispatch(fetchArticleById(id));
-    });
+    }, [id]);
 
     if (isLoading) {
         return (

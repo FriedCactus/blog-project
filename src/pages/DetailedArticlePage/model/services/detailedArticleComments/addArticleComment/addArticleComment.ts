@@ -4,8 +4,8 @@ import {getUserAuthData} from "entities/User";
 import {getDetailedArticleData} from "entities/Article";
 import {
     fetchCommentsByArticleId
-} from "pages/DetailedArticlePage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
-import {ArticleComment} from "../../types/articleComment";
+} from "pages/DetailedArticlePage/model/services/detailedArticleComments/fetchCommentsByArticleId/fetchCommentsByArticleId";
+import {ArticleComment} from "../../../types/articleComment";
 
 export const addArticleComment = createAsyncThunk<
     undefined,
@@ -20,7 +20,7 @@ export const addArticleComment = createAsyncThunk<
 
         const user = getUserAuthData(getState());
         const article = getDetailedArticleData(getState());
-        
+
         try {
             if (!text || !user?.id || !article?.id) {
                 throw new Error();

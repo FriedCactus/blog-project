@@ -1,6 +1,6 @@
-import {fetchCommentsByArticleId} from "../fetchCommentsByArticleId/fetchCommentsByArticleId";
+import {fetchCommentsByArticleId} from "./fetchCommentsByArticleId";
 import {TestAsyncThunk} from "shared/lib/tests";
-import {articleCommentEntitiesMock} from "../../mocks/articleComment";
+import {articleCommentEntitiesMock} from "../../../mocks/articleComment";
 
 const commentsMock = Object.values(articleCommentEntitiesMock);
 

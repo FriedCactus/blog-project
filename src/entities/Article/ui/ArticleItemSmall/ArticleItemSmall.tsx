@@ -4,17 +4,18 @@ import {Card} from "shared/ui/Card";
 import {Text, TextVariant} from "shared/ui/Text";
 import {Icon} from "shared/ui/Icon";
 import {RouterLink} from "shared/ui/RouterLink";
-import {memo} from "react";
+import {HTMLAttributeAnchorTarget, memo} from "react";
 
 interface Props {
     article: Article;
+    target?: HTMLAttributeAnchorTarget;
 }
 
-export const ArticleItemSmall = memo(function ArticleItemSmall({article}: Props) {
+export const ArticleItemSmall = memo(function ArticleItemSmall({article, target}: Props) {
     const {id, views, type, title, createdAt, img} = article;
 
     return (
-        <RouterLink className={styles.routerLink} to={`/articles/${id}`}>
+        <RouterLink className={styles.routerLink} to={`/articles/${id}`} target={target}>
             <Card className={styles.ArticleItemSmall}>
                 <div className={styles.imageContainer}>
                     <Text
