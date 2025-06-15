@@ -1,0 +1,4 @@
+.DetailedArticleHeader {
+    display: flex;
+    justify-content: space-between;
+}

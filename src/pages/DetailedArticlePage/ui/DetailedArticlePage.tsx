@@ -22,9 +22,6 @@ import {
 import {
     getCommentSendingError
 } from "../model/selectors/detailedArticleComments/getCommentSendingError/getCommentSendingError";
-import {Button, ButtonVariant} from "shared/ui/Button";
-import {RouterLink} from "shared/ui/RouterLink";
-import {AppPaths} from "shared/config/routes";
 import {Page} from "shared/ui/Page";
 import {detailedArticlePageReducer} from "../model/slice/detailedArticlePageSlice";
 import {
@@ -39,6 +36,7 @@ import {
 import {
     getDetailedArticleRecommendationsError
 } from "../model/selectors/detailedArticleRecommendations/getDetailedArticleRecommendationsError/getDetailedArticleRecommendationsError";
+import {DetailedArticleHeader} from "./DetailedArticleHeader/DetailedArticleHeader";
 
 const reducers = {
     detailedArticlePage: detailedArticlePageReducer
@@ -85,11 +83,7 @@ const DetailedArticlePage = memo(function ArticlesPage() {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <Page className={styles.DetailedArticlePage}>
-                <RouterLink to={AppPaths.ARTICLES} withoutUnderline>
-                    <Button variant={ButtonVariant.OUTLINE}>
-                        {t('К статьям')}
-                    </Button>
-                </RouterLink>
+                <DetailedArticleHeader id={id}/>
 
                 <div className={styles.articleContainer}>
                     <DetailedArticle id={+id}/>

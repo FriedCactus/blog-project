@@ -1,5 +1,4 @@
 import styles from "./NavBar.module.css";
-import {classNames} from "shared/lib/classNames";
 import {Button} from "shared/ui/Button";
 import {useTranslation} from "react-i18next";
 import {LoginModal} from "features/AuthByUsername";
@@ -8,6 +7,9 @@ import {getUserAuthData, userActions} from "entities/User";
 import {useSelector} from "react-redux";
 import {useAppDispatch} from "shared/lib/hooks";
 import {loginActions} from "features/AuthByUsername/model/slice/loginSlice";
+import {RouterLink} from "shared/ui/RouterLink";
+import {RouterLinkVariant} from "shared/ui/RouterLink/RouterLink";
+import {AppPaths} from "shared/config/routes";
 
 export const NavBar = memo(function NavBar() {
     const {t} = useTranslation();
@@ -35,14 +37,21 @@ export const NavBar = memo(function NavBar() {
 
     if (authData) {
         return (
-            <header className={classNames(styles.Navbar)}>
+            <header className={styles.Navbar}>
+                <RouterLink
+                    to={AppPaths.CREATE_ARTICLE}
+                    variant={RouterLinkVariant.SECONDARY}
+                    withoutUnderline
+                >
+                    {t('Создать статью')}
+                </RouterLink>
                 <Button onClick={onLogout}>{t('Выйти')}</Button>
             </header>
         );
     }
 
     return (
-        <header className={classNames(styles.Navbar)}>
+        <header className={styles.Navbar}>
             <Button onClick={onShowModal}>{t('Войти')}</Button>
             {
                 isModalOpen && <LoginModal

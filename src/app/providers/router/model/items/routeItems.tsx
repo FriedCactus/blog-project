@@ -5,47 +5,46 @@ import {ProfilePage} from "pages/ProfilePage";
 import {ArticlesPage} from "pages/ArticlesPage";
 import {DetailedArticlePage} from "pages/DetailedArticlePage";
 import {NotFoundPage} from "pages/NotFoundPage";
-import {AppRouteProps, AppRoutes} from "../types/routes";
+import {AppRouteProps} from "../types/routes";
 import {ViewProfilePage} from "pages/ViewProfilePage";
-
-const RoutePaths: Record<AppRoutes, string> = {
-    [AppRoutes.MAIN]: AppPaths.MAIN,
-    [AppRoutes.ABOUT]: AppPaths.ABOUT,
-    [AppRoutes.MY_PROFILE]: AppPaths.MY_PROFILE,
-    [AppRoutes.PROFILE]: AppPaths.PROFILE,
-    [AppRoutes.ARTICLES]: AppPaths.ARTICLES,
-    [AppRoutes.ARTICLE_DETAILS]: AppPaths.ARTICLE_DETAILS,
-    [AppRoutes.NOTFOUND]: AppPaths.NOTFOUND,
-};
+import {ArticleEditPage} from "pages/ArticleEditPage";
 
 export const routeItems: AppRouteProps[] = [
     {
-        path: RoutePaths.main,
+        path: AppPaths.MAIN,
         element: <MainPage/>
     },
     {
-        path: RoutePaths.about,
+        path: AppPaths.ABOUT,
         element: <AboutPage/>
     },
     {
-        path: RoutePaths.myProfile,
+        path: AppPaths.MY_PROFILE,
         element: <ProfilePage/>,
         authOnly: true
     },
     {
-        path: RoutePaths.profile,
+        path: AppPaths.PROFILE,
         element: <ViewProfilePage/>,
     },
     {
-        path: RoutePaths.articles,
+        path: AppPaths.ARTICLES,
         element: <ArticlesPage/>,
     },
     {
-        path: RoutePaths.articleDetails,
+        path: AppPaths.ARTICLE_DETAILS,
         element: <DetailedArticlePage/>,
     },
     {
-        path: RoutePaths["*"],
+        path: AppPaths.EDIT_ARTICLE,
+        element: <ArticleEditPage/>,
+    },
+    {
+        path: AppPaths.CREATE_ARTICLE,
+        element: <ArticleEditPage/>,
+    },
+    {
+        path: AppPaths.NOTFOUND,
         element: <NotFoundPage/>
     }
 ];
