@@ -12,7 +12,7 @@
     "stylelint:fix": "npx stylelint \"**/*.css\" --fix",
     "test": "jest --config ./config/jest/jest.config.ts",
     "storybook": "storybook dev -p 6006 -c ./config/.storybook",
-    "chromatic": "chromatic --exit-zero-on-changes",
+    "chromatic": "chromatic --exit-zero-on-changes --build-script-name build:storybook",
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
     "build:storybook": "storybook build -c ./config/.storybook",
@@ -93,5 +93,6 @@
     "react-i18next": "^15.5.1",
     "react-redux": "^9.2.0",
     "react-router": "^7.6.0"
-  }
+  },
+  "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
 }
