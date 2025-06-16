@@ -4,7 +4,11 @@ export interface BuildPaths {
     entry: string,
     output: string,
     html: string,
-    src: string
+    src: string,
+    locales: {
+        from: string,
+        to: string
+    }
 }
 
 export interface BuildOptions {

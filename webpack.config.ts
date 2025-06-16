@@ -13,7 +13,11 @@ export default (env: BuildEnv) => {
         entry: path.resolve(__dirname, 'src', 'index.tsx'),
         output: path.resolve(__dirname, 'build'),
         html: path.resolve(__dirname, 'public', 'index.html'),
-        src: path.resolve(__dirname, 'src')
+        src: path.resolve(__dirname, 'src'),
+        locales: {
+            from: path.resolve(__dirname, 'public', 'locales'),
+            to: path.resolve(__dirname, 'build', 'locales'),
+        }
     };
 
     const config: webpack.Configuration = buildWebpackConfig({

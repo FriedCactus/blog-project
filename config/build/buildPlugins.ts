@@ -2,6 +2,7 @@ import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import {BuildOptions} from "./types/config";
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 
@@ -22,6 +23,11 @@ export const buildPlugins = ({paths, isDev, apiUrl, project}: BuildOptions): web
         new MiniCssExtractPlugin({
             filename: "css/[name].[contenthash:8].css",
             chunkFilename: "css/[name].[contenthash:8].css",
+        }),
+        new CopyPlugin({
+            patterns: [
+                {from: paths.locales.from, to: paths.locales.to},
+            ],
         }),
         definePlugin(isDev, apiUrl, project),
         // Для анализа бандла на проде
