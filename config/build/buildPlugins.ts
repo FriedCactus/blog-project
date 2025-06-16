@@ -26,7 +26,12 @@ export const buildPlugins = ({paths, isDev, apiUrl, project}: BuildOptions): web
         }),
         new CopyPlugin({
             patterns: [
-                {from: paths.locales.from, to: paths.locales.to},
+                {
+                    from: paths.locales.from, to: paths.locales.to
+                },
+                {
+                    from: paths.redirects.from, to: paths.redirects.to
+                },
             ],
         }),
         definePlugin(isDev, apiUrl, project),

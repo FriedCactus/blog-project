@@ -17,7 +17,11 @@ export default (env: BuildEnv) => {
         locales: {
             from: path.resolve(__dirname, 'public', 'locales'),
             to: path.resolve(__dirname, 'build', 'locales'),
-        }
+        },
+        redirects: {
+            from: path.resolve(__dirname, 'public', '_redirects'),
+            to: path.resolve(__dirname, 'build'),
+        },
     };
 
     const config: webpack.Configuration = buildWebpackConfig({

@@ -8,6 +8,10 @@ export interface BuildPaths {
     locales: {
         from: string,
         to: string
+    },
+    redirects: {
+        from: string,
+        to: string
     }
 }
 
