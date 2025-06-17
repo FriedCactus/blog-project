@@ -32,7 +32,9 @@ const ArticlesPage = memo(function ArticlesPage() {
     });
 
     const onPageEnd = () => {
-        dispatch(fetchNextArticlesPage());
+        if (!isLoading) {
+            dispatch(fetchNextArticlesPage());
+        }
     };
 
     return (
