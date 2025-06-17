@@ -1,4 +1,4 @@
-import {memo} from "react";
+import {memo, useRef} from "react";
 import {ArticleList} from "entities/Article";
 import {useSelector} from "react-redux";
 import {articlesReducer, getArticles} from "../model/slice/articlesSlice";
@@ -37,19 +37,23 @@ const ArticlesPage = memo(function ArticlesPage() {
         }
     };
 
+    const scrollerRef = useRef<HTMLElement>(null);
+
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <PageWrapper
+                ref={scrollerRef}
                 className={styles.ArticlesPage}
-                onPageEnd={onPageEnd}
                 saveScrollPosition
             >
                 <ArticlesPageControls/>
                 <ArticleList
+                    scrollerRef={scrollerRef}
                     view={view}
                     articles={articles}
                     isLoading={isLoading}
                     error={error}
+                    onPageEnd={onPageEnd}
                 />
             </PageWrapper>
         </DynamicModuleLoader>

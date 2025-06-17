@@ -1,20 +1,23 @@
 import {Article, ArticleListView} from "../../model/types/article";
 import {ArticleItemSmall} from "../ArticleItemSmall/ArticleItemSmall";
 import {ArticleItemBig} from "../ArticleItemBig/ArticleItemBig";
-import {HTMLAttributeAnchorTarget, useMemo} from "react";
+import {HTMLAttributeAnchorTarget, RefObject, useMemo} from "react";
 import styles from './ArticleList.module.css';
 import {classNames} from "shared/lib/classNames";
 import {ArticleError} from "../ArticleError/ArticleError";
 import {ArticleItemSmallSkeleton} from "../ArticleItemSmall/ArticleItemSmallSkeleton";
 import {ArticleItemBigSkeleton} from "../ArticleItemBig/ArticleItemBigSkeleton";
+import {VirtuosoGrid} from 'react-virtuoso';
 
 interface Props {
+    scrollerRef?: RefObject<HTMLElement | null>,
     className?: string;
     articles: Article[];
     view?: ArticleListView;
     isLoading?: boolean;
     error?: string;
     target?: HTMLAttributeAnchorTarget;
+    onPageEnd?: () => void;
 }
 
 const SmallSkeleton = () => (
@@ -31,13 +34,17 @@ const BigSkeleton = () => (
 
 export const ArticleList = (props: Props) => {
     const {
+        scrollerRef,
         className,
         articles,
         view = ArticleListView.SMALL,
         isLoading,
         error,
-        target
+        target,
+        onPageEnd
     } = props;
+
+    const listClassName = classNames(styles.virtuosoList, {}, [styles[view]]);
 
     const ArticleItem = useMemo(() => (
         view === ArticleListView.SMALL ? ArticleItemSmall : ArticleItemBig
@@ -56,13 +63,24 @@ export const ArticleList = (props: Props) => {
     }
 
     return (
-        <div className={classNames(styles.ArticleList, {}, [styles[view], className])}>
+        <div className={className}>
             {
-                articles.map((article) => (
-                    <ArticleItem key={article.id} article={article} target={target}/>
-                ))
+                <VirtuosoGrid
+                    useWindowScroll
+                    listClassName={listClassName}
+                    customScrollParent={scrollerRef?.current ?? undefined}
+                    totalCount={articles.length}
+                    itemContent={(index) => (
+                        <ArticleItem article={articles[index]} target={target}/>
+                    )}
+                    endReached={onPageEnd}
+                />
             }
-            {isLoading && <ArticleItemSkeleton/>}
+            {isLoading && (
+                <div className={listClassName}>
+                    <ArticleItemSkeleton/>
+                </div>
+            )}
         </div>
     );
 };

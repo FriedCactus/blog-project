@@ -1,4 +1,6 @@
-.ArticleList {
+.virtuosoList {
+    display: flex;
+    flex-direction: column;
     gap: var(--gap-xl);
 
     &.small {

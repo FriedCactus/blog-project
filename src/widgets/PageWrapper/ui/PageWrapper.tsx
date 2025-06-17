@@ -1,5 +1,5 @@
 import {Page} from "shared/ui/Page";
-import {memo, PropsWithChildren, UIEvent, useRef} from "react";
+import {memo, PropsWithChildren, RefObject, UIEvent, useRef} from "react";
 import {useAppDispatch, useInitialEffect, useIntersection, useThrottle} from "shared/lib/hooks";
 import {getScrollByPath, scrollRestorationActions} from "features/ScrollRestoration";
 import {useLocation} from "react-router";
@@ -8,6 +8,7 @@ import {StateSchema} from "app/providers/StoreProvider";
 import styles from './PageWrapper.module.css';
 
 interface Props {
+    ref?: RefObject<HTMLElement | null>,
     className?: string;
     onPageEnd?: () => void;
     saveScrollPosition?: boolean;
@@ -15,6 +16,7 @@ interface Props {
 
 export const PageWrapper = memo(function PageWrapper(props: PropsWithChildren<Props>) {
     const {
+        ref,
         className,
         onPageEnd,
         saveScrollPosition = false,
@@ -28,7 +30,8 @@ export const PageWrapper = memo(function PageWrapper(props: PropsWithChildren<Pr
     );
 
     const targetRef = useRef(null);
-    const pageRef = useRef<HTMLElement>(null);
+    const innerPageRef = useRef<HTMLElement>(null);
+    const pageRef = ref ?? innerPageRef;
 
     useIntersection(targetRef, onPageEnd);
 
