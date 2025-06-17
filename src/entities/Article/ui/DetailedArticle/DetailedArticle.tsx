@@ -11,7 +11,7 @@ import {
 import styles from './DetailedArticle.module.css';
 import {ArticleSkeleton} from "../ArticleSkeleton/ArticleSkeleton";
 import {DetailedArticleError} from "../DetailedArticleError/DetailedArticleError";
-import {ArticleBlockComponent} from "entities/Article/ui/ArticleBlockComponent/ArticleBlockComponent";
+import {ArticleBlockComponent} from "../ArticleBlockComponent/ArticleBlockComponent";
 import {Avatar} from "shared/ui/Avatar";
 import {getDetailedArticleData} from "../../model/selectors/getDetailedArticleData/getDetailedArticleData";
 import {Text} from "shared/ui/Text";

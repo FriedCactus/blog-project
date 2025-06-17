@@ -1,6 +1,6 @@
 import {articleMock} from "../mocks/article";
 import {detailedArticleReducer} from './detailedArticleSlice';
-import {DetailedArticleSchema} from "entities/Article";
+import {DetailedArticleSchema} from "../types/detailedArticleSchema";
 import {fetchArticleById} from "../services/fetchArticleById/fetchArticleById";
 
 const state: DetailedArticleSchema = {

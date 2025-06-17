@@ -1,4 +1,4 @@
-import {ArticleComment} from "pages/DetailedArticlePage/model/types/articleComment";
+import {ArticleComment} from "../types/articleComment";
 import {userMock} from "entities/User";
 
 export const articleCommentEntitiesMock: Record<string, ArticleComment> = {

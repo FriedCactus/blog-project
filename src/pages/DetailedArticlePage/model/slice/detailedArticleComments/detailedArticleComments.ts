@@ -2,12 +2,12 @@ import {createEntityAdapter, createSlice} from "@reduxjs/toolkit";
 import {DetailedArticleCommentsSchema} from "../../types/detailedArticleCommentsSchema";
 import {
     fetchCommentsByArticleId
-} from 'pages/DetailedArticlePage/model/services/detailedArticleComments/fetchCommentsByArticleId/fetchCommentsByArticleId';
+} from '../../services/detailedArticleComments/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import {ArticleComment} from '../../types/articleComment';
 import {StateSchema} from "app/providers/StoreProvider";
 import {
     addArticleComment
-} from "pages/DetailedArticlePage/model/services/detailedArticleComments/addArticleComment/addArticleComment";
+} from "../../services/detailedArticleComments/addArticleComment/addArticleComment";
 
 const articleCommentsAdapter = createEntityAdapter<ArticleComment>();
 const initialState: DetailedArticleCommentsSchema = articleCommentsAdapter.getInitialState({

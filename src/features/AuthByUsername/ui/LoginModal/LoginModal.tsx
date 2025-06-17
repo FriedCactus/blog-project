@@ -1,5 +1,5 @@
 import {Modal} from "shared/ui/Modal";
-import {LoginFormAsync} from "features/AuthByUsername/ui/LoginForm/LoginForm.async";
+import {LoginFormAsync} from "../LoginForm/LoginForm.async";
 import {Suspense} from "react";
 import {LoadingSpinner} from "shared/ui/LoadingSpinner";
 

@@ -6,7 +6,7 @@ import {DetailedArticleCommentsSchema} from "../../types/detailedArticleComments
 import {articleCommentEntitiesMock} from "../../mocks/articleComment";
 import {
     addArticleComment
-} from "pages/DetailedArticlePage/model/services/detailedArticleComments/addArticleComment/addArticleComment";
+} from "../../services/detailedArticleComments/addArticleComment/addArticleComment";
 
 const state: DetailedArticleCommentsSchema = {
     isLoading: false,

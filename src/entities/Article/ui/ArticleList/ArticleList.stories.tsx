@@ -3,7 +3,7 @@ import {ArticleList} from "./ArticleList";
 import {Theme} from "app/providers/ThemeProvider";
 import {RouterDecorator, storyGlobalsDesktop, ThemeDecorator} from 'shared/config/storybook';
 import {Article, ArticleListView} from "../../model/types/article";
-import {articleMock} from "entities/Article";
+import {articleMock} from "../../model/mocks/article";
 
 const articles: Article[] = Array(9).fill(articleMock).map((article, index) => ({
     ...article,

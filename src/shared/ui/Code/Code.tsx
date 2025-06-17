@@ -1,6 +1,6 @@
 import styles from './Code.module.css';
-import {Button, ButtonVariant} from "shared/ui/Button";
-import {Icon} from "shared/ui/Icon";
+import {Button, ButtonVariant} from "../Button";
+import {Icon} from "../Icon";
 
 interface Props {
     text: string;

@@ -1,6 +1,6 @@
 import {fetchArticleById} from "./fetchArticleById";
 import {TestAsyncThunk} from "shared/lib/tests";
-import {articleMock} from "entities/Article/model/mocks/article";
+import {articleMock} from "../../mocks/article";
 
 describe("fetchArticleById", () => {
     test('successful article fetch', async () => {

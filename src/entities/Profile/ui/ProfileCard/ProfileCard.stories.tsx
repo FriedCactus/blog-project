@@ -2,7 +2,7 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {ProfileCard} from "./ProfileCard";
 import {storyGlobalsDesktop, ThemeDecorator} from 'shared/config/storybook';
 import {Country, Currency} from "shared/const";
-import {ValidateProfileError} from "entities/Profile";
+import {ValidateProfileError} from "../../model/types/profile";
 import {Theme} from "app/providers/ThemeProvider";
 import AvatarImage from 'shared/assets/test/avatar.jpg';
 

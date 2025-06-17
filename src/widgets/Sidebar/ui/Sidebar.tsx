@@ -3,8 +3,8 @@ import {classNames} from "shared/lib/classNames";
 import {ThemeSwitcher} from "widgets/ThemeSwitcher";
 import {memo, useCallback, useState} from "react";
 import {LangSwitcher} from "widgets/LangSwitcher";
-import {CollapseButton} from "widgets/Sidebar/ui/CollapseButton/CollapseButton";
-import {NavigationLinks} from "widgets/Sidebar/ui/NavigationLinks/NavigationLinks";
+import {CollapseButton} from "./CollapseButton/CollapseButton";
+import {NavigationLinks} from "./NavigationLinks/NavigationLinks";
 
 export const Sidebar = memo(function Sidebar() {
     const [isCollapsed, setIsCollapsed] = useState(false);

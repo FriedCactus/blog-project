@@ -1,7 +1,7 @@
 import {memo, useCallback} from "react";
 import styles from './TabItem.module.css';
 import {TabIem} from "../Tabs";
-import {Button, ButtonVariant} from "shared/ui/Button";
+import {Button, ButtonVariant} from "../../Button";
 
 interface TabItemProps {
     tab: TabIem;

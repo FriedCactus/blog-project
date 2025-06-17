@@ -2,9 +2,9 @@ import type {Meta, StoryObj} from '@storybook/react';
 import ArticlesPage from "./ArticlesPage";
 import {Theme} from "app/providers/ThemeProvider";
 import {RouterDecorator, StoreDecorator, storyGlobalsDesktop, ThemeDecorator} from 'shared/config/storybook';
-import {articlesReducer} from "pages/ArticlesPage";
+import {articlesReducer} from "../model/slice/articlesSlice";
 import {StateSchema} from "app/providers/StoreProvider";
-import {articleMock} from "entities/Article";
+import {ArticleListView, articleMock} from "entities/Article";
 
 const articles = {
     1: articleMock,
@@ -22,7 +22,13 @@ const state: DeepPartial<StateSchema> = {
     articles: {
         isLoading: false,
         ids: Object.keys(articles),
-        entities: articles
+        entities: articles,
+        view: ArticleListView.SMALL,
+        page: 0,
+        limit: 0,
+        hasMore: false,
+        _inited: false,
+        selectedCategories: []
     }
 };
 

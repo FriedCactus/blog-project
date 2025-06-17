@@ -1,7 +1,7 @@
 import styles from "./Input.module.css";
 import {classNames} from "shared/lib/classNames";
 import {ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef, useState} from "react";
-import {Text, TextVariant} from 'shared/ui/Text';
+import {Text, TextVariant} from '../Text';
 
 interface Props extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'> {
     className?: string;

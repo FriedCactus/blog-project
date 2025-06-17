@@ -1,4 +1,4 @@
-import {Theme, ThemeContext} from "app/providers/ThemeProvider/lib/ThemeContext";
+import {Theme, ThemeContext} from "../lib/ThemeContext";
 import {PropsWithChildren, useEffect, useMemo, useState} from "react";
 import {LOCAL_STORAGE_THEME_KEY} from "shared/const";
 

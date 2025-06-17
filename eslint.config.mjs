@@ -1,6 +1,7 @@
 import js from "@eslint/js";
 import globals from "globals";
 import tseslint from "typescript-eslint";
+import fsdChecker from 'eslint-plugin-absolute-relative-path-checker';
 import pluginReact from "eslint-plugin-react";
 import eslint from "@eslint/js";
 import i18next from 'eslint-plugin-i18next';
@@ -32,6 +33,7 @@ export default defineConfig([
         files: ["**/*.{js,jsx,mjs,cjs,ts,tsx}"],
         plugins: {
             pluginReact,
+            fsdChecker
         },
         languageOptions: {
             parserOptions: {
@@ -46,6 +48,9 @@ export default defineConfig([
     },
     // Общие правила
     {
+        plugins: {
+            fsdChecker
+        },
         rules: {
             "no-var": "off",
             "prefer-const": ["warn", {
@@ -57,6 +62,7 @@ export default defineConfig([
             "i18next/no-literal-string": 'warn',
             "@typescript-eslint/no-require-imports": "off",
             '@typescript-eslint/no-explicit-any': 'warn',
+            'fsdChecker/fsd-path-checker': 'error'
         },
     },
     // Правила для тестов

@@ -3,7 +3,7 @@ import {TestAsyncThunk} from "shared/lib/tests";
 import {StateSchema} from "app/providers/StoreProvider";
 import {ArticleListView,} from "entities/Article";
 import {fetchArticles} from "../fetchArticles/fetchArticles";
-import {articlesActions} from "pages/ArticlesPage/model/slice/articlesSlice";
+import {articlesActions} from "../../slice/articlesSlice";
 
 jest.mock("../fetchArticles/fetchArticles");
 
