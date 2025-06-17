@@ -69,9 +69,9 @@ export const ArticleList = (props: Props) => {
                     useWindowScroll
                     listClassName={listClassName}
                     customScrollParent={scrollerRef?.current ?? undefined}
-                    totalCount={articles.length}
-                    itemContent={(index) => (
-                        <ArticleItem article={articles[index]} target={target}/>
+                    data={articles}
+                    itemContent={(_, article) => (
+                        <ArticleItem article={article} target={target}/>
                     )}
                     endReached={onPageEnd}
                 />
