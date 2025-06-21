@@ -41,28 +41,37 @@ export interface FlexProps {
     align?: Align;
     justify?: Justify;
     gap?: Gap;
+    hMax?: boolean;
+    wMax?: boolean;
 }
 
 export const Flex = (props: PropsWithChildren<FlexProps>) => {
     const {
         direction = 'row',
-        justify = 'start',
-        align = 'start',
+        justify,
+        align,
         gap,
+        hMax,
+        wMax,
         className,
         children
     } = props;
 
     const mods = [
         directionClasses[direction],
-        JustifyClasses[justify],
-        AlignClasses[align],
+        justify && JustifyClasses[justify],
+        align && AlignClasses[align],
         gap && GapClasses[gap],
         className
     ];
 
+    const conditionals = {
+        [styles.heightMax]: hMax,
+        [styles.widthMax]: wMax,
+    };
+
     return (
-        <div className={classNames(styles.Flex, {}, mods)}>
+        <div className={classNames(styles.Flex, conditionals, mods)}>
             {children}
         </div>
     );

@@ -13,10 +13,12 @@ export const LangSwitcher = memo(function LangSwitcher({short = false}: Props) {
         i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
     };
 
-    return <Button
-        onClick={onToggle}
-        variant={ButtonVariant.CLEAR}
-    >
-        {t(short ? 'Короткое переключение языка' : 'Переключение языка')}
-    </Button>;
+    return (
+        <Button
+            onClick={onToggle}
+            variant={ButtonVariant.CLEAR}
+        >
+            {t(short ? 'Короткое переключение языка' : 'Переключение языка')}
+        </Button>
+    );
 });

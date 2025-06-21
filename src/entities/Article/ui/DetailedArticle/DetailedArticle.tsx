@@ -17,6 +17,7 @@ import {getDetailedArticleData} from "../../model/selectors/getDetailedArticleDa
 import {Text} from "shared/ui/Text";
 import {ArticleWrapper} from "../ArticleWrapper/ArticleWrapper";
 import {Icon} from 'shared/ui/Icon';
+import {HStack, VStack} from "shared/ui/Stack";
 
 interface Props {
     id: number;
@@ -61,31 +62,31 @@ export const DetailedArticle = memo(function DetailedArticle({id}: Props) {
                 )
             }
 
-            <div className={styles.titleContainer}>
+            <VStack gap="m">
                 <Text title={articleData.title} size="l">
                     {articleData.subtitle}
                 </Text>
 
-                <div className={styles.infoContainer}>
-                    <div className={styles.info}>
+                <VStack gap="s">
+                    <HStack align="center" gap="s">
                         <Icon name="eye"/>
                         <Text>{articleData.views}</Text>
-                    </div>
+                    </HStack>
                     <div className={styles.info}>
                         <Icon name="calendar"/>
                         <Text>{articleData.createdAt}</Text>
                     </div>
-                </div>
-            </div>
+                </VStack>
+            </VStack>
 
 
-            <div className={styles.blocks}>
+            <VStack gap="xl">
                 {
                     articleData.blocks.map(block => (
                         <ArticleBlockComponent key={block.id} block={block}/>
                     ))
                 }
-            </div>
+            </VStack>
         </ArticleWrapper>
     );
 });

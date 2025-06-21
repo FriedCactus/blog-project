@@ -5,6 +5,7 @@ import {memo, useCallback, useState} from "react";
 import {LangSwitcher} from "widgets/LangSwitcher";
 import {CollapseButton} from "./CollapseButton/CollapseButton";
 import {NavigationLinks} from "./NavigationLinks/NavigationLinks";
+import {VStack, Flex} from "shared/ui/Stack";
 
 export const Sidebar = memo(function Sidebar() {
     const [isCollapsed, setIsCollapsed] = useState(false);
@@ -23,25 +24,22 @@ export const Sidebar = memo(function Sidebar() {
                 })
             }>
 
-            <div className={styles.mainBlock}>
-                <CollapseButton onCollapse={onCollapse}/>
-                <div>
+            <VStack align="center" justify="between" hMax>
+                <VStack align="center" gap="l">
+                    <CollapseButton onCollapse={onCollapse}/>
+                    <NavigationLinks isCollapsed={isCollapsed}/>
+                </VStack>
 
-                </div>
-                <NavigationLinks isCollapsed={isCollapsed}/>
-            </div>
-
-
-            <div className={classNames(
-                '',
-                {
-                    [styles.flipped]: isCollapsed
-                },
-                [styles.switchers]
-            )}>
-                <ThemeSwitcher className={styles.themeSwitcher}/>
-                <LangSwitcher short={isCollapsed}/>
-            </div>
+                <Flex
+                    direction={isCollapsed ? 'column' : 'row'}
+                    align="center"
+                    justify="center"
+                    gap="l"
+                >
+                    <ThemeSwitcher className={styles.themeSwitcher}/>
+                    <LangSwitcher short={isCollapsed}/>
+                </Flex>
+            </VStack>
         </aside>
     );
 });

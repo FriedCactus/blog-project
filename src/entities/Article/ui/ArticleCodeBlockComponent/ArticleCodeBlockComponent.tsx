@@ -7,8 +7,6 @@ interface Props {
 
 export const ArticleCodeBlockComponent = ({block}: Props) => {
     return (
-        <div>
-            <Code text={block.code}/>
-        </div>
+        <Code text={block.code}/>
     );
 };

@@ -4,6 +4,7 @@ import {Icon} from "shared/ui/Icon";
 import {Button, ButtonVariant} from "shared/ui/Button";
 import styles from './ArticlesViewSelector.module.css';
 import {classNames} from "shared/lib/classNames";
+import {HStack} from "shared/ui/Stack";
 
 const views = [
     {
@@ -29,7 +30,7 @@ export const ArticlesViewSelector = memo(function ArticlesViewSelector(props: Pr
     }, [onChange]);
 
     return (
-        <div className={styles.ArticlesViewSelector}>
+        <HStack gap="m">
             {
                 views.map((item) => (
                     <Button
@@ -46,6 +47,6 @@ export const ArticlesViewSelector = memo(function ArticlesViewSelector(props: Pr
                     </Button>
                 ))
             }
-        </div>
+        </HStack>
     );
 });

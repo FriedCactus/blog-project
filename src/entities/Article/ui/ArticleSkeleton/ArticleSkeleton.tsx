@@ -1,9 +1,10 @@
 import {Skeleton} from "shared/ui/Skeleton";
 import styles from './ArticleSkeleton.module.css';
+import {VStack} from "shared/ui/Stack";
 
 export const ArticleSkeleton = () => {
     return (
-        <div className={styles.ArticleSkeleton}>
+        <VStack hMax gap="xl" className={styles.ArticleSkeleton}>
             <Skeleton
                 className={styles.circleSkeleton}
                 width={200}
@@ -11,15 +12,15 @@ export const ArticleSkeleton = () => {
                 borderRadius="50%"
             />
 
-            <div className={styles.titleSkeleton}>
+            <VStack gap="s">
                 <Skeleton width="50%" height={40}/>
                 <Skeleton width="30%" height={32}/>
-            </div>
+            </VStack>
 
-            <div className={styles.contentSkeleton}>
+            <VStack gap="xl" className={styles.contentSkeleton}>
                 <Skeleton/>
                 <Skeleton/>
-            </div>
-        </div>
+            </VStack>
+        </VStack>
     );
 };

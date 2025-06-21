@@ -11,9 +11,9 @@ import {DynamicModuleLoader, ReducersList} from "shared/lib/components";
 import {profileActions, profileReducer} from "../model/slice/profileSlice";
 import {getProfileError} from "../model/selectors/getProfileError/getProfileError";
 import {EditableProfileCardHeader} from "./EditableProfileCardHeader/EditableProfileCardHeader";
-import styles from './EditableProfileCard.module.css';
 import {Country, Currency, USER_LOCALSTORAGE_KEY} from "shared/const";
 import {User} from "entities/User";
+import {VStack} from "shared/ui/Stack";
 
 const reducers: ReducersList = {
     profile: profileReducer
@@ -106,7 +106,7 @@ export const EditableProfileCard = (props: Props) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={styles.EditableProfileCard}>
+            <VStack gap="xl">
                 {
                     editable && profileId && <EditableProfileCardHeader profileId={profileId}/>
                 }
@@ -125,7 +125,7 @@ export const EditableProfileCard = (props: Props) => {
                     onUsernameChange={onUsernameChange}
                     onAvatarChange={onAvatarChange}
                 />
-            </div>
+            </VStack>
         </DynamicModuleLoader>
     );
 };

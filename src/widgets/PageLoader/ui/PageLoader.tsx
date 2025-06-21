@@ -1,10 +1,10 @@
-import styles from "./PageLoader.module.css";
 import {LoadingSpinner} from "shared/ui/LoadingSpinner";
+import {VStack} from "shared/ui/Stack";
 
 export const PageLoader = () => {
     return (
-        <div className={styles.PageLoader}>
+        <VStack align="center" justify="center" hMax>
             <LoadingSpinner/>
-        </div>
+        </VStack>
     );
 };

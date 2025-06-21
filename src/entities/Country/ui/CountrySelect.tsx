@@ -12,7 +12,7 @@ interface Props {
 export const CountrySelect = memo(function CountrySelect({value, onChange, disabled}: Props) {
     const {t} = useTranslation("country");
 
-    const countryList: SelectOption[] = useMemo(() => (
+    const countryList: SelectOption<Country>[] = useMemo(() => (
         [
             {
                 value: Country.Russia,

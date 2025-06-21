@@ -12,7 +12,7 @@ interface Props {
 export const CurrencySelect = memo(function CurrencySelect({value, onChange, disabled}: Props) {
     const {t} = useTranslation('currency');
 
-    const CurrencyList: SelectOption[] = useMemo(() => (
+    const CurrencyList: SelectOption<Currency>[] = useMemo(() => (
         [
             {
                 value: Currency.RUB,

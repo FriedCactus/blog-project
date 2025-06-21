@@ -1,4 +1,3 @@
-import styles from "./NavBar.module.css";
 import {Button} from "shared/ui/Button";
 import {useTranslation} from "react-i18next";
 import {LoginModal} from "features/AuthByUsername";
@@ -10,6 +9,7 @@ import {loginActions} from "features/AuthByUsername/model/slice/loginSlice";
 import {RouterLink} from "shared/ui/RouterLink";
 import {RouterLinkVariant} from "shared/ui/RouterLink/RouterLink";
 import {AppPaths} from "shared/config/routes";
+import {HeaderWrapper} from "./HeaderWrapper/HeaderWrapper";
 
 export const NavBar = memo(function NavBar() {
     const {t} = useTranslation();
@@ -37,7 +37,7 @@ export const NavBar = memo(function NavBar() {
 
     if (authData) {
         return (
-            <header className={styles.Navbar}>
+            <HeaderWrapper>
                 <RouterLink
                     to={AppPaths.CREATE_ARTICLE}
                     variant={RouterLinkVariant.SECONDARY}
@@ -45,14 +45,18 @@ export const NavBar = memo(function NavBar() {
                 >
                     {t('Создать статью')}
                 </RouterLink>
-                <Button onClick={onLogout}>{t('Выйти')}</Button>
-            </header>
+                <Button onClick={onLogout}>
+                    {t('Выйти')}
+                </Button>
+            </HeaderWrapper>
         );
     }
 
     return (
-        <header className={styles.Navbar}>
-            <Button onClick={onShowModal}>{t('Войти')}</Button>
+        <HeaderWrapper>
+            <Button onClick={onShowModal}>
+                {t('Войти')}
+            </Button>
             {
                 isModalOpen && <LoginModal
                     isOpen={isModalOpen}
@@ -60,7 +64,7 @@ export const NavBar = memo(function NavBar() {
                     onSuccess={onSuccess}
                 />
             }
-        </header>
+        </HeaderWrapper>
     );
 });
 

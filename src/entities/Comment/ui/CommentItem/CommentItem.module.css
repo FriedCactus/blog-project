@@ -1,7 +1,4 @@
 .CommentItem {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-m);
     border: 1px solid var(--primary-color);
     padding: var(--padding-xs) var(--padding-s);
 }

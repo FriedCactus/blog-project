@@ -8,6 +8,7 @@ import {ArticleError} from "../ArticleError/ArticleError";
 import {ArticleItemSmallSkeleton} from "../ArticleItemSmall/ArticleItemSmallSkeleton";
 import {ArticleItemBigSkeleton} from "../ArticleItemBig/ArticleItemBigSkeleton";
 import {VirtuosoGrid} from 'react-virtuoso';
+import {HStack} from "shared/ui/Stack";
 
 interface Props {
     scrollerRef?: RefObject<HTMLElement | null>,
@@ -56,9 +57,9 @@ export const ArticleList = (props: Props) => {
 
     if (error) {
         return (
-            <div className={styles.error}>
+            <HStack hMax justify="center" align="center">
                 <ArticleError/>
-            </div>
+            </HStack>
         );
     }
 

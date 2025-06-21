@@ -1,7 +1,7 @@
 import {DynamicModuleLoader} from "shared/lib/components";
 import {detailedArticleReducer} from "../../model/slice/detailedArticleSlice";
 import {PropsWithChildren} from "react";
-import styles from './ArticleWrapper.module.css';
+import {VStack} from "shared/ui/Stack";
 
 const reducers = {
     detailedArticle: detailedArticleReducer
@@ -10,8 +10,8 @@ const reducers = {
 
 export const ArticleWrapper = ({children}: PropsWithChildren) => (
     <DynamicModuleLoader reducers={reducers}>
-        <div className={styles.ArticleWrapper}>
+        <VStack wMax hMax gap="xl">
             {children}
-        </div>
+        </VStack>
     </DynamicModuleLoader>
 );

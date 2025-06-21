@@ -6,6 +6,7 @@ import {useSelector} from "react-redux";
 import {getUserAuthData} from "entities/User";
 import {Text, TextVariant} from 'shared/ui/Text';
 import {useTranslation} from "react-i18next";
+import {VStack} from "shared/ui/Stack";
 
 interface Props {
     onSubmit: (commentText: string) => Promise<unknown> | void;
@@ -31,7 +32,7 @@ const AddCommentForm = ({onSubmit, error}: Props) => {
     };
 
     return (
-        <div className={styles.AddCommentForm}>
+        <VStack gap="m">
             <form onSubmit={onSubmitHandler} className={styles.form}>
                 <Input
                     className={styles.input}
@@ -65,7 +66,7 @@ const AddCommentForm = ({onSubmit, error}: Props) => {
                     </Text>
                 )
             }
-        </div>
+        </VStack>
     );
 };
 

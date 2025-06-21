@@ -53,3 +53,11 @@
 .xlGap {
     gap: var(--gap-xl);
 }
+
+.heightMax {
+    height: 100%;
+}
+
+.widthMax {
+    width: 100%;
+}

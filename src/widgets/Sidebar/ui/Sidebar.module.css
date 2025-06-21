@@ -1,8 +1,4 @@
 .Sidebar {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     width: 300px;
     padding: var(--content-padding);
 
@@ -12,24 +8,6 @@
 
 .collapsed {
     width: 120px;
-}
-
-.mainBlock {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-}
-
-.switchers {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-
-    &.flipped {
-        flex-direction: column;
-    }
 }
 
 .themeSwitcher {

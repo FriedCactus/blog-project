@@ -3,7 +3,7 @@ import {ArticleSortField} from "entities/Article";
 import {SortOrder} from "shared/types";
 import {useMemo} from "react";
 import {useTranslation} from "react-i18next";
-import styles from './ArticlesSortSelector.module.css';
+import {HStack} from "shared/ui/Stack";
 
 interface Props {
     sortField: ArticleSortField;
@@ -52,7 +52,7 @@ export const ArticlesSortSelector = (props: Props) => {
     ), [t]);
 
     return (
-        <div className={styles.ArticlesSortSelector}>
+        <HStack gap="m">
             <Select
                 value={sortField}
                 options={sortFieldOptions}
@@ -65,6 +65,6 @@ export const ArticlesSortSelector = (props: Props) => {
                 onChange={onSortOrderChange}
                 placeholder={t('Порядок')}
             />
-        </div>
+        </HStack>
     );
 };

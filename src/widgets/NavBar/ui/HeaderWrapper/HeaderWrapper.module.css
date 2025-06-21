@@ -1,0 +1,7 @@
+.HeaderWrapper {
+    padding: var(--content-padding);
+    padding-right: 40px;
+
+    background-color: var(--bg-color-inverted);
+    height: var(--navbar-height);
+}

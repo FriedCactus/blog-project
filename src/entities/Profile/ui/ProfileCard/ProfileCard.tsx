@@ -10,6 +10,7 @@ import {Avatar} from 'shared/ui/Avatar';
 import {CurrencySelect} from "entities/Currency";
 import {CountrySelect} from "entities/Country";
 import type {Country, Currency} from "shared/const";
+import {HStack, VStack} from "shared/ui/Stack";
 
 interface Props {
     validateErrors?: ValidateProfileError[];
@@ -59,15 +60,15 @@ export const ProfileCard = memo(function ProfileCard(props: Props) {
 
     if (isLoading) {
         return (
-            <div className={classNames(styles.ProfileCard, {}, [styles.loadingWrapper])}>
+            <VStack gap="l" align="center" justify="center" className={styles.ProfileCard}>
                 <LoadingSpinner/>
-            </div>
+            </VStack>
         );
     }
 
     if (error) {
         return (
-            <div className={styles.ProfileCard}>
+            <VStack gap="l" className={styles.ProfileCard}>
                 <Text
                     variant={TextVariant.ERROR}
                     textAlign={TextAlign.CENTER}
@@ -75,21 +76,21 @@ export const ProfileCard = memo(function ProfileCard(props: Props) {
                 >
                     {t('Попробуйте обновить страницу')}
                 </Text>
-            </div>
+            </VStack>
         );
     }
 
     return (
-        <div className={classNames(styles.ProfileCard, {[styles.editing]: !isReadonly})}>
+        <VStack gap="l" className={classNames(styles.ProfileCard, {[styles.editing]: !isReadonly})}>
             {
                 profile?.avatar && (
-                    <div className={styles.avatar}>
+                    <HStack justify="center">
                         <Avatar size={150} src={profile.avatar}/>
-                    </div>
+                    </HStack>
                 )
             }
 
-            <div className={styles.fields}>
+            <VStack gap="m">
                 <Input
                     disabled={isReadonly}
                     placeholder={t("Имя пользователя")}
@@ -136,7 +137,7 @@ export const ProfileCard = memo(function ProfileCard(props: Props) {
                     value={profile?.avatar}
                     onChange={onAvatarChange}
                 />
-            </div>
+            </VStack>
 
             {
                 validateErrors?.map(error => (
@@ -146,6 +147,6 @@ export const ProfileCard = memo(function ProfileCard(props: Props) {
                 ))
             }
 
-        </div>
+        </VStack>
     );
 });
