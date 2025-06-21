@@ -72,10 +72,10 @@ export const DetailedArticle = memo(function DetailedArticle({id}: Props) {
                         <Icon name="eye"/>
                         <Text>{articleData.views}</Text>
                     </HStack>
-                    <div className={styles.info}>
+                    <VStack gap="s">
                         <Icon name="calendar"/>
                         <Text>{articleData.createdAt}</Text>
-                    </div>
+                    </VStack>
                 </VStack>
             </VStack>
 
