@@ -1,5 +1,5 @@
 import styles from './Flex.module.css';
-import {PropsWithChildren} from "react";
+import {DetailedHTMLProps, HTMLAttributes, PropsWithChildren} from "react";
 import {classNames} from "shared/lib/classNames";
 
 type Direction = 'row' | 'column';
@@ -35,7 +35,9 @@ const GapClasses: Record<Gap, string> = {
     xl: styles.xlGap,
 };
 
-export interface FlexProps {
+type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+
+export interface FlexProps extends DivProps {
     className?: string;
     direction?: Direction;
     align?: Align;
@@ -54,7 +56,8 @@ export const Flex = (props: PropsWithChildren<FlexProps>) => {
         hMax,
         wMax,
         className,
-        children
+        children,
+        ...otherProps
     } = props;
 
     const mods = [
@@ -71,7 +74,7 @@ export const Flex = (props: PropsWithChildren<FlexProps>) => {
     };
 
     return (
-        <div className={classNames(styles.Flex, conditionals, mods)}>
+        <div className={classNames(styles.Flex, conditionals, mods)} {...otherProps}>
             {children}
         </div>
     );

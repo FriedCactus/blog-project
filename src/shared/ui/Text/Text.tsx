@@ -16,6 +16,14 @@ export enum TextVariant {
 
 type TextSize = 's' | 'm' | 'l';
 
+type HeaderTag = 'h1' | 'h2' | 'h3';
+
+const mapSizeToHeaderTag: Record<TextSize, HeaderTag> = {
+    s: 'h3',
+    m: 'h2',
+    l: 'h1'
+};
+
 interface Props {
     title?: string;
     variant?: TextVariant;
@@ -34,9 +42,12 @@ export const Text = memo(function Text(props: PropsWithChildren<Props>) {
         className
     } = props;
 
+    const HeaderTag = mapSizeToHeaderTag[size];
+
     return (
         <div className={classNames(styles.Text, {}, [className, styles[textAlign], styles[size]])}>
-            {title && <p className={classNames(styles.title, {}, [styles[variant], styles[size]])}>{title}</p>}
+            {title && <HeaderTag
+                className={classNames(styles.title, {}, [styles[variant], styles[size]])}>{title}</HeaderTag>}
             {children && <p className={classNames(styles.text, {}, [styles[variant], styles[size]])}>{children}</p>}
         </div>
     );

@@ -6,6 +6,10 @@ import {Theme} from "app/providers/ThemeProvider";
 const meta: Meta<typeof Text> = {
     title: 'shared/Text',
     component: Text,
+    args: {
+        children: 'Текст',
+        title: 'Заголовок'
+    },
     ...storyGlobalsDesktop
 };
 
@@ -13,143 +17,91 @@ export default meta;
 
 type Story = StoryObj<typeof Text>;
 
-export const Primary: Story = {
-    args: {
-        children: 'Текст',
-        title: 'Заголовок'
-    }
-};
+// Light
+export const Primary: Story = {};
 
 export const Secondary: Story = {
     args: {
-        children: 'Текст',
-        title: 'Заголовок',
         variant: TextVariant.SECONDARY
     }
 };
 
 export const Error: Story = {
     args: {
-        children: 'Текст',
-        title: 'Заголовок',
         variant: TextVariant.ERROR
     }
 };
 
 export const OnlyTitle: Story = {
     args: {
-        title: 'Заголовок'
+        children: ''
     }
 };
 
 export const OnlyText: Story = {
     args: {
-        children: 'Текст'
+        title: ''
     }
 };
 
 export const LeftAlign: Story = {
     args: {
-        children: 'Текст',
-        title: 'Заголовок',
         textAlign: TextAlign.LEFT
     }
 };
 
 export const RightAlign: Story = {
     args: {
-        children: 'Текст',
-        title: 'Заголовок',
         textAlign: TextAlign.RIGHT
     }
 };
 
 export const CenterAlign: Story = {
     args: {
-        children: 'Текст',
-        title: 'Заголовок',
         textAlign: TextAlign.CENTER
     }
 };
 
 // Dark
 export const PrimaryDark: Story = {
-    args: {
-        children: 'Текст',
-        title: 'Заголовок'
-    },
     decorators: [ThemeDecorator(Theme.DARK)]
 };
 
 export const SecondaryDark: Story = {
     args: {
-        children: 'Текст',
-        title: 'Заголовок',
         variant: TextVariant.SECONDARY
-    },
-    decorators: [ThemeDecorator(Theme.DARK)]
-};
-
-export const ErrorDark: Story = {
-    args: {
-        children: 'Текст',
-        title: 'Заголовок',
-        variant: TextVariant.ERROR
-    },
-    decorators: [ThemeDecorator(Theme.DARK)]
-};
-
-export const OnlyTitleDark: Story = {
-    args: {
-        title: 'Заголовок'
-    },
-    decorators: [ThemeDecorator(Theme.DARK)]
-};
-
-export const OnlyTextDark: Story = {
-    args: {
-        children: 'Текст'
     },
     decorators: [ThemeDecorator(Theme.DARK)]
 };
 
 // Green
 export const PrimaryGreen: Story = {
-    args: {
-        children: 'Текст',
-        title: 'Заголовок'
-    },
     decorators: [ThemeDecorator(Theme.GREEN)]
 };
 
 export const SecondaryGreen: Story = {
     args: {
-        children: 'Текст',
-        title: 'Заголовок',
         variant: TextVariant.SECONDARY
     },
     decorators: [ThemeDecorator(Theme.GREEN)]
 };
 
-export const ErrorGreen: Story = {
+// Sizes
+export const SizeS: Story = {
     args: {
-        children: 'Текст',
-        title: 'Заголовок',
-        variant: TextVariant.ERROR
-    },
-    decorators: [ThemeDecorator(Theme.GREEN)]
+        size: 's'
+    }
 };
 
-export const OnlyTitleGreen: Story = {
+export const SizeM: Story = {
     args: {
-        title: 'Заголовок'
-    },
-    decorators: [ThemeDecorator(Theme.GREEN)]
+        size: 'm'
+    }
 };
 
-export const OnlyTextGreen: Story = {
+export const SizeL: Story = {
     args: {
-        children: 'Текст'
-    },
-    decorators: [ThemeDecorator(Theme.GREEN)]
+        size: 'l'
+    }
 };
+

@@ -12,12 +12,12 @@ export const Page = memo(function Page(props: PropsWithChildren<Props>) {
     const {ref, children, className, onScroll} = props;
 
     return (
-        <section
+        <main
             ref={ref}
             onScroll={onScroll}
             className={classNames(styles.Page, {}, [className])}
         >
             {children}
-        </section>
+        </main>
     );
 });

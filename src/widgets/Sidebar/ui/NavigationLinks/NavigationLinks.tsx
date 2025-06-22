@@ -16,7 +16,7 @@ export const NavigationLinks = memo(function NavigationLinks({isCollapsed}: Prop
     ), [isAuth]);
 
     return (
-        <VStack gap="m">
+        <VStack role="navigation" gap="m">
             {
                 sidebarItemsList.map(
                     (navLink) => <NavigationLink
