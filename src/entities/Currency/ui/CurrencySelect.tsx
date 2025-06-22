@@ -1,7 +1,7 @@
-import {Select, type SelectOption} from "shared/ui/Select";
 import {Currency} from "shared/const";
 import {memo, useCallback, useMemo} from "react";
 import {useTranslation} from "react-i18next";
+import {ListBox, ListItem} from "shared/ui/ListBox";
 
 interface Props {
     disabled?: boolean;
@@ -12,35 +12,35 @@ interface Props {
 export const CurrencySelect = memo(function CurrencySelect({value, onChange, disabled}: Props) {
     const {t} = useTranslation('currency');
 
-    const CurrencyList: SelectOption<Currency>[] = useMemo(() => (
+    const CurrencyList: ListItem[] = useMemo(() => (
         [
             {
                 value: Currency.RUB,
-                text: t('Рубль'),
+                content: t('Рубль'),
             },
             {
                 value: Currency.USD,
-                text: t('Доллар'),
+                content: t('Доллар'),
             },
             {
                 value: Currency.EUR,
-                text: t('Евро'),
+                content: t('Евро'),
             },
         ]
     ), [t]);
 
-    const onChangeHandler = useCallback((value: string) => {
+    const selectHandler = useCallback((value: string) => {
         onChange?.(value as Currency);
     }, [onChange]);
 
     return (
-        <Select
+        <ListBox
             disabled={disabled}
             label={t("Валюта")}
             placeholder={t("Выберите валюту")}
             value={value}
-            onChange={onChangeHandler}
-            options={CurrencyList}
+            onSelect={selectHandler}
+            items={CurrencyList}
         />
     );
 });

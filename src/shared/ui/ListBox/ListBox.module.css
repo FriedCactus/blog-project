@@ -1,0 +1,58 @@
+.listBox {
+    position: relative;
+}
+
+.listBoxButton {
+    cursor: pointer;
+    font: var(--font-m);
+    color: var(--primary-color);
+    padding: 2px 4px;
+    min-width: 200px;
+
+    border: 2px solid var(--primary-color);
+    background: none;
+    outline: none;
+
+    &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+}
+
+.listBoxOptions {
+    position: absolute;
+    z-index: var(--listbox-z-index);
+
+    min-width: 100%;
+    text-wrap: nowrap;
+    color: var(--primary-color);
+    background-color: var(--bg-list-box);
+    outline: none;
+    border-radius: 4px;
+    overflow: hidden;
+
+    &.top {
+        bottom: 100%;
+    }
+
+    &.bottom {
+        top: 100%;
+    }
+}
+
+.listBoxItem {
+    cursor: default;
+    padding: 2px 4px;
+
+    @media (hover: hover) {
+        &:hover {
+            color: var(--secondary-color);
+            background-color: var(--bg-color-inverted);
+        }
+    }
+
+    &.selected {
+        color: var(--secondary-color);
+        background-color: var(--bg-color-inverted);
+    }
+}

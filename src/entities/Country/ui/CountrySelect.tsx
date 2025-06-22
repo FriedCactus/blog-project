@@ -1,7 +1,7 @@
-import {Select, SelectOption} from "shared/ui/Select";
 import {Country} from "shared/const";
 import {memo, useCallback, useMemo} from "react";
 import {useTranslation} from "react-i18next";
+import {ListBox, ListItem} from "shared/ui/ListBox";
 
 interface Props {
     disabled?: boolean;
@@ -12,39 +12,39 @@ interface Props {
 export const CountrySelect = memo(function CountrySelect({value, onChange, disabled}: Props) {
     const {t} = useTranslation("country");
 
-    const countryList: SelectOption<Country>[] = useMemo(() => (
+    const countryList: ListItem[] = useMemo(() => (
         [
             {
                 value: Country.Russia,
-                text: t("Россия"),
+                content: t("Россия"),
             },
             {
                 value: Country.Belarus,
-                text: t("Беларусь"),
+                content: t("Беларусь"),
             },
             {
                 value: Country.Kazakhstan,
-                text: t("Казахстан"),
+                content: t("Казахстан"),
             },
             {
                 value: Country.Ukraine,
-                text: t("Украина"),
+                content: t("Украина"),
             },
         ]
     ), [t]);
 
-    const onChangeHandler = useCallback((value: string) => {
+    const selectHandler = useCallback((value: string) => {
         onChange?.(value as Country);
     }, [onChange]);
 
     return (
-        <Select
+        <ListBox
             disabled={disabled}
             label={t("Страна")}
             placeholder={t("Выберите страну")}
             value={value}
-            onChange={onChangeHandler}
-            options={countryList}
+            onSelect={selectHandler}
+            items={countryList}
         />
     );
 });

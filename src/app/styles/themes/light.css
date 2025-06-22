@@ -14,4 +14,7 @@
 
     /* Card */
     --bg-card: rgb(145 168 182);
+
+    /* ListBox */
+    --bg-list-box: rgb(145 168 182);
 }
