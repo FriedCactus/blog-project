@@ -1,0 +1,23 @@
+.btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.menuItems {
+    z-index: var(--listbox-z-index);
+
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    outline: none;
+}
+
+.menuItem {
+    font: var(--font-m);
+    padding: 4px 8px;
+    color: var(--primary-color);
+    background-color: var(--bg-color);
+}

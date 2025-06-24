@@ -56,9 +56,9 @@ export const PrimaryGreen: Story = {
     decorators: ThemeDecorator(Theme.GREEN)
 };
 
-export const BottomPosition: Story = {
+export const TopPosition: Story = {
     args: {
-        optionsPosition: 'bottom'
+        optionsPosition: 'top'
     }
 };
 

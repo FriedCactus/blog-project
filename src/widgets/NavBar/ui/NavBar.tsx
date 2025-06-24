@@ -1,7 +1,7 @@
 import {Button} from "shared/ui/Button";
 import {useTranslation} from "react-i18next";
 import {LoginModal} from "features/AuthByUsername";
-import {memo, useState} from "react";
+import {memo, useCallback, useMemo, useState} from "react";
 import {getUserAuthData, userActions} from "entities/User";
 import {useSelector} from "react-redux";
 import {useAppDispatch} from "shared/lib/hooks";
@@ -10,6 +10,9 @@ import {RouterLink} from "shared/ui/RouterLink";
 import {RouterLinkVariant} from "shared/ui/RouterLink/RouterLink";
 import {AppPaths} from "shared/config/routes";
 import {HeaderWrapper} from "./HeaderWrapper/HeaderWrapper";
+import {Avatar} from "shared/ui/Avatar";
+import {Dropdown, DropdownItem} from "shared/ui/Dropdown";
+
 
 export const NavBar = memo(function NavBar() {
     const {t} = useTranslation();
@@ -18,22 +21,36 @@ export const NavBar = memo(function NavBar() {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const onShowModal = () => {
+    const onShowModal = useCallback(() => {
         setIsModalOpen(true);
-    };
+    }, []);
 
-    const onCloseModal = () => {
+    const onCloseModal = useCallback(() => {
         setIsModalOpen(false);
-    };
+    }, []);
 
-    const onSuccess = () => {
+    const onSuccess = useCallback(() => {
         setIsModalOpen(false);
         dispatch(loginActions.clearState());
-    };
+    }, [dispatch]);
 
-    const onLogout = () => {
+    const onLogout = useCallback(() => {
         dispatch(userActions.clearAuthData());
-    };
+    }, [dispatch]);
+
+    const dropdownItems: DropdownItem[] = useMemo(() => (
+        [
+
+            {
+                content: t('Мой профиль'),
+                href: AppPaths.MY_PROFILE
+            },
+            {
+                content: t('Выйти'),
+                onClick: onLogout
+            }
+        ]
+    ), [onLogout, t]);
 
     if (authData) {
         return (
@@ -45,9 +62,10 @@ export const NavBar = memo(function NavBar() {
                 >
                     {t('Создать статью')}
                 </RouterLink>
-                <Button onClick={onLogout}>
-                    {t('Выйти')}
-                </Button>
+                <Dropdown
+                    trigger={<Avatar src={authData.avatar ?? ''} size={30}/>}
+                    items={dropdownItems}
+                />
             </HeaderWrapper>
         );
     }

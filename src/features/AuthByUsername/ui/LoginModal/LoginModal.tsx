@@ -1,6 +1,6 @@
 import {Modal} from "shared/ui/Modal";
 import {LoginFormAsync} from "../LoginForm/LoginForm.async";
-import {Suspense} from "react";
+import {memo, Suspense} from "react";
 import {LoadingSpinner} from "shared/ui/LoadingSpinner";
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
     onSuccess?: () => void;
 }
 
-export const LoginModal = (props: Props) => {
+export const LoginModal = memo(function LoginModal(props: Props) {
     const {
         isOpen,
         onClose,
@@ -34,4 +34,4 @@ export const LoginModal = (props: Props) => {
             </Suspense>
         </Modal>
     );
-};
+});
