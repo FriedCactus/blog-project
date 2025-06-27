@@ -1,10 +1,10 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import { ArticleRecommendationsList } from "./ArticleRecommendationsList";
+import {ArticleRecommendationsList} from "./ArticleRecommendationsList";
 import {storyGlobalsDesktop, ThemeDecorator} from 'shared/config/storybook';
 import {Theme} from "app/providers/ThemeProvider";
 
 const meta: Meta<typeof ArticleRecommendationsList> = {
-    title: 'shared/ArticleRecommendationsList',
+    title: 'features/ArticleRecommendationsList',
     component: ArticleRecommendationsList,
     ...storyGlobalsDesktop
 };
