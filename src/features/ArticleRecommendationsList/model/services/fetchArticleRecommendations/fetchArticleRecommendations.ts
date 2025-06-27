@@ -2,18 +2,18 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import {Article} from "entities/Article";
 import type {ThunkConfig} from "app/providers/StoreProvider";
 import {
-    getDetailedArticleRecommendationsLimit
-} from "../../../selectors/detailedArticleRecommendations/getDetailedArticleRecommendationsLimit/getDetailedArticleRecommendationsLimit";
+    getArticleRecommendationsListLimit
+} from "../../selectors/getArticleRecommendationsListLimit/getArticleRecommendationsListLimit";
 
 export const fetchArticleRecommendations = createAsyncThunk<
     Article[],
     undefined,
     ThunkConfig<string>
->('detailedArticleRecommendationsSlice/fetchArticleRecommendations',
+>('articleRecommendationsList/fetchArticleRecommendations',
     async (_, thunkAPI) => {
         const {extra, rejectWithValue, getState} = thunkAPI;
 
-        const _limit = getDetailedArticleRecommendationsLimit(getState());
+        const _limit = getArticleRecommendationsListLimit(getState());
 
         try {
             const response = await extra.api.get<Article[]>('/articles', {

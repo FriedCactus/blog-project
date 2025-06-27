@@ -1,13 +1,13 @@
 import {
     fetchArticleRecommendations
-} from "../../services/detailedArticleRecommendations/fetchArticleRecommendations/fetchArticleRecommendations";
+} from "../services/fetchArticleRecommendations/fetchArticleRecommendations";
 import {
-    DetailedArticleRecommendationsSchema
-} from "../../types/detailedArticleRecommendationsSchema";
-import {detailedArticleRecommendationsReducer} from './detailedArticleRecommendations';
+    ArticleRecommendationsListSchema
+} from "../types/articleRecommendationsListSchema";
+import {articleRecommendationsListReducer} from './articleRecommendationsListSlice';
 import {articleMock} from "entities/Article";
 
-const state: DetailedArticleRecommendationsSchema = {
+const state: ArticleRecommendationsListSchema = {
     isLoading: false,
     limit: 0,
     ids: [],
@@ -18,7 +18,7 @@ describe('detailedArticleRecommendations', () => {
     test('fetchArticleRecommendations should clear error and isLoading while pending', () => {
         const action = {type: fetchArticleRecommendations.pending.type};
 
-        expect(detailedArticleRecommendationsReducer(state, action)).toEqual({
+        expect(articleRecommendationsListReducer(state, action)).toEqual({
             ...state,
             isLoading: true,
             error: ''
@@ -31,7 +31,7 @@ describe('detailedArticleRecommendations', () => {
             payload: [articleMock]
         };
 
-        expect(detailedArticleRecommendationsReducer(state, action)).toEqual({
+        expect(articleRecommendationsListReducer(state, action)).toEqual({
             ...state,
             entities: {
                 '1': articleMock
@@ -46,7 +46,7 @@ describe('detailedArticleRecommendations', () => {
             payload: 'Ошибка'
         };
 
-        expect(detailedArticleRecommendationsReducer(state, action)).toEqual({
+        expect(articleRecommendationsListReducer(state, action)).toEqual({
             ...state,
             isLoading: false,
             error: 'Ошибка'

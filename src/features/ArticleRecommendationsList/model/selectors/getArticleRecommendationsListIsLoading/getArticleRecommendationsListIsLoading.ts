@@ -1,4 +1,4 @@
 import {StateSchema} from "app/providers/StoreProvider";
 
-export const getDetailedArticleRecommendationsIsLoading = (state: StateSchema) =>
+export const getArticleRecommendationsListIsLoading = (state: StateSchema) =>
     state.detailedArticlePage?.recommendations.isLoading;

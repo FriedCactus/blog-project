@@ -1,13 +1,13 @@
 import {StateSchema} from "app/providers/StoreProvider";
-import {getDetailedArticleRecommendationsIsLoading} from "./getDetailedArticleRecommendationsIsLoading";
+import {getArticleRecommendationsListLimit} from "./getArticleRecommendationsListLimit";
 
-describe("getDetailedArticleRecommendationsIsLoading", () => {
-    test("Should return isLoading value", () => {
+describe("getArticleRecommendationsListLimit", () => {
+    test("Should return limit value", () => {
         const state: DeepPartial<StateSchema> = {
             detailedArticlePage: {
                 recommendations: {
-                    isLoading: true,
-                    limit: 0,
+                    isLoading: false,
+                    limit: 2,
                     ids: [],
                     entities: {}
                 },
@@ -20,12 +20,12 @@ describe("getDetailedArticleRecommendationsIsLoading", () => {
             }
         };
 
-        expect(getDetailedArticleRecommendationsIsLoading(state as StateSchema)).toBe(true);
+        expect(getArticleRecommendationsListLimit(state as StateSchema)).toBe(2);
     });
 
     test("Should work with empty state", () => {
         const state: DeepPartial<StateSchema> = {};
 
-        expect(getDetailedArticleRecommendationsIsLoading(state as StateSchema)).toBe(undefined);
+        expect(getArticleRecommendationsListLimit(state as StateSchema)).toBe(4);
     });
 });

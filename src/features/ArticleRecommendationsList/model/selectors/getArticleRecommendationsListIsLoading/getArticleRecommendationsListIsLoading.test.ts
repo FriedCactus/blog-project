@@ -1,13 +1,12 @@
 import {StateSchema} from "app/providers/StoreProvider";
-import {getDetailedArticleRecommendationsError} from "./getDetailedArticleRecommendationsError";
+import {getArticleRecommendationsListIsLoading} from "./getArticleRecommendationsListIsLoading";
 
-describe("getDetailedArticleRecommendationsError", () => {
-    test("Should return error value", () => {
+describe("getArticleRecommendationsListIsLoading", () => {
+    test("Should return isLoading value", () => {
         const state: DeepPartial<StateSchema> = {
             detailedArticlePage: {
                 recommendations: {
-                    error: "Ошибка получения статей",
-                    isLoading: false,
+                    isLoading: true,
                     limit: 0,
                     ids: [],
                     entities: {}
@@ -21,12 +20,12 @@ describe("getDetailedArticleRecommendationsError", () => {
             }
         };
 
-        expect(getDetailedArticleRecommendationsError(state as StateSchema)).toEqual('Ошибка получения статей');
+        expect(getArticleRecommendationsListIsLoading(state as StateSchema)).toBe(true);
     });
 
     test("Should work with empty state", () => {
         const state: DeepPartial<StateSchema> = {};
 
-        expect(getDetailedArticleRecommendationsError(state as StateSchema)).toBe(undefined);
+        expect(getArticleRecommendationsListIsLoading(state as StateSchema)).toBe(undefined);
     });
 });

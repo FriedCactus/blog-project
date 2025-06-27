@@ -1,4 +1,4 @@
 import {StateSchema} from "app/providers/StoreProvider";
 
-export const getDetailedArticleRecommendationsLimit = (state: StateSchema) =>
+export const getArticleRecommendationsListLimit = (state: StateSchema) =>
     state.detailedArticlePage?.recommendations.limit ?? 4;
