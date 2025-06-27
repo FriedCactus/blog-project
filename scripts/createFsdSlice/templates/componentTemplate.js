@@ -1,6 +1,6 @@
 const interfaceConst = 'interface';
 
-module.exports = (componentName) => `import styles from '${componentName}.module.css';
+module.exports = (componentName) => `import styles from './${componentName}.module.css';
 import {memo} from 'react';
 
 ${interfaceConst} Props {

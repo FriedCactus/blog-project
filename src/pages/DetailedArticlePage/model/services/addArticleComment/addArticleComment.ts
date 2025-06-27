@@ -4,8 +4,8 @@ import {getUserAuthData} from "entities/User";
 import {getDetailedArticleData} from "entities/Article";
 import {
     fetchCommentsByArticleId
-} from "../../../services/detailedArticleComments/fetchCommentsByArticleId/fetchCommentsByArticleId";
-import {ArticleComment} from "../../../types/articleComment";
+} from "../fetchCommentsByArticleId/fetchCommentsByArticleId";
+import {ArticleComment} from "../../types/articleComment";
 
 export const addArticleComment = createAsyncThunk<
     undefined,

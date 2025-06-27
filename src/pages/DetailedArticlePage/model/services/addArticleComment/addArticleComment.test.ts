@@ -1,6 +1,6 @@
 import {addArticleComment} from "./addArticleComment";
 import {TestAsyncThunk} from "shared/lib/tests";
-import {articleCommentEntitiesMock} from "../../../mocks/articleComment";
+import {articleCommentEntitiesMock} from "../../mocks/articleComment";
 import {StateSchema} from "app/providers/StoreProvider";
 import {userMock} from "entities/User";
 

@@ -5,5 +5,7 @@
   "По просмотрам": "By views",
   "По дате": "By date",
   "По увеличению": "By ascendance",
-  "По уменьшению": "By descendence"
+  "По уменьшению": "By descendence",
+  "Рекомендуем": "Recommendations",
+  "Ошибка при получении рекомендуемых статей": "Error receiving article recommendations"
 }

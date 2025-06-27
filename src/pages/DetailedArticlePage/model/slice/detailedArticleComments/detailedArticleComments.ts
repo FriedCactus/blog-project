@@ -2,12 +2,12 @@ import {createEntityAdapter, createSlice} from "@reduxjs/toolkit";
 import {DetailedArticleCommentsSchema} from "../../types/detailedArticleCommentsSchema";
 import {
     fetchCommentsByArticleId
-} from '../../services/detailedArticleComments/fetchCommentsByArticleId/fetchCommentsByArticleId';
+} from '../../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import {ArticleComment} from '../../types/articleComment';
 import {StateSchema} from "app/providers/StoreProvider";
 import {
     addArticleComment
-} from "../../services/detailedArticleComments/addArticleComment/addArticleComment";
+} from "../../services/addArticleComment/addArticleComment";
 
 const articleCommentsAdapter = createEntityAdapter<ArticleComment>();
 const initialState: DetailedArticleCommentsSchema = articleCommentsAdapter.getInitialState({
@@ -55,5 +55,5 @@ export const {
     reducer: detailedArticleCommentsReducer,
 } = detailedArticleCommentsSlice;
 export const getDetailedArticleComments = articleCommentsAdapter.getSelectors<StateSchema>(
-    (state) => state.detailedArticlePage?.comments ?? articleCommentsAdapter.getInitialState()
+    (state) => state.detailedArticleComments ?? articleCommentsAdapter.getInitialState()
 );

@@ -1,13 +1,14 @@
 import type {CounterSchema} from "entities/Counter";
 import type {UserSchema} from 'entities/User';
 import {DetailedArticleSchema} from 'entities/Article';
-import {DetailedArticlePageSchema} from "pages/DetailedArticlePage";
 import type {LoginSchema} from "features/AuthByUsername";
 import {ProfileSchema} from "features/EditableProfileCard";
 import {AxiosInstance} from "axios";
 import {Action, EnhancedStore, Reducer, ReducersMapObject} from "@reduxjs/toolkit";
 import {ArticlesSchema} from "pages/ArticlesPage";
 import {ScrollRestorationSchema} from "features/ScrollRestoration";
+import {DetailedArticleCommentsSchema} from "pages/DetailedArticlePage";
+import {ArticleRecommendationsListSchema} from "features/ArticleRecommendationsList";
 
 interface StaticStateSchema {
     counter: CounterSchema;
@@ -19,8 +20,9 @@ export interface LazyStateSchema {
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
     detailedArticle?: DetailedArticleSchema;
-    detailedArticlePage?: DetailedArticlePageSchema;
+    detailedArticleComments?: DetailedArticleCommentsSchema;
     articles?: ArticlesSchema;
+    articleRecommendationsList?: ArticleRecommendationsListSchema;
 }
 
 interface ThunkWithExtra {

@@ -5,14 +5,13 @@ import {getProfileFormData} from "../model/selectors/getProfileFormData/getProfi
 import {getProfileIsLoading} from "../model/selectors/getProfileIsLoading/getProfileIsLoading";
 import {getProfileIsReadonly} from "../model/selectors/getProfileIsReadonly/getProfileIsReadonly";
 import {getProfileValidateErrors} from "../model/selectors/getProfileValidateErrors/getProfileValidateErrors";
-import {useCallback, useState} from "react";
+import {useCallback} from "react";
 import {useSelector} from "react-redux";
 import {DynamicModuleLoader, ReducersList} from "shared/lib/components";
 import {profileActions, profileReducer} from "../model/slice/profileSlice";
 import {getProfileError} from "../model/selectors/getProfileError/getProfileError";
 import {EditableProfileCardHeader} from "./EditableProfileCardHeader/EditableProfileCardHeader";
-import {Country, Currency, USER_LOCALSTORAGE_KEY} from "shared/const";
-import {User} from "entities/User";
+import {Country, Currency} from "shared/const";
 import {VStack} from "shared/ui/Stack";
 
 const reducers: ReducersList = {
@@ -29,7 +28,6 @@ export const EditableProfileCard = (props: Props) => {
         id,
         editable = true
     } = props;
-    const [profileId, setProfileId] = useState(id);
 
     const dispatch = useAppDispatch();
     const profile = useSelector(getProfileFormData);
@@ -41,16 +39,6 @@ export const EditableProfileCard = (props: Props) => {
     useInitialEffect(() => {
         if (id) {
             dispatch(fetchProfileData(id));
-        } else {
-            const user = localStorage.getItem(USER_LOCALSTORAGE_KEY);
-
-            if (user) {
-                const userData: User = JSON.parse(user);
-                if (userData.id) {
-                    setProfileId(userData.id);
-                    dispatch(fetchProfileData(userData.id));
-                }
-            }
         }
     });
 
@@ -108,7 +96,7 @@ export const EditableProfileCard = (props: Props) => {
         <DynamicModuleLoader reducers={reducers}>
             <VStack gap="xl">
                 {
-                    editable && profileId && <EditableProfileCardHeader profileId={profileId}/>
+                    editable && id && <EditableProfileCardHeader profileId={id}/>
                 }
                 <ProfileCard
                     validateErrors={validateErrors}

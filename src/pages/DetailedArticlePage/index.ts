@@ -1,7 +1,7 @@
 import {DetailedArticlePageAsync as DetailedArticlePage} from './ui/DetailedArticlePage.async';
-import type {DetailedArticlePageSchema} from './model/types/detailedArticlePage';
+import type {DetailedArticleCommentsSchema} from './model/types/detailedArticleCommentsSchema';
 
 export {
     DetailedArticlePage,
-    DetailedArticlePageSchema
+    DetailedArticleCommentsSchema
 };
