@@ -35,6 +35,15 @@ const config: Config = {
         '\\.(svg|jpe?g|png)': path.resolve(__dirname, 'emptyImageComponent'),
         '\\.(css|less)$': 'identity-obj-proxy',
     },
+    "reporters": [
+        "default",
+        ["./node_modules/jest-html-reporter", {
+            "pageTitle": "Jest report",
+            outputPath: './reports/jest-report.html',
+            includeFailureMsg: true,
+            includeSuiteFailure: true
+        }]
+    ]
 };
 
 export default config;
