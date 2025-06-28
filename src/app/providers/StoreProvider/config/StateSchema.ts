@@ -8,7 +8,7 @@ import {Action, EnhancedStore, Reducer, ReducersMapObject} from "@reduxjs/toolki
 import {ArticlesSchema} from "pages/ArticlesPage";
 import {ScrollRestorationSchema} from "features/ScrollRestoration";
 import {DetailedArticleCommentsSchema} from "pages/DetailedArticlePage";
-import {ArticleRecommendationsListSchema} from "features/ArticleRecommendationsList";
+import {rtkApi} from "shared/api";
 
 interface StaticStateSchema {
     counter: CounterSchema;
@@ -22,7 +22,10 @@ export interface LazyStateSchema {
     detailedArticle?: DetailedArticleSchema;
     detailedArticleComments?: DetailedArticleCommentsSchema;
     articles?: ArticlesSchema;
-    articleRecommendationsList?: ArticleRecommendationsListSchema;
+}
+
+interface RtkApiSchema {
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 }
 
 interface ThunkWithExtra {
@@ -35,7 +38,7 @@ export interface ThunkConfig<T> {
     state: StateSchema;
 }
 
-export type StateSchema = StaticStateSchema & LazyStateSchema;
+export type StateSchema = StaticStateSchema & LazyStateSchema & RtkApiSchema;
 
 export type StateSchemaKey = keyof StateSchema;
 

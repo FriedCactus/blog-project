@@ -2,7 +2,7 @@ import {configureStore, ReducersMapObject} from "@reduxjs/toolkit";
 import {LazyStateSchema, StateSchema} from "../config/StateSchema";
 import {counterReducer} from "entities/Counter";
 import {userReducer} from "entities/User";
-import {$api} from "shared/api";
+import {$api, rtkApi} from "shared/api";
 import {createReducerManager} from "./reducerManager";
 import {scrollRestorationReducer} from "features/ScrollRestoration";
 
@@ -14,7 +14,8 @@ export const createReduxStore = (
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
-        scrollRestoration: scrollRestorationReducer
+        scrollRestoration: scrollRestorationReducer,
+        [rtkApi.reducerPath]: rtkApi.reducer
     };
 
     const reducerManager = createReducerManager(rootReducers);
@@ -30,7 +31,7 @@ export const createReduxStore = (
                         api: $api
                     },
                 },
-            }),
+            }).concat(rtkApi.middleware),
     });
 
     //@ts-expect-error reducerManager error
